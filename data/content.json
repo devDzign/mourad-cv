@@ -79,7 +79,9 @@
         "Messenger & RabbitMQ",
         "ClickHouse",
         "Redis",
-        "Jane PHP"
+        "Jane PHP",
+        "Node.js",
+        "Express"
       ]
     },
     {
@@ -93,7 +95,9 @@
         "React 19",
         "TypeScript",
         "Claude Code",
-        "MCP"
+        "MCP",
+        "Render",
+        "Git"
       ]
     }
   ],
