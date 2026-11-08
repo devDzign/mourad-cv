@@ -604,7 +604,7 @@
     }
   ],
   "architecture": {
-    "intro": "Un exemple réel, animé : comment api-ms-pe, api-distrib, distrib-engine et api-permission échangent, avec leurs bases, RabbitMQ, Keycloak, Kong, ClickHouse et le legacy. Les appels synchrones passent en HTTP avec un JWT interne ; tout ce qui peut être asynchrone passe par RabbitMQ, via l'Outbox Bundle."
+    "intro": "Un exemple réel, animé : comment api-ms-pe, CIFDigital, api-distrib, distrib-engine et api-permission échangent, avec leurs bases, RabbitMQ, Keycloak, Kong, ClickHouse et le legacy. Les appels synchrones passent en HTTP avec un JWT interne ; tout ce qui peut être asynchrone passe par RabbitMQ, via l'Outbox Bundle."
   },
   "projects": [
     {
