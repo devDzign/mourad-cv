@@ -1,0 +1,1004 @@
+{
+  "name": "Mourad Chabour",
+  "role": "Lead architecte back-end · microservices Symfony",
+  "tagline": "Je définis comment nos microservices communiquent, je construis les bundles qui rendent ces choix faciles à appliquer, et j'améliore l'expérience développeur de toutes les équipes.",
+  "rotating": [
+    "la communication entre microservices",
+    "des bundles Symfony réutilisables",
+    "des événements qui ne se perdent pas",
+    "l'expérience développeur des équipes",
+    "des API pensées contrat d'abord"
+  ],
+  "available": false,
+  "about": [
+    "Depuis 2021, je travaille sur le back-end d'une plateforme d'investissement : d'abord sur les applications historiques, puis sur la nouvelle architecture en microservices Symfony / API Platform. En tant que lead architecte, je porte les décisions de communication entre les services : événements asynchrones fiabilisés par le pattern Outbox / Inbox sur RabbitMQ, appels synchrones sécurisés par un JWT interne, contrats OpenAPI et clients générés.",
+    "Ces décisions, je les transforme en outils concrets : plus de dix bundles Symfony partagés (Outbox, sécurité Keycloak et JWT, permissions, workflows, GED, clients d'API), des recettes Flex privées qui configurent un service en une commande, et 2IT LaunchPad, l'environnement local Kubernetes + Tilt de l'équipe. Mon objectif : qu'un développeur démarre vite, comprenne pourquoi les choses sont faites ainsi, et livre sans réinventer la roue. J'intègre aussi l'IA (Claude Code, skills, hooks, MCP) dans notre façon de travailler."
+  ],
+  "facts": [
+    {
+      "label": "Poste",
+      "value": "Lead architecte back-end"
+    },
+    {
+      "label": "Depuis",
+      "value": "2021, sur la même plateforme"
+    },
+    {
+      "label": "Stack",
+      "value": "PHP 8.4 · Symfony 8 · API Platform"
+    },
+    {
+      "label": "Métier",
+      "value": "Épargne retraite · Défiscalisation · Private Equity"
+    },
+    {
+      "label": "Terrain",
+      "value": "Microservices · RabbitMQ · Kubernetes"
+    },
+    {
+      "label": "Focus",
+      "value": "Communication inter-services & DX"
+    }
+  ],
+  "stats": [
+    {
+      "value": "5 ans",
+      "label": "sur la plateforme, du legacy aux microservices"
+    },
+    {
+      "value": "13",
+      "label": "bundles Symfony créés pour les équipes"
+    },
+    {
+      "value": "6 000+",
+      "label": "commits dans 25+ dépôts"
+    }
+  ],
+  "skills": [
+    {
+      "group": "Architecture",
+      "items": [
+        "Microservices",
+        "Communication événementielle",
+        "Pattern Outbox / Inbox",
+        "DDD",
+        "Contrats OpenAPI",
+        "JWT interne & Keycloak",
+        "Developer Experience"
+      ]
+    },
+    {
+      "group": "Back-end",
+      "items": [
+        "PHP 8.4",
+        "Symfony 8",
+        "API Platform",
+        "Bundles & recettes Flex",
+        "Doctrine",
+        "PostgreSQL",
+        "Messenger & RabbitMQ",
+        "ClickHouse",
+        "Redis",
+        "Jane PHP"
+      ]
+    },
+    {
+      "group": "Plateforme, front & IA",
+      "items": [
+        "Kubernetes",
+        "Tilt",
+        "Helm",
+        "Kong",
+        "Azure",
+        "React 19",
+        "TypeScript",
+        "Claude Code",
+        "MCP"
+      ]
+    }
+  ],
+  "socials": [
+    {
+      "label": "GitHub",
+      "url": ""
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/mchabour/"
+    }
+  ],
+  "contact": {
+    "phone": "",
+    "location": "Paris et périphérie",
+    "website": ""
+  },
+  "domains": {
+    "intro": "Cinq ans dans la gestion de patrimoine et l'investissement : je connais les produits, les acteurs et les contraintes réglementaires derrière le code que j'écris.",
+    "items": [
+      {
+        "icon": "retirement",
+        "visual": "d-retirement",
+        "colors": [
+          "#7c3aed",
+          "#ec4899"
+        ],
+        "title": "Épargne retraite (PER)",
+        "short": "Épargne retraite",
+        "period": "2021 – 2025",
+        "volume": "3 000+ commits",
+        "text": "Le back-end du Plan d'Épargne Retraite, de la souscription au suivi du contrat : versements, arbitrages, allocation par poches, profils et horizon de retraite.",
+        "explain": "Le PER (Plan d'Épargne Retraite), créé par la loi PACTE en 2019, permet d'épargner pour sa retraite. Les versements volontaires peuvent, dans certaines limites, être déduits du revenu imposable. En contrepartie, l'épargne est en principe bloquée jusqu'à la retraite, sauf cas de déblocage anticipé (achat de la résidence principale, accidents de la vie). À la sortie, l'épargnant récupère un capital, une rente, ou un mélange des deux. Par défaut, l'argent est placé en gestion pilotée : l'allocation devient de plus en plus prudente à mesure que la retraite approche.",
+        "work": [
+          "Parcours de souscription et documents associés (pièces d'identité, opérations)",
+          "Opérations sur contrat : versements, arbitrages et mise à jour des poches",
+          "Gestion pilotée : poches, garanties, profils et courbes d'allocation selon l'horizon de retraite",
+          "Frais et honoraires de souscription, facturation",
+          "Version « compte-titres » distribuée par les CGP",
+          "Migration vers une deuxième version du back-end (PHP 8.4, Symfony 7.2)"
+        ],
+        "concepts": [
+          {
+            "t": "Souscription",
+            "d": "Ouverture du contrat par l'épargnant, avec un premier versement et les pièces réglementaires."
+          },
+          {
+            "t": "Versements & arbitrages",
+            "d": "Ajouter de l'argent au contrat, ou changer la répartition de l'épargne entre les supports."
+          },
+          {
+            "t": "Gestion pilotée / poches",
+            "d": "Allocation confiée à un gestionnaire, découpée en poches (prudente, équilibrée, dynamique…) qui évoluent avec l'horizon de retraite."
+          },
+          {
+            "t": "Profil investisseur",
+            "d": "Niveau de risque accepté par l'épargnant ; il détermine la grille d'allocation."
+          },
+          {
+            "t": "Frais & honoraires",
+            "d": "Frais d'entrée, de gestion et honoraires de conseil, calculés et facturés selon le contrat."
+          },
+          {
+            "t": "Compte-titres CGP",
+            "d": "Variante du PER tenue sous forme de compte-titres et distribuée par des conseillers en gestion de patrimoine."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Quelle était la difficulté principale du PER côté technique ?",
+            "a": "La gestion pilotée : l'allocation dépend du profil et de l'horizon de retraite, et chaque opération (versement, arbitrage) doit recalculer les poches sans casser l'historique. J'ai beaucoup travaillé sur ces règles et sur leurs cas limites, comme les poches garanties ou les opérations à montant nul."
+          },
+          {
+            "q": "Comment avez-vous fait évoluer une application aussi ancienne ?",
+            "a": "Par étapes : d'abord fiabiliser l'existant, puis créer une deuxième version du back-end sur une stack à jour (PHP 8.4, Symfony 7.2), en gardant les deux en production le temps de la bascule."
+          },
+          {
+            "q": "Pourquoi l'épargne est-elle bloquée ?",
+            "a": "C'est la contrepartie de l'avantage fiscal à l'entrée : l'argent est destiné à la retraite. La loi prévoit quand même des cas de déblocage anticipé, comme l'achat de la résidence principale ou certains accidents de la vie."
+          }
+        ]
+      },
+      {
+        "icon": "tax",
+        "visual": "d-tax",
+        "colors": [
+          "#0ea5e9",
+          "#22c55e"
+        ],
+        "title": "Défiscalisation",
+        "short": "Défiscalisation",
+        "period": "2021 – 2026",
+        "volume": "Site historique",
+        "text": "Les parcours de défiscalisation du site historique, dont le Girardin industriel : dossiers investisseurs, documents et échanges avec la nouvelle distribution.",
+        "explain": "La défiscalisation regroupe des dispositifs prévus par la loi qui accordent une réduction d'impôt en échange d'un investissement utile à l'économie. Le Girardin industriel en est l'exemple phare : un particulier finance du matériel productif neuf (machines, véhicules, équipements) exploité par une entreprise d'outre-mer. En retour, il obtient l'année suivante une réduction d'impôt sur le revenu supérieure à son apport. Cet apport n'est pas restitué, et l'opération dure plusieurs années, pendant lesquelles le matériel doit rester exploité.",
+        "work": [
+          "Parcours et dossiers investisseurs du site historique (Defisc)",
+          "Documents de l'investisseur et leur mise à disposition via une API",
+          "Protection des données investisseurs (pas d'écrasement d'email existant)",
+          "Affichage des données complémentaires des opérations",
+          "Ouverture du site historique vers la nouvelle distribution (routes d'API, synchronisation)"
+        ],
+        "concepts": [
+          {
+            "t": "Girardin industriel",
+            "d": "Dispositif de réduction d'impôt contre le financement de matériel productif exploité outre-mer."
+          },
+          {
+            "t": "Réduction d'impôt",
+            "d": "Montant directement soustrait de l'impôt à payer (à distinguer d'une déduction du revenu imposable)."
+          },
+          {
+            "t": "Dossier investisseur",
+            "d": "L'ensemble des informations et pièces d'un investisseur pour une opération donnée."
+          },
+          {
+            "t": "Documents fiscaux",
+            "d": "Attestations et justificatifs que l'investisseur joint à sa déclaration de revenus."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Expliquez le Girardin industriel en une phrase.",
+            "a": "Un particulier finance du matériel productif utilisé par une entreprise d'outre-mer et obtient, l'année suivante, une réduction d'impôt supérieure à son apport, qui lui n'est pas récupéré."
+          },
+          {
+            "q": "Quel était votre rôle sur ce périmètre ?",
+            "a": "Faire évoluer le site historique qui gère ces opérations, et surtout l'ouvrir à la nouvelle distribution : routes d'API, mise à disposition des documents, synchronisation des données investisseurs."
+          },
+          {
+            "q": "Quel risque technique particulier ?",
+            "a": "L'intégrité des données investisseurs entre deux systèmes : une synchronisation mal pensée peut écraser une information correcte. J'ai ajouté des garde-fous, par exemple pour ne jamais écraser un email existant."
+          }
+        ]
+      },
+      {
+        "icon": "distribution",
+        "visual": "d-distribution",
+        "colors": [
+          "#16a34a",
+          "#0ea5e9"
+        ],
+        "title": "Distribution de produits d'investissement",
+        "short": "Distribution",
+        "period": "2025 – 2026",
+        "volume": "800+ commits",
+        "text": "La nouvelle plateforme de distribution : souscriptions, investisseurs et leur entourage, cabinets de CGP et conseillers, conventions de commercialisation, synchronisation avec l'existant.",
+        "explain": "Une société de gestion conçoit des produits d'investissement ; ce sont surtout des conseillers en gestion de patrimoine (CGP), regroupés en cabinets, qui les proposent à leurs clients. La distribution, c'est tout ce qui relie ces trois acteurs : les conventions qui fixent les conditions de commercialisation et la rémunération des cabinets, le parcours de souscription de l'investisseur, et le suivi des souscriptions pour l'investisseur, le conseiller et les équipes internes.",
+        "work": [
+          "Contributeur principal du microservice de distribution (800+ commits)",
+          "Souscriptions, investisseurs, conjoint et bénéficiaires",
+          "Synchronisation des cabinets et des données avec le site historique",
+          "Exports investisseurs optimisés pour la volumétrie (lecture par lots)",
+          "Documents investisseurs dans la GED (plusieurs RIB, pièces d'identité)",
+          "Échanges par événements avec le moteur de workflows"
+        ],
+        "concepts": [
+          {
+            "t": "Souscriptions",
+            "d": "Engagement d'un investisseur à investir un montant dans un produit, avec ses pièces et sa signature."
+          },
+          {
+            "t": "Investisseurs, conjoint, bénéficiaires",
+            "d": "L'investisseur et son entourage : co-souscripteur, bénéficiaires désignés, situation familiale."
+          },
+          {
+            "t": "Cabinets CGP & conseillers",
+            "d": "Les distributeurs : cabinets de conseil en gestion de patrimoine et les conseillers qui y travaillent."
+          },
+          {
+            "t": "Conventions de commercialisation",
+            "d": "Contrat entre la société de gestion et un cabinet : produits autorisés, conditions, rémunération."
+          },
+          {
+            "t": "Exports & reporting",
+            "d": "Extractions de données pour le suivi commercial, la conformité et les partenaires."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Pourquoi avoir découpé la distribution en microservices ?",
+            "a": "Pour faire évoluer chaque domaine à son rythme et cohabiter avec l'existant pendant la migration. La distribution porte les souscriptions et les investisseurs ; les workflows, les droits, la GED ou les notifications sont des services à part, reliés par des événements fiables (pattern Outbox)."
+          },
+          {
+            "q": "Comment synchronisez-vous l'ancien et le nouveau système ?",
+            "a": "Les changements côté historique sont captés par une table d'audit et publiés en données brutes ; un moteur dédié fait la correspondance vers le nouveau modèle. C'est une décision que j'ai documentée avec ses avantages et ses inconvénients."
+          },
+          {
+            "q": "Un exemple de problème de performance résolu ?",
+            "a": "L'export des investisseurs : je l'ai réécrit pour lire les données par lots, en colonnes simples plutôt qu'en objets complets, afin de tenir la volumétrie sans saturer la mémoire."
+          }
+        ]
+      },
+      {
+        "icon": "pe",
+        "visual": "d-pe",
+        "colors": [
+          "#f97316",
+          "#ec4899"
+        ],
+        "title": "Private Equity",
+        "short": "Private Equity",
+        "period": "2026",
+        "volume": "270+ commits",
+        "text": "Le catalogue des fonds non cotés et leurs règles de commercialisation, jusqu'aux documents de chaque fonds.",
+        "explain": "Le Private Equity, ou capital-investissement, consiste à investir dans des entreprises non cotées en bourse pour les accompagner dans leur développement, puis à revendre ces participations quelques années plus tard. Les particuliers y accèdent via des fonds : le FCPR, ouvert au grand public, et des véhicules réservés aux investisseurs avertis ou professionnels comme le FPCI ou le FPS. Ces fonds sont distribués par des cabinets de CGP, selon des conventions qui fixent notamment les rétrocessions, c'est-à-dire la part des frais reversée au distributeur.",
+        "work": [
+          "Microservice Private Equity (PHP 8.4, Symfony 8, API Platform 5)",
+          "Catalogue des fonds et de leurs parts",
+          "Conventions cabinet × fonds, rétrocessions et contrats",
+          "Documents des fonds via la GED (RIB-BIS, brochures, plafond de documents)",
+          "Événements de fonds pour la synchronisation avec un outil de gestion externe (Domos)"
+        ],
+        "concepts": [
+          {
+            "t": "FCPR · FPS · FPCI · holdings",
+            "d": "Types de véhicules : FCPR ouvert au grand public, FPCI et FPS réservés aux investisseurs avertis ou professionnels, holdings d'investissement."
+          },
+          {
+            "t": "Conventions cabinet × fonds",
+            "d": "Accord qui autorise un cabinet à commercialiser un fonds donné, avec ses conditions."
+          },
+          {
+            "t": "Rétrocessions",
+            "d": "Part des frais du fonds reversée au distributeur qui a apporté l'investisseur."
+          },
+          {
+            "t": "Contrats",
+            "d": "Engagements contractuels liés aux fonds et à leur distribution."
+          },
+          {
+            "t": "Synchro Domos",
+            "d": "Envoi des changements sur les fonds vers un outil externe, par événements."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Quelle différence entre un FCPR et un FPCI ?",
+            "a": "Le FCPR est ouvert aux particuliers, avec des règles d'investissement encadrées ; le FPCI est réservé aux investisseurs avertis ou professionnels, avec un ticket d'entrée plus élevé et plus de souplesse de gestion."
+          },
+          {
+            "q": "Qu'est-ce qu'une rétrocession, techniquement ?",
+            "a": "Une règle de rémunération : un pourcentage des frais reversé au cabinet distributeur. Dans le service, elle est rattachée à la convention entre le cabinet et le fonds, et elle est négociée au cas par cas."
+          },
+          {
+            "q": "Comment le service communique-t-il avec les autres ?",
+            "a": "En HTTP authentifié par un JWT interne quand il a besoin d'une réponse immédiate (par exemple, des données de distribution) ; par événements sur RabbitMQ pour notifier les changements, comme la mise à jour d'un fonds."
+          }
+        ]
+      },
+      {
+        "icon": "realestate",
+        "visual": "d-realestate",
+        "colors": [
+          "#6366f1",
+          "#0ea5e9"
+        ],
+        "title": "Immobilier (SCPI)",
+        "short": "SCPI",
+        "period": "2026",
+        "volume": "Microservice SCPI",
+        "text": "L'intégration des SCPI dans la distribution : modèle des souscriptions et affichage dans les parcours.",
+        "explain": "Une SCPI (Société Civile de Placement Immobilier) achète et gère un parc immobilier, souvent des bureaux, des commerces ou de la santé. L'épargnant achète des parts de cette société : c'est la « pierre-papier ». Il perçoit une partie des loyers, sans avoir à gérer de bien lui-même. Une SCPI se caractérise notamment par le prix de sa part, ses frais de souscription et un délai de jouissance avant que les parts commencent à rapporter.",
+        "work": [
+          "Initialisation du microservice SCPI",
+          "Modèle des souscriptions de parts",
+          "Intégration avec la distribution et affichage des souscriptions SCPI"
+        ],
+        "concepts": [
+          {
+            "t": "SCPI",
+            "d": "Société qui détient un parc immobilier, dont les épargnants achètent des parts."
+          },
+          {
+            "t": "Souscription de parts",
+            "d": "Achat d'un nombre de parts à un prix donné, avec des frais de souscription."
+          },
+          {
+            "t": "Intégration distribution",
+            "d": "Rendre ce produit souscriptible et suivable dans la plateforme de distribution existante."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Qu'est-ce qu'une SCPI pour un épargnant ?",
+            "a": "Une façon d'investir dans l'immobilier sans gérer de bien : on achète des parts d'une société qui possède les immeubles, et on reçoit une partie des loyers."
+          },
+          {
+            "q": "Qu'avez-vous apporté sur les SCPI ?",
+            "a": "L'intégration technique dans la distribution : modèle de souscription, propriétés spécifiques des parts et affichage dans les parcours existants. C'est un périmètre plus récent et plus limité que le PER ou la distribution."
+          },
+          {
+            "q": "Qu'est-ce que le délai de jouissance ?",
+            "a": "La période entre l'achat des parts et le moment où elles commencent à donner droit aux revenus ; c'est un paramètre propre à chaque SCPI."
+          }
+        ]
+      },
+      {
+        "icon": "compliance",
+        "visual": "d-compliance",
+        "colors": [
+          "#22c55e",
+          "#facc15"
+        ],
+        "title": "Conformité & conseil",
+        "short": "Conformité",
+        "period": "2024 – 2026",
+        "volume": "GED · signature · CIF",
+        "text": "Ce que la réglementation impose autour d'un investissement : connaissance client, documents justificatifs, signature électronique avec preuves, et le CIF digital.",
+        "explain": "Conseiller un investissement est une activité réglementée. Le conseiller doit connaître son client (KYC : situation, objectifs, expérience, tolérance au risque) et respecter les obligations de lutte contre le blanchiment. Il formalise sa mission dans une lettre de mission, puis justifie par écrit que son conseil est adapté au client : c'est la déclaration d'adéquation. Tout cela s'appuie sur des pièces justificatives (identité, RIB) et des signatures électroniques dont on conserve les preuves.",
+        "work": [
+          "GED centralisée : dépôt, versionnement et téléchargement sécurisé des pièces (identité, RIB…)",
+          "Pièces d'identité avec date d'expiration, plusieurs RIB par investisseur",
+          "Microservice de signature multi-fournisseur, avec stockage des preuves de signature",
+          "Démarrage du CIF digital : lettre de mission et déclaration d'adéquation à partir d'un KYC enrichi"
+        ],
+        "concepts": [
+          {
+            "t": "KYC",
+            "d": "« Know Your Customer » : collecte et vérification de l'identité, de la situation et du profil du client."
+          },
+          {
+            "t": "Lettre de mission",
+            "d": "Document qui décrit la prestation du conseiller et sa rémunération, signé avant le conseil."
+          },
+          {
+            "t": "Déclaration d'adéquation",
+            "d": "Écrit qui justifie que le conseil donné correspond au profil et aux objectifs du client."
+          },
+          {
+            "t": "Pièces d'identité & RIB",
+            "d": "Justificatifs obligatoires, versionnés et datés (une pièce d'identité expire)."
+          },
+          {
+            "t": "Preuves de signature",
+            "d": "Document signé et journal d'audit conservés pour prouver qui a signé quoi et quand."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Pourquoi une GED centralisée plutôt qu'un stockage par service ?",
+            "a": "Les mêmes pièces servent à plusieurs parcours : un RIB ou une pièce d'identité ne doit exister qu'une fois, avec son historique de versions et des règles d'accès communes. Les services l'utilisent via un client généré depuis son contrat OpenAPI."
+          },
+          {
+            "q": "Comment sécurisez-vous le téléchargement des documents ?",
+            "a": "Avec un lien signé, et en plus un jeton d'authentification obligatoire : un lien seul ne suffit pas à récupérer un document."
+          },
+          {
+            "q": "Pourquoi plusieurs fournisseurs de signature ?",
+            "a": "Pour ne pas bloquer une souscription si un fournisseur est indisponible : le service bascule automatiquement sur l'autre (circuit breaker) et conserve dans tous les cas les preuves de signature."
+          }
+        ]
+      },
+      {
+        "icon": "identity",
+        "visual": "d-identity",
+        "colors": [
+          "#ec4899",
+          "#7c3aed"
+        ],
+        "title": "Comptes, rôles & droits",
+        "short": "Comptes & droits",
+        "period": "2025 – 2026",
+        "volume": "Référentiel des permissions",
+        "text": "Qui peut voir et faire quoi, pour chaque type d'acteur : investisseurs, partenaires, conseillers, équipes internes, avec connexion « au nom de » pour le support.",
+        "explain": "Une même plateforme est utilisée par des acteurs très différents : investisseurs, conseillers, cabinets partenaires, équipes internes. Chacun ne doit voir que ce qui le concerne, et une même personne peut avoir plusieurs comptes ou rôles. Il faut aussi que le support puisse se connecter « au nom de » quelqu'un pour l'aider, de manière tracée et contrôlée.",
+        "work": [
+          "Référentiel central des permissions (comptes, rôles, filtres d'API, cache Redis)",
+          "JWT interne signé RSA qui transporte les permissions entre services",
+          "Bundles d'authentification Keycloak et de contrôle des droits (voters)",
+          "Impersonation et token exchange entre realms Keycloak (migration Keycloak 26)"
+        ],
+        "concepts": [
+          {
+            "t": "Multi-comptes",
+            "d": "Une personne peut avoir plusieurs comptes (investisseur, conseiller…) et basculer de l'un à l'autre."
+          },
+          {
+            "t": "Rôles par scope",
+            "d": "Les droits sont regroupés par périmètre de service (distribution, investissement…) ; chaque service ne lit que les siens."
+          },
+          {
+            "t": "Impersonation",
+            "d": "Connexion « au nom de » un utilisateur, pour le support, avec traçabilité."
+          },
+          {
+            "t": "SSO Keycloak",
+            "d": "Une seule connexion pour toutes les applications, gérée par Keycloak (OpenID Connect)."
+          }
+        ],
+        "faq": [
+          {
+            "q": "Comment un microservice sait-il ce que l'utilisateur a le droit de faire ?",
+            "a": "Il reçoit un JWT interne signé avec une clé RSA, qui contient les permissions. Il vérifie la signature sans appeler de service, puis ne garde que les permissions de son propre scope. Le bundle partagé fait ce travail de façon identique partout."
+          },
+          {
+            "q": "Comment sécurisez-vous l'impersonation ?",
+            "a": "Elle passe par le token exchange de Keycloak, autorisé uniquement pour certains comptes et applications, et chaque connexion « au nom de » est tracée. Je l'ai documentée dans des guides (même realm, entre realms, client PKCE) pour que les équipes la mettent en place correctement."
+          },
+          {
+            "q": "Pourquoi un référentiel central des permissions ?",
+            "a": "Pour définir les droits une seule fois et les appliquer partout. Les changements sont diffusés par événements, et un cache Redis évite de recalculer à chaque appel."
+          }
+        ]
+      }
+    ]
+  },
+  "team": {
+    "intro": "Mon rôle ne s'arrête pas au code que j'écris. Mon travail, c'est que chaque équipe prenne de bonnes décisions techniques, les applique facilement et puisse en mesurer les effets.",
+    "items": [
+      {
+        "title": "Décider, et l'écrire",
+        "text": "Je porte les décisions d'architecture transverses et je les documente avec leur contexte, la solution retenue, ses avantages et ses inconvénients, pour que personne n'ait à deviner le pourquoi.",
+        "proof": "Ex. : synchronisation legacy → nouvelle distribution par table d'audit et engine dédié, avec les risques assumés écrits noir sur blanc."
+      },
+      {
+        "title": "Outiller les décisions",
+        "text": "Une règle qui reste dans un document finit oubliée. Je la transforme en bundle, en recette Flex ou en commande Make, pour qu'appliquer la bonne pratique soit le chemin le plus court.",
+        "proof": "13 bundles partagés, recettes Flex privées, contributions à 2IT LaunchPad."
+      },
+      {
+        "title": "Transmettre",
+        "text": "Je présente les nouveaux services aux équipes et j'écris les guides qui permettent de s'en servir seul : démarrage rapide, pas-à-pas, pièges connus.",
+        "proof": "Présentation du service de permissions (juillet 2025), présentation tech d'équipe (septembre 2025), guides Keycloak (impersonation cross-realm, same-realm, PKCE), démarrage en 5 minutes du bundle JWT."
+      },
+      {
+        "title": "Mesurer avant d'agir",
+        "text": "J'ai conçu une grille commune en 10 axes pour que chaque lead dev fasse l'état des lieux de ses dépôts de la même façon : même grille, mêmes preuves, même barème, revue croisée entre leads.",
+        "proof": "Runtime, Symfony, dépendances, analyse statique, style, tests, CI, architecture, migrations, exploitabilité."
+      },
+      {
+        "title": "Embarquer l'IA dans l'équipe",
+        "text": "J'introduis Claude Code dans nos dépôts de façon encadrée : guides par projet, skills et hooks partagés, serveur MCP Symfony AI Mate, et un suivi d'usage pour savoir ce qui sert vraiment.",
+        "proof": "Guide Claude Code de l'API distribution, guide Symfony AI Mate, logs d'usage des skills centralisés."
+      },
+      {
+        "title": "Faire cohabiter l'ancien et le nouveau",
+        "text": "Une migration réussie ne casse rien en route. J'organise la cohabitation entre les applications historiques et les microservices : synchronisation des données, SSO commun, migration Keycloak.",
+        "proof": "Événements legacy.api.event.* sur le bus, authentification Keycloak partagée, impersonation entre realms."
+      }
+    ]
+  },
+  "philosophy": [
+    {
+      "quote": "Asynchrone par défaut, synchrone par nécessité.",
+      "text": "Un service qui attend un autre service hérite de ses pannes. Les échanges passent par des événements fiables ; l'appel HTTP direct est réservé à ce qui ne peut pas attendre."
+    },
+    {
+      "quote": "Le contrat d'abord.",
+      "text": "Une API commence par sa spécification OpenAPI, committée et versionnée. Les clients sont générés à partir d'elle : la doc, le code et la réalité ne peuvent pas diverger."
+    },
+    {
+      "quote": "La bonne pratique doit être le chemin le plus court.",
+      "text": "Si faire bien demande plus d'efforts que faire vite, on fera vite. Je préfère un bundle qui s'installe en une commande à une page de règles."
+    },
+    {
+      "quote": "Toute décision a un prix : je l'écris.",
+      "text": "Il n'y a pas de solution sans inconvénient. Écrire les inconvénients qu'on accepte, c'est ce qui permet de revenir sur une décision le jour où le contexte change."
+    },
+    {
+      "quote": "Mesurer, pas supposer.",
+      "text": "Une version, c'est un numéro exact ; une dette, ça se chiffre ; ce qu'on ignore, ça se déclare. Un trou identifié est exploitable, une estimation fausse ne l'est pas."
+    },
+    {
+      "quote": "Daté et incomplet vaut mieux que parfait et jamais rendu.",
+      "text": "J'avance par itérations courtes et je livre tôt. On constate, on chiffre, puis on arbitre, sans se laisser happer par le correctif au passage."
+    },
+    {
+      "quote": "Relançable sans risque.",
+      "text": "Une commande, un script ou un rejeu d'événements doit pouvoir être relancé sans créer de doublon ni casser l'existant. C'est ce qui rend un système réparable à 3 h du matin."
+    },
+    {
+      "quote": "L'IA accélère, l'humain valide.",
+      "text": "L'IA est un excellent assistant d'analyse et d'écriture, pas un pilote automatique. Je lui donne du contexte, je mesure ce qu'elle apporte, et chaque changement reste relu."
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2021",
+      "title": "Les applications historiques",
+      "text": "Arrivée sur la plateforme : site et back-offices PHP / Symfony. Des milliers de commits d'évolutions métier sur le PER et le site."
+    },
+    {
+      "date": "2024",
+      "title": "Premières briques communes",
+      "text": "Deuxième version du back-end PER (PHP 8.4, Symfony 7.2), bundle d'authentification Keycloak, premières versions du moteur de workflows événementiel."
+    },
+    {
+      "date": "Début 2025",
+      "title": "Le socle de communication",
+      "text": "Outbox Bundle, réception des webhooks, démarrage du microservice de distribution et du référentiel des permissions."
+    },
+    {
+      "date": "Mi-2025",
+      "title": "Diffuser aux équipes",
+      "text": "Présentation du service de permissions, présentation tech d'équipe (architecture, permissions, 2IT LaunchPad), guides développeur."
+    },
+    {
+      "date": "Fin 2025",
+      "title": "Sécurité inter-services et décisions",
+      "text": "JWT interne signé RSA pour tous les services, décision documentée sur la synchronisation legacy → nouvelle distribution, guide Claude Code d'équipe."
+    },
+    {
+      "date": "2026",
+      "title": "Lead architecte",
+      "text": "Migration Keycloak et impersonation, microservices Private Equity et signature, GED centralisée et son SDK, recettes Flex privées, grille d'audit en 10 axes pour tous les dépôts."
+    }
+  ],
+  "architecture": {
+    "intro": "Un exemple réel, animé : comment api-ms-pe, api-distrib, distrib-engine et api-permission échangent, avec leurs bases, RabbitMQ, Keycloak, Kong, ClickHouse et le legacy. Les appels synchrones passent en HTTP avec un JWT interne ; tout ce qui peut être asynchrone passe par RabbitMQ, via l'Outbox Bundle."
+  },
+  "projects": [
+    {
+      "title": "Communication entre microservices",
+      "description": "Les règles d'échange entre tous nos services : quand appeler en HTTP, quand publier un événement, et comment le rendre fiable.",
+      "category": "Architecture",
+      "tags": [
+        "Lead architecte",
+        "RabbitMQ",
+        "Outbox / Inbox",
+        "JWT",
+        "OpenAPI"
+      ],
+      "colors": [
+        "#7c3aed",
+        "#f97316"
+      ],
+      "visual": "network",
+      "role": "Lead architecte : décisions d'architecture, conception des bundles qui les appliquent, accompagnement des équipes.",
+      "context": "En passant d'applications monolithiques à une dizaine de microservices, il fallait un cadre commun pour que les services se parlent de façon sûre, traçable et identique partout.",
+      "highlights": [
+        "Asynchrone par défaut : événements métier publiés sur des exchanges RabbitMQ topic par domaine (dist.events, private_equity, permission.events), consommés par des queues dédiées.",
+        "Fiabilité : pattern Outbox / Inbox au-dessus de Symfony Messenger, historique dans ClickHouse, retry exponentiel, queues d'erreur et rejeu.",
+        "Synchrone quand c'est nécessaire : HTTP authentifié par un JWT interne signé RSA, permissions filtrées par scope de service.",
+        "Contrats d'abord : spécifications OpenAPI committées et clients PHP générés (Jane PHP), exposition via la gateway Kong.",
+        "Voir le schéma détaillé dans la section Architecture."
+      ],
+      "demo": "#architecture",
+      "repo": ""
+    },
+    {
+      "title": "Expérience développeur des équipes",
+      "description": "Tout ce qui fait gagner du temps aux développeurs, de l'installation d'un service à sa documentation.",
+      "category": "Architecture",
+      "tags": [
+        "DX",
+        "Recettes Flex",
+        "Documentation",
+        "Claude Code"
+      ],
+      "colors": [
+        "#ec4899",
+        "#7c3aed"
+      ],
+      "visual": "dx",
+      "role": "Porteur du sujet DX côté back-end.",
+      "context": "Plusieurs équipes développent en parallèle sur des dizaines de dépôts : chaque friction (installation, configuration, compréhension d'une API) se paie au centuple.",
+      "highlights": [
+        "Bundles prêts à l'emploi pour les besoins transverses : sécurité, Outbox, GED, clients d'API.",
+        "Recettes Symfony Flex privées : un composer require suffit pour qu'un service soit configuré.",
+        "SDK générés depuis les contrats OpenAPI, docs HTML, guides développeur et collections Postman rejouables.",
+        "Contributions à 2IT LaunchPad, l'environnement local Kubernetes + Tilt de l'équipe.",
+        "Intégration de Claude Code dans les dépôts (CLAUDE.md, skills, hooks) et suivi de son usage réel."
+      ],
+      "demo": "",
+      "repo": ""
+    },
+    {
+      "title": "Outbox Bundle",
+      "description": "Le bundle au cœur de la communication événementielle : Outbox / Inbox sur Symfony Messenger, historique dans ClickHouse.",
+      "category": "Bundles",
+      "tags": [
+        "Symfony 7/8",
+        "Messenger",
+        "ClickHouse",
+        "Outbox"
+      ],
+      "colors": [
+        "#f97316",
+        "#facc15"
+      ],
+      "visual": "outbox",
+      "role": "Auteur principal (140+ commits).",
+      "context": "Publier un événement après avoir écrit en base peut échouer entre les deux. Le pattern Outbox garantit qu'aucun message n'est perdu et rend chaque échange traçable.",
+      "highlights": [
+        "Pattern Outbox / Inbox au-dessus de Symfony Messenger, pour Symfony 7 et 8.",
+        "Historique de tous les messages sortants et entrants persisté dans ClickHouse.",
+        "Sérialiseur JSON commun à tous les services, rejeu des événements, garde contre les doublons à la relecture.",
+        "Utilisé par api-distrib, distrib-engine, api-ms-pe et api-permission.",
+        "J'en ai aussi écrit une version open source autonome : transactional outbox avec relay worker."
+      ],
+      "demo": "",
+      "repo": ""
+    },
+    {
+      "title": "Workflow Core Bundle",
+      "description": "Exécution de workflows pilotés par les événements publiés sur RabbitMQ.",
+      "category": "Bundles",
+      "tags": [
+        "Symfony",
+        "RabbitMQ",
+        "Workflows",
+        "Événements"
+      ],
+      "colors": [
+        "#22c55e",
+        "#0ea5e9"
+      ],
+      "visual": "workflow",
+      "role": "Co-concepteur et co-auteur avec l'équipe.",
+      "context": "Les parcours métier (souscription, opérations…) s'enchaînent sur plusieurs services : il fallait un moteur commun pour les orchestrer.",
+      "highlights": [
+        "Une application publie un EventMessage sur l'exchange du moteur ; le bundle le consomme et déroule les étapes du workflow.",
+        "Base du service distrib-engine.",
+        "Configuration déclarative des workflows."
+      ],
+      "demo": "",
+      "repo": ""
+    },
+    {
+      "title": "Bundles sécurité & permissions",
+      "description": "Quatre bundles pour que tous les services s'authentifient et contrôlent les droits de la même façon.",
+      "category": "Bundles",
+      "tags": [
+        "Keycloak",
+        "OIDC",
+        "JWT",
+        "Voters"
+      ],
+      "colors": [
+        "#6366f1",
+        "#ec4899"
+      ],
+      "visual": "security",
+      "role": "Auteur des bundles.",
+      "context": "Chaque microservice doit vérifier qui l'appelle (utilisateur ou autre service) et ce qu'il a le droit de faire, sans réécrire cette logique sensible.",
+      "highlights": [
+        "Keycloak Authenticator : authentification OpenID Connect, validation des sessions, cache des clés publiques.",
+        "Keycloak Impersonation : token exchange cross-realm et connexion « au nom de » un autre utilisateur.",
+        "Internal JWT Authenticator : JWT interne stateless, signature RSA, permissions filtrées par scope et cible ; support Symfony 8.",
+        "Permission Bundle : voters Symfony et résolution du token pour contrôler l'accès aux ressources."
+      ],
+      "demo": "",
+      "repo": ""
+    },
+    {
+      "title": "GED Bundle & client GED",
+      "description": "Une GED intégrable dans chaque service, et un client typé de l'API GED centrale.",
+      "category": "Bundles",
+      "tags": [
+        "Jane PHP",
+        "OpenAPI 3.1",
+        "Azure Blob",
+        "Flex"
+      ],
+      "colors": [
+        "#ec4899",
+        "#f97316"
+      ],
+      "visual": "ged-bundle",
+      "role": "Auteur.",
+      "context": "Plusieurs services ont besoin de déposer et versionner des documents (RIB, justificatifs, brochures…) sans réinventer le stockage.",
+      "highlights": [
+        "GED Bundle : documents composés de pièces versionnées, rattachés à une population métier (fonds, investisseurs…).",
+        "Plusieurs documents du même type par propriétaire (ex. jusqu'à 3 RIB par fonds).",
+        "Stockage local, en mémoire ou sur Azure Blob.",
+        "Client GED généré avec Jane PHP depuis l'OpenAPI 3.1, emballé en bundle avec recettes Flex et guide développeur."
+      ],
+      "demo": "",
+      "repo": ""
+    },
+    {
+      "title": "Clients d'API de signature",
+      "description": "Clients HTTP typés pour Universign et YouSign, générés depuis leurs spécifications.",
+      "category": "Bundles",
+      "tags": [
+        "Universign",
+        "YouSign",
+        "Jane PHP",
+        "HttpClient"
+      ],
+      "colors": [
+        "#0ea5e9",
+        "#6366f1"
+      ],
+      "visual": "signature",
+      "role": "Auteur.",
+      "context": "Le microservice de signature doit pouvoir basculer d'un fournisseur à l'autre : il lui faut deux clients fiables et interchangeables.",
+      "highlights": [
+        "Modèles PHP et normalizers générés par Jane PHP (Universign Transactions v1, YouSign v3).",
+        "Service injectable pré-configuré : URL, authentification Bearer, timeout.",
+        "Base du microservice de signature multi-fournisseur."
+      ],
+      "demo": "",
+      "repo": ""
+    },
+    {
+      "title": "Socle commun & recettes Flex",
+      "description": "Les briques partagées : recettes Flex privées, Pattern Repository et réception de webhooks.",
+      "category": "Bundles",
+      "tags": [
+        "Symfony Flex",
+        "Repository",
+        "Webhooks",
+        "DX"
+      ],
+      "colors": [
+        "#64748b",
+        "#22c55e"
+      ],
+      "visual": "blocks",
+      "role": "Auteur ; recettes Flex reprises par l'équipe Techlead.",
+      "context": "Démarrer un nouveau service devait prendre des minutes, pas des jours.",
+      "highlights": [
+        "Endpoint Symfony Flex privé : chaque service le déclare dans son composer.json et nos bundles s'installent configurés.",
+        "Pattern Repository : conventions communes d'accès aux données.",
+        "Hook Dispatcher : réception et traitement des webhooks entrants."
+      ],
+      "demo": "",
+      "repo": ""
+    },
+    {
+      "title": "GED centralisée",
+      "description": "API de dépôt, versionnement et téléchargement de documents pour tous les services.",
+      "category": "Microservices",
+      "tags": [
+        "Symfony",
+        "API Platform",
+        "OpenAPI 3.1",
+        "Azure Blob"
+      ],
+      "colors": [
+        "#7c3aed",
+        "#ec4899"
+      ],
+      "visual": "ged",
+      "role": "Développeur principal, jusqu'à la v2.0.0.",
+      "context": "Les documents vivent rattachés à des objets métier gérés par d'autres microservices (investisseur, fonds, part de fonds).",
+      "highlights": [
+        "Contrat 2.0 : documents composés de plusieurs pièces.",
+        "Catalogue des types filtrable par population, type « IBAN du fonds ».",
+        "Téléchargement sécurisé : jeton exigé en plus de la signature de l'URL.",
+        "Performance : pièces et versions chargées en une fois sur les collections.",
+        "Note d'architecture pour les équipes appelantes et support de présentation (Marp)."
+      ],
+      "demo": "",
+      "repo": ""
+    },
+    {
+      "title": "Microservice Distribution",
+      "description": "Mon dépôt principal (800+ commits) : la distribution des produits d'investissement.",
+      "category": "Microservices",
+      "tags": [
+        "Symfony",
+        "Doctrine",
+        "Postman",
+        "PHPUnit"
+      ],
+      "colors": [
+        "#6366f1",
+        "#0ea5e9"
+      ],
+      "visual": "bars",
+      "role": "Contributeur principal depuis 2025.",
+      "context": "Service central du domaine distribution, en échange constant avec distrib-engine, le legacy et api-permission (voir le schéma).",
+      "highlights": [
+        "Plusieurs RIB par investisseur dans la GED, chacun avec son identifiant.",
+        "Export investisseurs lu par lots en colonnes scalaires pour tenir la volumétrie.",
+        "Tests isolés dans une transaction (dama/doctrine-test-bundle) pour accélérer la suite.",
+        "Parcours Postman E2E rendus rejouables.",
+        "Temps réel via Mercure."
+      ],
+      "demo": "#architecture",
+      "repo": ""
+    },
+    {
+      "title": "Microservice Private Equity",
+      "description": "Catalogue des fonds, conventions, rétrocessions et contrats du domaine Private Equity.",
+      "category": "Microservices",
+      "tags": [
+        "PHP 8.4",
+        "Symfony 8",
+        "API Platform 5",
+        "PostgreSQL 16"
+      ],
+      "colors": [
+        "#0ea5e9",
+        "#22c55e"
+      ],
+      "visual": "donut",
+      "role": "Contributeur (270+ commits en 2026).",
+      "context": "Fonds FCPR, FPS, FPCI, holdings ; conventions cabinet × fonds et rétrocessions négociées.",
+      "highlights": [
+        "Intégration de la GED : type RIB-BIS (jusqu'à 3 par fonds), plafond de documents, ciblage par documentId.",
+        "Filtre ?type= et route /fonds/{fondId}/types/{type}/documents.",
+        "Événements sur l'exchange private_equity pour la synchronisation Domos.",
+        "Guide, OpenAPI et collection Postman tenus à jour à chaque évolution."
+      ],
+      "demo": "#architecture",
+      "repo": ""
+    },
+    {
+      "title": "Supervision Outbox",
+      "description": "Rejeu des événements côté services et visualiseur React pour suivre le bus en direct.",
+      "category": "Microservices",
+      "tags": [
+        "Outbox",
+        "Messenger",
+        "React 19",
+        "TypeScript"
+      ],
+      "colors": [
+        "#f97316",
+        "#ec4899"
+      ],
+      "visual": "monitor",
+      "role": "Auteur.",
+      "context": "Quand un message échoue, il faut le voir, comprendre pourquoi et le rejouer sans risque.",
+      "highlights": [
+        "Rejeu des événements entrants (commande dédiée, cibles et événements rejouables bien délimités, tests unitaires).",
+        "Re-dispatch des orphelins corrigé (BusNameStamp), mode dryRun.",
+        "Chaîne de rejeu exposée par API : tentatives, statut effectif, encore en erreur ou non.",
+        "outbox-viewer (Vite, React 19, TypeScript) : liste des events, filtres, KPI, métriques, orphelins, thème clair/sombre."
+      ],
+      "demo": "",
+      "repo": ""
+    },
+    {
+      "title": "Notifications & signature",
+      "description": "Emails / SMS avec bascule de fournisseur, et signature électronique multi-fournisseur.",
+      "category": "Microservices",
+      "tags": [
+        "RabbitMQ",
+        "Brevo",
+        "Circuit breaker",
+        "Webhooks"
+      ],
+      "colors": [
+        "#22c55e",
+        "#facc15"
+      ],
+      "visual": "notify",
+      "role": "Contributeur (notifications) et initiateur (signature).",
+      "context": "Deux services transverses dont la panne d'un fournisseur ne doit pas bloquer les parcours.",
+      "highlights": [
+        "Notifier : traitement asynchrone via RabbitMQ, historique dans PostgreSQL partitionné par mois.",
+        "Ajout d'un transport Brevo et bascule automatique Mailjet → Brevo, avec traçabilité du transport utilisé.",
+        "Signature : multi-fournisseur avec bascule automatique, circuit breaker et webhooks asynchrones.",
+        "Récupération et stockage des preuves (documents signés, audit trails)."
+      ],
+      "demo": "",
+      "repo": ""
+    },
+    {
+      "title": "Applications historiques",
+      "description": "Plus de 4 000 commits depuis 2021 sur le site et les back-offices PHP.",
+      "category": "Legacy",
+      "tags": [
+        "PHP",
+        "Symfony",
+        "Keycloak",
+        "Migration"
+      ],
+      "colors": [
+        "#64748b",
+        "#7c3aed"
+      ],
+      "visual": "legacy",
+      "role": "Développeur back-end.",
+      "context": "Les applications historiques restent en production pendant la migration : elles doivent évoluer et cohabiter avec les nouveaux services.",
+      "highlights": [
+        "Évolutions métier continues (documents, investisseurs, défiscalisation…).",
+        "Intégration Keycloak et gestion dynamique des scopes de permissions.",
+        "Montées de version : PHP 8.4, Symfony 7.2.",
+        "Ouverture d'API et publication d'événements legacy.api.event.* vers le bus."
+      ],
+      "demo": "",
+      "repo": ""
+    },
+    {
+      "title": "Outillage 2IT LaunchPad",
+      "description": "Contributions à l'environnement local Kubernetes + Tilt de l'équipe.",
+      "category": "Plateforme",
+      "tags": [
+        "Kubernetes",
+        "Tilt",
+        "Claude Code",
+        "Debezium"
+      ],
+      "colors": [
+        "#f97316",
+        "#7c3aed"
+      ],
+      "visual": "rocket",
+      "role": "Contributeur.",
+      "context": "LaunchPad fait tourner les 80+ services de l'écosystème sur le poste de chaque développeur.",
+      "highlights": [
+        "Suivi d'usage des skills Claude Code : envoi incrémental et tout-ou-rien vers ClickHouse, synthèse dans Notion.",
+        "Certificat SSL local : régénération outillée (make gen-cert, garde-fou à 30 jours) et make trust-cert fiabilisé.",
+        "Swagger UI accessible derrière la gateway Kong.",
+        "POC de Change Data Capture MySQL → Redis avec Debezium."
+      ],
+      "demo": "",
+      "repo": ""
+    }
+  ]
+}

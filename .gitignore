@@ -1,0 +1,26 @@
+# Dépendances
+node_modules/
+
+# Variables d'environnement
+.env
+.env.local
+.env.*.local
+
+# Données générées à l'exécution
+data/messages.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE / éditeurs
+.idea/
+.vscode/
+*.swp
+
+# Système
+.DS_Store
+Thumbs.db

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Développeur web</title>
+  <meta name="description" content="Portfolio : présentation, compétences, projets et contact." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%237c3aed'/><stop offset='1' stop-color='%23f97316'/></linearGradient></defs><rect width='100' height='100' rx='28' fill='url(%23g)'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=16" />
+  <!-- Applique le thème choisi avant l'affichage, pour éviter un flash de couleur -->
+  <script>
+    try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <!-- Formes colorées floues en arrière-plan -->
+  <div class="blobs" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+
+  <!-- Barre de progression de lecture -->
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Navigation principale">
+      <a href="#accueil" class="logo" id="logo">Portfolio</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Passer en mode sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>
+      </button>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Ouvrir le menu">
+        <span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#metier">Métier</a></li>
+        <li><a href="#role">Rôle</a></li>
+        <li><a href="#philosophie">Philosophie</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#architecture">Architecture</a></li>
+        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="ia.html" class="nav-ia">IA</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Accueil -->
+    <section class="hero container" id="accueil">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <p class="badge" id="availability" hidden><span class="dot"></span> Disponible pour de nouveaux projets</p>
+          <h1 class="hero-title">
+            <span class="hero-hello">Bonjour, je suis</span>
+            <span class="gradient-text" id="hero-name">…</span>
+          </h1>
+          <p class="hero-role" id="hero-role"></p>
+          <p class="hero-rotator">Je construis <span class="rotator" id="rotator"></span><span class="caret" aria-hidden="true"></span></p>
+          <p class="hero-tagline" id="hero-tagline"></p>
+          <div class="hero-actions">
+            <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+            <a href="#architecture" class="btn btn-ghost">Voir l'architecture</a>
+          </div>
+          <ul class="hero-stats" id="hero-stats"></ul>
+        </div>
+
+        <!-- Visuel : un terminal qui affiche des événements de l'architecture en direct -->
+        <div class="hero-visual" aria-hidden="true">
+          <span class="float-chip chip-1">Symfony 8</span>
+          <span class="float-chip chip-2">RabbitMQ</span>
+          <span class="float-chip chip-3">Kubernetes</span>
+          <span class="float-chip chip-4">Keycloak</span>
+          <span class="float-chip chip-5">ClickHouse</span>
+          <div class="terminal">
+            <div class="terminal-bar">
+              <span></span><span></span><span></span>
+              <em>outbox · dist.events — live</em>
+            </div>
+            <ol class="terminal-log" id="terminal-log"></ol>
+          </div>
+        </div>
+      </div>
+      <a href="#apropos" class="scroll-cue" aria-label="Descendre vers la suite"><span></span></a>
+    </section>
+
+    <!-- Bandeau des technologies qui défile -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marquee"></div>
+    </div>
+
+    <!-- À propos -->
+    <section class="section container reveal" id="apropos">
+      <h2 class="section-title"><span class="section-num">01</span> À propos</h2>
+      <div class="about">
+        <div class="about-text" id="about-text"></div>
+        <dl class="facts card" id="facts"></dl>
+      </div>
+    </section>
+
+    <!-- Domaines métier -->
+    <section class="section container reveal" id="metier">
+      <h2 class="section-title"><span class="section-num">02</span> Domaines métier</h2>
+      <p class="section-intro" id="domains-intro"></p>
+      <div class="domains" id="domains" data-stagger></div>
+    </section>
+
+    <!-- Rôle dans les équipes -->
+    <section class="section container reveal" id="role">
+      <h2 class="section-title"><span class="section-num">03</span> Mon rôle dans les équipes</h2>
+      <p class="section-intro" id="team-intro"></p>
+      <ol class="team" id="team" data-stagger></ol>
+    </section>
+
+    <!-- Philosophie -->
+    <section class="section container reveal" id="philosophie">
+      <h2 class="section-title"><span class="section-num">04</span> Ma philosophie</h2>
+      <ul class="principles" id="principles" data-stagger></ul>
+    </section>
+
+    <!-- Compétences -->
+    <section class="section container reveal" id="competences">
+      <h2 class="section-title"><span class="section-num">05</span> Compétences</h2>
+      <div class="skills" id="skills" data-stagger></div>
+    </section>
+
+    <!-- Projets -->
+    <section class="section container reveal" id="projets">
+      <h2 class="section-title"><span class="section-num">06</span> Projets</h2>
+      <div class="filters" id="filters" role="group" aria-label="Filtrer les projets"></div>
+      <div class="projects" id="projects" aria-live="polite"></div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="section container reveal" id="architecture">
+      <h2 class="section-title"><span class="section-num">07</span> Architecture</h2>
+      <p class="section-intro" id="archi-intro"></p>
+      <figure class="archi">
+        <div class="archi-toolbar">
+          <div class="archi-scenarios" id="archi-scenarios" role="group" aria-label="Scénarios à rejouer"></div>
+          <div class="archi-tools">
+            <button type="button" class="btn btn-ghost archi-play" id="archi-play" aria-pressed="true">Pause</button>
+            <button type="button" class="btn btn-ghost archi-export" id="archi-svg" title="Télécharger le schéma en image SVG">SVG</button>
+            <button type="button" class="btn btn-ghost archi-export" id="archi-gif" title="Enregistrer le scénario en cours en GIF animé">GIF animé</button>
+          </div>
+        </div>
+        <p class="archi-export-status" id="archi-export-status" role="status"></p>
+        <div class="archi-status" aria-live="polite">
+          <span class="archi-step" id="archi-step"></span>
+          <p class="archi-caption" id="archi-caption"></p>
+        </div>
+        <p class="archi-hint">Le schéma suit l'action ; faites-le glisser pour l'explorer.</p>
+        <div class="diagram-scroll">
+          <!-- Le schéma est dessiné et animé par architecture.js -->
+          <svg id="archi" class="archi-svg" viewBox="0 0 1200 760" role="img" aria-labelledby="archi-svg-title">
+            <title id="archi-svg-title">Architecture : fronts, Kong, Keycloak, quatre microservices, leurs bases, RabbitMQ, ClickHouse, Sentry et le legacy</title>
+          </svg>
+        </div>
+        <figcaption class="archi-legend">
+          <span class="legend-item"><i class="lg lg-http"></i> Requête HTTP (JWT interne)</span>
+          <span class="legend-item"><i class="lg lg-event"></i> Événement RabbitMQ</span>
+          <span class="legend-item"><i class="lg lg-sql"></i> Requête SQL / cache</span>
+          <span class="legend-item"><i class="lg lg-error"></i> Échec / retry</span>
+          <span class="diagram-links">
+            <a href="architecture.svg" target="_blank" rel="noopener">Version croquis</a>
+            <a href="architecture.excalidraw" download>Fichier Excalidraw</a>
+          </span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- Parcours -->
+    <section class="section container reveal" id="parcours">
+      <h2 class="section-title"><span class="section-num">08</span> Parcours</h2>
+      <ol class="timeline" id="timeline" data-stagger></ol>
+    </section>
+
+    <!-- Contact -->
+    <section class="section container reveal" id="contact">
+      <h2 class="section-title"><span class="section-num">09</span> Contact</h2>
+      <div class="contact">
+        <div class="contact-intro">
+          <p class="contact-lead">Un projet, une question ou simplement envie d'échanger ?</p>
+          <p>Écrivez-moi via ce formulaire, je vous réponds généralement sous 48&nbsp;heures.</p>
+          <div class="contact-extras">
+            <a href="carte.html" class="btn btn-ghost">Ma carte de visite</a>
+            <a href="cv.html" class="btn btn-ghost">Mon CV en PDF</a>
+            <a href="ia.html" class="btn btn-ghost">Mes notes IA · Claude Skills</a>
+          </div>
+        </div>
+
+        <form class="form" id="contact-form" novalidate>
+          <div class="field">
+            <label for="name">Nom</label>
+            <input type="text" id="name" name="name" autocomplete="name" required minlength="2" maxlength="80" />
+            <small class="field-error" data-for="name"></small>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required maxlength="120" />
+            <small class="field-error" data-for="email"></small>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required minlength="10" maxlength="2000"></textarea>
+            <small class="field-error" data-for="message"></small>
+          </div>
+
+          <!-- Champ piège anti-robots : caché aux humains -->
+          <div class="hp" aria-hidden="true">
+            <label for="website">Site web</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="submit-btn">Envoyer le message</button>
+          <p class="form-status" id="form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p>© <span id="year"></span> <span id="footer-name"></span></p>
+    <ul class="socials" id="socials"></ul>
+    <ul class="socials">
+      <li><a href="carte.html">Carte de visite</a></li>
+      <li><a href="cv.html">CV (PDF)</a></li>
+      <li><a href="ia.html">IA · Claude Skills</a></li>
+    </ul>
+  </footer>
+
+  <!-- Fenêtre de détail d'un projet (élément <dialog> natif : Échap le ferme) -->
+  <dialog class="modal" id="project-modal" aria-labelledby="modal-title">
+    <div class="modal-cover" id="modal-cover">
+      <span class="project-category" id="modal-category"></span>
+      <button type="button" class="modal-close" id="modal-close" aria-label="Fermer">&times;</button>
+    </div>
+    <div class="modal-body">
+      <h3 id="modal-title"></h3>
+      <p class="modal-role" id="modal-role"></p>
+      <h4 id="modal-context-title" hidden>Le métier en clair</h4>
+      <p class="modal-context" id="modal-context"></p>
+      <h4 id="modal-hl-title">Points clés</h4>
+      <ul class="modal-highlights" id="modal-highlights"></ul>
+      <!-- Sections supplémentaires (lexique, questions) pour les domaines métier -->
+      <div class="modal-sections" id="modal-sections"></div>
+      <ul class="project-tags" id="modal-tags" aria-label="Technologies"></ul>
+      <div class="project-links" id="modal-links"></div>
+    </div>
+  </dialog>
+
+  <script src="covers.js?v=16"></script>
+  <script src="script.js?v=16"></script>
+  <script src="architecture.js?v=16"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carte de visite — Mourad Chabour</title>
+  <meta name="description" content="Carte de visite numérique : contact, portfolio et QR code." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%237c3aed'/><stop offset='1' stop-color='%23f97316'/></linearGradient></defs><rect width='100' height='100' rx='28' fill='url(%23g)'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Reprend les couleurs, polices et boutons du site, puis les styles propres à la carte -->
+  <link rel="stylesheet" href="style.css?v=14" />
+  <link rel="stylesheet" href="carte.css?v=14" />
+  <script>
+    try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body class="card-page">
+  <div class="blobs" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+
+  <main class="card-wrap">
+    <a href="index.html" class="card-back-link">← Portfolio</a>
+
+    <!-- La carte : recto (identité) et verso (QR code). Un clic la retourne. -->
+    <div class="biz" id="biz" role="button" tabindex="0" aria-pressed="false" aria-label="Retourner la carte de visite">
+      <div class="biz-inner">
+        <section class="biz-face biz-front">
+          <div class="biz-top">
+            <span class="biz-avatar" id="biz-initials" aria-hidden="true"></span>
+            <span class="biz-badge">Carte de visite</span>
+          </div>
+          <h1 class="biz-name" id="biz-name"></h1>
+          <p class="biz-role" id="biz-role"></p>
+          <p class="biz-tagline" id="biz-tagline"></p>
+          <ul class="biz-domains" id="biz-domains" aria-label="Domaines métier"></ul>
+          <ul class="biz-contact" id="biz-contact"></ul>
+          <span class="biz-hint" aria-hidden="true">Touchez pour retourner ↻</span>
+        </section>
+
+        <section class="biz-face biz-back">
+          <img class="biz-qr" src="/api/qr.svg?path=/" alt="QR code vers le portfolio" />
+          <p class="biz-qr-text">Scannez pour ouvrir mon portfolio</p>
+          <p class="biz-url" id="biz-url"></p>
+          <span class="biz-hint" aria-hidden="true">Touchez pour retourner ↻</span>
+        </section>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="card-actions">
+      <a class="btn btn-primary" id="act-mail" href="#">Envoyer par email</a>
+      <button type="button" class="btn btn-ghost" id="act-share">Partager le lien</button>
+      <a class="btn btn-ghost" href="/api/vcard">Ajouter à mes contacts</a>
+      <button type="button" class="btn btn-ghost" id="act-copy-html">Copier pour un email</button>
+      <a class="btn btn-ghost" href="cv.html">Mon CV en PDF</a>
+    </div>
+    <!-- Export de la carte en image (pour Teams, Slack, un document…) -->
+    <div class="export-box">
+      <p class="export-title">Exporter la carte en image</p>
+      <div class="export-actions">
+        <button type="button" class="btn btn-ghost" id="act-svg">Télécharger en SVG</button>
+        <button type="button" class="btn btn-ghost" id="act-png">Télécharger en PNG</button>
+        <button type="button" class="btn btn-primary" id="act-copy-img">Copier l'image</button>
+        <button type="button" class="btn btn-ghost btn-gif" id="act-gif">GIF animé</button>
+      </div>
+      <p class="export-help">Pour Teams : « Copier l'image » puis Cmd + V dans la conversation, ou envoyez le PNG. Pour une carte animée : « GIF animé », puis glissez le fichier dans la conversation. Le SVG reste net à toutes les tailles (documents, présentations).</p>
+    </div>
+    <p class="card-status" id="card-status" role="status"></p>
+
+    <!-- Aperçu de la version « email » (tableau + styles en ligne, compatible Gmail / Outlook) -->
+    <details class="email-preview">
+      <summary>Aperçu de la carte telle qu'elle apparaîtra dans un email</summary>
+      <p class="email-help">
+        Cliquez sur « Copier pour un email », puis collez (Cmd + V) dans le corps d'un message Gmail, Outlook ou Apple Mail.
+        Vous pouvez aussi la coller dans votre signature d'email.
+      </p>
+      <div class="email-render" id="email-render"></div>
+    </details>
+  </main>
+
+  <script src="carte.js?v=14"></script>
+</body>
+</html>

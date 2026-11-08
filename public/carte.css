@@ -1,0 +1,351 @@
+/* =============================================================================
+ * Carte de visite numérique (/carte)
+ * Les couleurs, polices et boutons viennent de style.css.
+ * ===========================================================================*/
+
+.card-page {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.card-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  width: min(760px, 100% - 32px);
+  margin: 0 auto;
+  padding: 40px 0 60px;
+}
+
+.card-back-link {
+  align-self: flex-start;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.card-back-link:hover {
+  color: var(--text);
+}
+
+/* ----- La carte (format carte de visite, 85 × 55 mm agrandi) ----- */
+.biz {
+  width: min(560px, 100%);
+  aspect-ratio: 85 / 55;
+  perspective: 1400px;
+  cursor: pointer;
+  outline: none;
+}
+
+.biz-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, 0deg)) rotateY(calc(var(--ry, 0deg) + var(--flip, 0deg)));
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.biz.is-flipped {
+  --flip: 180deg;
+}
+
+.biz:focus-visible .biz-inner {
+  outline: 3px solid var(--pink);
+  outline-offset: 6px;
+  border-radius: 24px;
+}
+
+.biz-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(18px, 4.5vw, 30px);
+  border-radius: 24px;
+  overflow: hidden;
+  color: #fff;
+  background: linear-gradient(135deg, #6d28d9, #db2777 55%, #f97316);
+  box-shadow: 0 40px 80px -30px rgba(76, 29, 149, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Reflet lumineux et cercles décoratifs */
+.biz-face::before {
+  content: '';
+  position: absolute;
+  width: 70%;
+  aspect-ratio: 1;
+  right: -22%;
+  top: -40%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.biz-face::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.22) 50%, transparent 65%);
+  transform: translateX(-100%);
+  animation: biz-shine 6s ease-in-out infinite;
+}
+
+@keyframes biz-shine {
+  60%, 100% { transform: translateX(100%); }
+}
+
+.biz-back {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #f97316, #db2777 45%, #6d28d9);
+}
+
+.biz-top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.biz-avatar {
+  display: grid;
+  place-items: center;
+  width: clamp(40px, 9vw, 54px);
+  height: clamp(40px, 9vw, 54px);
+  border-radius: 16px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1rem, 2.6vw, 1.3rem);
+  color: #6d28d9;
+  background: #fff;
+}
+
+.biz-badge {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.biz-name {
+  position: relative;
+  margin-top: clamp(8px, 2.6vw, 18px);
+  font-size: clamp(1.4rem, 5vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.biz-role {
+  position: relative;
+  margin: 4px 0 0;
+  font-weight: 700;
+  font-size: clamp(0.82rem, 2.2vw, 1rem);
+  opacity: 0.95;
+}
+
+.biz-tagline {
+  position: relative;
+  max-width: 92%;
+  margin: 6px 0 0;
+  font-size: clamp(0.7rem, 1.9vw, 0.86rem);
+  line-height: 1.45;
+  opacity: 0.85;
+}
+
+.biz-domains {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: auto 0 0;
+  padding-top: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.biz-domains li {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: clamp(0.62rem, 1.6vw, 0.74rem);
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.biz-contact {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin: 10px 0 0;
+  padding: 10px 0 0;
+  list-style: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: clamp(0.66rem, 1.8vw, 0.82rem);
+  font-weight: 500;
+}
+
+.biz-contact a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.biz-contact a:hover {
+  text-decoration: underline;
+}
+
+.biz-qr {
+  position: relative;
+  width: 42%;
+  max-width: 190px;
+  padding: 10px;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.biz-qr-text {
+  position: relative;
+  margin: 12px 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 2.8vw, 1.25rem);
+  font-weight: 700;
+}
+
+.biz-url {
+  position: relative;
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.biz-hint {
+  position: absolute;
+  right: 18px;
+  bottom: 12px;
+  font-size: 0.68rem;
+  opacity: 0.7;
+}
+
+/* ----- Actions ----- */
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.card-actions .btn {
+  padding: 11px 20px;
+  font-size: 0.92rem;
+}
+
+.card-status {
+  min-height: 1.5em;
+  margin: -8px 0 0;
+  font-weight: 700;
+  color: var(--green);
+}
+
+/* ----- Export en image ----- */
+.export-box {
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  text-align: center;
+}
+
+.export-title {
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+.export-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.export-actions .btn {
+  padding: 10px 18px;
+  font-size: 0.9rem;
+}
+
+.export-help {
+  margin: 12px 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ----- Aperçu email ----- */
+.email-preview {
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.email-preview summary {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.email-help {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* L'aperçu est toujours sur fond blanc, comme un email */
+.email-render {
+  overflow-x: auto;
+  padding: 18px;
+  border-radius: 14px;
+  background: #fff;
+}
+
+@media (max-width: 520px) {
+  /* Sur téléphone, la carte passe en format portrait pour que tout tienne */
+  .biz {
+    aspect-ratio: 4 / 5;
+  }
+
+  .biz-name {
+    font-size: 1.9rem;
+  }
+
+  .biz-role {
+    font-size: 1rem;
+  }
+
+  .biz-tagline {
+    font-size: 0.86rem;
+  }
+
+  .biz-contact {
+    flex-direction: column;
+    font-size: 0.86rem;
+  }
+
+  .biz-qr {
+    width: 62%;
+  }
+
+  .card-actions .btn,
+  .export-actions .btn {
+    flex: 1 1 100%;
+  }
+
+  .biz-hint {
+    display: none;
+  }
+}

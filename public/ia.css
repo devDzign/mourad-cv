@@ -1,0 +1,197 @@
+/* =============================================================================
+ * Page « IA · Compétences Claude » — s'appuie sur style.css (couleurs, polices,
+ * .card, .btn, .chip, .blobs, .reveal, .footer) et ajoute ses propres blocs.
+ * ===========================================================================*/
+
+.ia-page { --mono: 'JetBrains Mono', ui-monospace, monospace; }
+.ia-page code { font-family: var(--mono); font-size: 0.88em; padding: 1px 6px; border-radius: 6px; background: color-mix(in srgb, var(--violet) 12%, transparent); }
+
+.ia-top { display: flex; align-items: center; justify-content: space-between; padding-block: 22px; }
+.ia-back { font-weight: 700; color: var(--text); text-decoration: none; padding: 8px 16px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); }
+.ia-back:hover { color: var(--pink); }
+
+/* ----- En-tête ----- */
+.ia-hero { padding: 30px 0 20px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 10px 40px; align-items: center; }
+.ia-hero > :not(.ia-hero-visual) { grid-column: 1; }
+.ia-kicker { font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.8rem; color: var(--accent-text); margin: 0; }
+.ia-hero h1 { font-size: clamp(2.1rem, 5.4vw, 3.6rem); line-height: 1.05; letter-spacing: -0.02em; margin: 8px 0 14px; }
+.ia-lead { font-size: 1.15rem; color: var(--muted); max-width: 62ch; margin: 0; }
+.ia-toc { grid-column: 1 / -1 !important; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+.ia-toc a { padding: 7px 14px; border-radius: 999px; font-weight: 500; font-size: 0.92rem; color: var(--text); text-decoration: none; background: var(--surface); border: 1px solid var(--border); transition: transform 0.2s, border-color 0.2s; }
+.ia-toc a:hover { transform: translateY(-2px); border-color: var(--pink); }
+
+/* Petite illustration animée : un SKILL.md qui « nourrit » un robot */
+.ia-hero-visual { grid-column: 2; grid-row: 1 / span 3; display: flex; align-items: center; justify-content: center; gap: 18px; }
+.ia-file { width: 130px; padding: 16px 14px; border-radius: 16px; background: var(--surface-solid); border: 1px solid var(--border); box-shadow: var(--shadow); display: grid; gap: 8px; animation: ia-bob 4s ease-in-out infinite; }
+.ia-file-name { font: 700 0.85rem var(--mono, monospace); background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.ia-line { height: 7px; border-radius: 4px; background: color-mix(in srgb, var(--violet) 22%, transparent); animation: ia-type 3s ease-in-out infinite; transform-origin: left; }
+.ia-line.w80 { width: 80%; } .ia-line.w60 { width: 60%; animation-delay: 0.3s; } .ia-line.w90 { width: 90%; animation-delay: 0.6s; }
+.ia-line.w50 { width: 50%; animation-delay: 0.9s; } .ia-line.w70 { width: 70%; animation-delay: 1.2s; }
+.ia-arrow { width: 46px; height: 4px; border-radius: 2px; background: linear-gradient(90deg, transparent 0 10%, var(--pink) 10% 40%, transparent 40% 60%, var(--orange) 60% 90%, transparent 90%); background-size: 200% 100%; animation: ia-flow 1.2s linear infinite; }
+.ia-bot { position: relative; width: 104px; height: 104px; border-radius: 30px; background: var(--gradient); box-shadow: 0 16px 40px -14px var(--pink); display: flex; align-items: center; justify-content: center; gap: 16px; animation: ia-bob 4s ease-in-out infinite reverse; }
+.ia-eye { width: 14px; height: 18px; border-radius: 8px; background: #fff; animation: ia-blink 4s infinite; }
+.ia-mouth { position: absolute; bottom: 24px; width: 30px; height: 8px; border-radius: 0 0 14px 14px; background: rgba(255, 255, 255, 0.85); }
+
+@keyframes ia-bob { 50% { transform: translateY(-10px); } }
+@keyframes ia-type { 0% { transform: scaleX(0.2); } 40%, 100% { transform: scaleX(1); } }
+@keyframes ia-flow { to { background-position: -200% 0; } }
+@keyframes ia-blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
+
+/* ----- Sections ----- */
+.ia-section { padding-block: 56px 20px; }
+.ia-section h2 { display: flex; align-items: baseline; gap: 12px; font-size: clamp(1.7rem, 4vw, 2.5rem); letter-spacing: -0.02em; margin: 0 0 22px; }
+.ia-section h3 { font-size: 1.25rem; margin: 30px 0 14px; }
+.ia-num { font-size: 0.5em; background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.ia-intro { color: var(--muted); font-size: 1.08rem; max-width: 72ch; margin: -6px 0 22px; }
+.ia-muted { color: var(--muted); }
+.ia-tip { margin-top: 18px; padding: 14px 18px; border-left: 4px solid var(--orange); border-radius: 0 14px 14px 0; background: color-mix(in srgb, var(--orange) 9%, transparent); }
+.ia-two { display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px; align-items: start; }
+.ia-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.ia-callout { padding: 26px 28px; font-size: 1.12rem; }
+.ia-callout p { margin: 0 0 10px; }
+.ia-callout p:last-child { margin: 0; }
+
+.ia-glossary { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 0; }
+.ia-glossary > div { padding: 18px 20px; }
+.ia-glossary dt { font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; margin-bottom: 6px; color: var(--accent-text); }
+.ia-glossary dd { margin: 0; color: var(--muted); }
+
+/* ----- Arborescence et code ----- */
+.ia-tree, .ia-code { margin: 0; padding: 22px 24px; font: 0.9rem/1.7 var(--mono); overflow-x: auto; white-space: pre; }
+.t-dir { color: var(--violet); font-weight: 600; }
+.t-file { color: var(--pink); font-weight: 600; }
+.t-c, .ia-code .c { color: var(--muted); }
+.ia-code .k { color: var(--orange); font-weight: 600; }
+.ia-code .p { color: var(--violet); font-weight: 600; }
+.ia-code .h { color: var(--pink); font-weight: 600; }
+:root[data-theme='dark'] .t-dir, :root[data-theme='dark'] .ia-code .p { color: #c4b5fd; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme='light']) .t-dir, :root:not([data-theme='light']) .ia-code .p { color: #c4b5fd; } }
+
+.ia-rules { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.ia-rules li { padding: 14px 18px 14px 44px; position: relative; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); }
+.ia-rules li::before { content: '✓'; position: absolute; left: 16px; top: 13px; font-weight: 800; color: var(--green); }
+
+.ia-anat { display: grid; gap: 12px; }
+.ia-anat-item { padding: 14px 18px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--pink); }
+.ia-anat-item p { margin: 4px 0 0; color: var(--muted); }
+
+/* ----- Couches de chargement ----- */
+.ia-layers { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.ia-layers li { display: flex; align-items: center; gap: 18px; padding: 16px 20px; border-left: 6px solid var(--c); }
+.ia-layers li:nth-child(2) { margin-left: 4%; } .ia-layers li:nth-child(3) { margin-left: 8%; } .ia-layers li:nth-child(4) { margin-left: 12%; }
+.ia-layers small { display: block; color: var(--muted); font-size: 0.95rem; margin-top: 2px; }
+.ia-layer-n { flex: none; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; font: 800 1.1rem var(--font-display); color: #fff; background: var(--c); }
+
+/* ----- Formule de description ----- */
+.ia-formula { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 20px 22px; font-weight: 700; }
+.ia-formula span[class^='f'] { padding: 8px 14px; border-radius: 12px; }
+.ia-formula .f1 { background: color-mix(in srgb, var(--violet) 16%, transparent); }
+.ia-formula .f2 { background: color-mix(in srgb, var(--pink) 16%, transparent); }
+.ia-formula .f3 { background: color-mix(in srgb, var(--orange) 18%, transparent); }
+.ia-formula .fplus { padding: 0; color: var(--muted); }
+.ia-vs { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 14px; margin-top: 18px; }
+.ia-vs .card { padding: 18px 20px; }
+.ia-vs p { margin: 8px 0; font-style: italic; }
+.ia-vs small { color: var(--muted); }
+.ia-tag { display: inline-block; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 10px; border-radius: 999px; color: #fff; }
+.ia-bad .ia-tag { background: var(--error); }
+.ia-good .ia-tag { background: var(--green); }
+.ia-good { border-color: color-mix(in srgb, var(--green) 45%, transparent) !important; }
+
+/* ----- Méthodes et tests ----- */
+.ia-method { padding: 24px; }
+.ia-method h3 { margin: 10px 0 8px; }
+.ia-method .chips { margin: 10px 0; }
+.ia-badge { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 700; color: #fff; background: var(--gradient); }
+.ia-tests { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.ia-tests .card { padding: 16px 18px; }
+.ia-tests p { margin: 6px 0 0; color: var(--muted); }
+
+/* ----- Checklist ----- */
+.ia-check { padding: 22px 24px; }
+.ia-progress { height: 10px; border-radius: 999px; background: color-mix(in srgb, var(--violet) 12%, transparent); overflow: hidden; }
+.ia-progress span { display: block; height: 100%; width: 0; background: var(--gradient); transition: width 0.35s ease; }
+.ia-check-count { font-weight: 700; margin: 10px 0 6px; }
+.ia-check ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 22px; }
+.ia-check label { display: block; padding: 10px 12px 10px 38px; position: relative; border-radius: 12px; cursor: pointer; transition: background 0.2s; }
+.ia-check label:hover { background: color-mix(in srgb, var(--pink) 7%, transparent); }
+.ia-check input { position: absolute; left: 10px; top: 13px; width: 18px; height: 18px; accent-color: var(--pink); }
+.ia-check small { display: block; color: var(--muted); }
+.ia-check label:has(input:checked) { opacity: 0.6; }
+
+/* ----- Tableau de dépannage ----- */
+.ia-table { overflow: hidden; }
+.ia-tr { display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 16px; padding: 13px 20px; border-top: 1px solid var(--border); }
+.ia-th { border-top: 0; font-weight: 700; color: #fff; background: var(--gradient); }
+.ia-tr:not(.ia-th) span:first-child { font-weight: 700; }
+
+/* ----- MCP ----- */
+.ia-mcp { display: grid; grid-template-columns: 0.9fr 1.3fr; gap: 26px; align-items: center; }
+.ia-mcp-diagram { position: relative; height: 290px; }
+.ia-mcp-diagram .node { position: absolute; padding: 12px 16px; border-radius: 16px; font-weight: 700; text-align: center; background: var(--surface-solid); border: 1px solid var(--border); box-shadow: var(--shadow); }
+.n-claude { left: 0; top: 50%; transform: translateY(-50%); color: #fff; background: var(--gradient) !important; border: 0 !important; }
+.n-claude small { font-weight: 500; opacity: 0.9; }
+.n-gh { right: 0; top: 6%; } .n-slack { right: 0; top: 42%; } .n-linear { right: 0; bottom: 6%; }
+.wire { position: absolute; left: 30%; width: 44%; height: 3px; border-radius: 2px; transform-origin: left center; background: linear-gradient(90deg, var(--violet) 0 30%, transparent 30% 50%, var(--pink) 50% 80%, transparent 80%); background-size: 40px 100%; animation: ia-flow 1.4s linear infinite; }
+.w1 { top: 50%; transform: rotate(-24deg); } .w2 { top: 50%; } .w3 { top: 50%; transform: rotate(24deg); }
+.ia-mcp-rules { margin: 0; padding-left: 22px; display: grid; gap: 10px; }
+.ia-mcp-rules li::marker { font-weight: 800; color: var(--pink); }
+
+/* ----- Mauvais vs bon (cartes qui basculent) ----- */
+.ia-flips { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.ia-flip { position: relative; display: grid; min-height: 150px; padding: 0; border: 1px solid var(--border); cursor: pointer; text-align: left; font: inherit; color: var(--text); overflow: hidden; }
+.ia-flip > span { grid-area: 1 / 1; position: relative; padding: 20px 22px 44px; transition: transform 0.45s ease, opacity 0.45s ease; }
+.ia-flip b { display: block; font: 800 1.1rem var(--mono); margin-bottom: 8px; }
+.ia-flip-bad b { color: var(--error); text-decoration: line-through; }
+.ia-flip-bad::after { content: 'Cliquer pour la version corrigée →'; position: absolute; bottom: 14px; left: 22px; font-size: 0.82rem; font-weight: 700; color: var(--accent-text); }
+.ia-flip-good { background: color-mix(in srgb, var(--green) 10%, var(--surface-solid)); transform: translateX(100%); opacity: 0; }
+.ia-flip-good b { color: var(--green); }
+.ia-flip[aria-pressed='true'] .ia-flip-bad { transform: translateX(-100%); opacity: 0; }
+.ia-flip[aria-pressed='true'] .ia-flip-good { transform: none; opacity: 1; }
+
+/* ----- Exercices ----- */
+.ia-ex { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: start; }
+.ia-ex .card { padding: 22px; }
+.ia-ex h3 { margin: 10px 0 8px; }
+.ia-ex p { margin: 0; color: var(--muted); }
+.ia-details { margin-top: 12px; }
+.ia-details summary { cursor: pointer; font-weight: 700; color: var(--accent-text); }
+.ia-details ol { margin: 10px 0 0; padding-left: 22px; font-size: 0.93rem; display: grid; gap: 4px; }
+
+/* ----- Quiz ----- */
+.ia-quiz { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.ia-q { margin: 0; padding: 18px 20px; border: 1px solid var(--border); }
+.ia-q legend { float: left; width: 100%; font-weight: 700; margin-bottom: 12px; padding: 0; }
+.ia-q-opts { clear: both; display: grid; gap: 8px; }
+.ia-opt { text-align: left; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface-solid); color: var(--text); font: 500 0.95rem var(--font-body); cursor: pointer; transition: border-color 0.2s, transform 0.2s; }
+.ia-opt:hover:not(:disabled) { border-color: var(--pink); transform: translateX(3px); }
+.ia-opt:disabled { cursor: default; }
+.ia-opt.is-ok { border-color: var(--green); background: color-mix(in srgb, var(--green) 14%, var(--surface-solid)); font-weight: 700; }
+.ia-opt.is-ko { border-color: var(--error); background: color-mix(in srgb, var(--error) 12%, var(--surface-solid)); }
+.ia-why { margin: 12px 0 0; color: var(--muted); font-size: 0.95rem; }
+.ia-quiz-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; }
+.ia-score { font: 800 1.2rem var(--font-display); margin: 0; }
+
+/* ----- Application ----- */
+.ia-ideas { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.ia-ideas .card { padding: 20px 22px; }
+.ia-ideas p { margin: 6px 0 0; color: var(--muted); }
+
+.ia-source { margin: 50px 0 10px; font-size: 0.9rem; color: var(--muted); text-align: center; }
+.ia-page .footer a { color: inherit; }
+
+/* ----- Responsive ----- */
+@media (max-width: 900px) {
+  .ia-hero { grid-template-columns: 1fr; }
+  .ia-hero-visual { grid-column: 1; grid-row: auto; margin: 20px 0 0; transform: scale(0.85); }
+  .ia-two, .ia-grid2, .ia-mcp, .ia-vs, .ia-ex, .ia-tests, .ia-quiz, .ia-ideas, .ia-flips, .ia-check ul { grid-template-columns: 1fr; }
+  .ia-layers li { margin-left: 0 !important; }
+  .ia-tr { grid-template-columns: 1fr; gap: 4px; }
+  .ia-th { display: none; }
+  .ia-mcp-diagram { height: 240px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ia-page *, .ia-page *::before, .ia-page *::after { animation: none !important; transition: none !important; }
+}

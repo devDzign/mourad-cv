@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IA · Compétences Claude — Mourad Chabour</title>
+  <meta name="description" content="Synthèse expliquée d'un pack de formation sur les compétences (skills) Claude : structure, description, checklist, MCP, exemples, exercices et quiz." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%237c3aed'/><stop offset='1' stop-color='%23f97316'/></linearGradient></defs><rect width='100' height='100' rx='28' fill='url(%23g)'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Reprend la charte du site (couleurs, polices, boutons, cartes), puis les styles de cette page -->
+  <link rel="stylesheet" href="style.css?v=16" />
+  <link rel="stylesheet" href="ia.css?v=16" />
+  <script>
+    try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body class="ia-page">
+  <div class="blobs" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+
+  <header class="ia-top container">
+    <a href="index.html" class="ia-back">← Portfolio</a>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Changer de thème">
+      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>
+    </button>
+  </header>
+
+  <main class="container">
+    <!-- ===== En-tête ===== -->
+    <section class="ia-hero">
+      <p class="ia-kicker">Veille IA · Notes de formation</p>
+      <h1>Apprendre une nouvelle tâche à Claude&nbsp;: <span class="gradient-text">les compétences (Skills)</span></h1>
+      <p class="ia-lead">
+        J'ai suivi un pack de formation sur les <strong>compétences Claude</strong> : guide de démarrage, fiche pratique,
+        modèles, exemples, trois exercices et un quiz. Cette page en est ma synthèse, réorganisée et expliquée
+        avec mes mots, pour pouvoir la relire vite… et l'appliquer à mon métier d'architecte back-end.
+      </p>
+      <div class="ia-hero-visual" aria-hidden="true">
+        <div class="ia-file">
+          <span class="ia-file-name">SKILL.md</span>
+          <span class="ia-line w80"></span><span class="ia-line w60"></span><span class="ia-line w90"></span>
+          <span class="ia-line w50"></span><span class="ia-line w70"></span>
+        </div>
+        <span class="ia-arrow"></span>
+        <div class="ia-bot"><span class="ia-eye"></span><span class="ia-eye"></span><span class="ia-mouth"></span></div>
+      </div>
+      <nav class="ia-toc" aria-label="Sommaire">
+        <a href="#definition">L'idée</a>
+        <a href="#structure">Structure</a>
+        <a href="#chargement">Chargement</a>
+        <a href="#anatomie">SKILL.md</a>
+        <a href="#description">Description</a>
+        <a href="#methodes">Créer</a>
+        <a href="#checklist">Checklist</a>
+        <a href="#depannage">Dépannage</a>
+        <a href="#mcp">MCP</a>
+        <a href="#exemples">Mauvais vs bon</a>
+        <a href="#exercices">Exercices</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#application">Mon usage</a>
+      </nav>
+    </section>
+
+    <!-- ===== 1. Définition + lexique ===== -->
+    <section class="ia-section reveal" id="definition">
+      <h2><span class="ia-num">01</span> L'idée en une phrase</h2>
+      <div class="ia-callout card">
+        <p>Une <strong>compétence</strong> est un dossier contenant un fichier texte, <code>SKILL.md</code>, qui apprend
+        à Claude une manière précise de faire une tâche. On l'écrit une fois ; ensuite Claude la suit
+        automatiquement à chaque fois qu'une demande correspond.</p>
+        <p class="ia-muted">Analogie : c'est la fiche procédure qu'on donne à un nouveau collègue. Plus elle est
+        précise (étapes, exemples, quoi faire en cas d'erreur), moins il improvise.</p>
+      </div>
+
+      <h3>Le vocabulaire à connaître</h3>
+      <dl class="ia-glossary">
+        <div class="card"><dt>SKILL.md</dt><dd>Le fichier principal, nommé exactement ainsi (majuscules comprises). Sans lui, pas de compétence.</dd></div>
+        <div class="card"><dt>Frontmatter</dt><dd>L'étiquette en haut du fichier, entre deux lignes <code>---</code> : le nom et la description.</dd></div>
+        <div class="card"><dt>Phrase déclencheuse</dt><dd>Ce qu'un utilisateur taperait vraiment (« corrige mon CSV ») et qui doit activer la compétence.</dd></div>
+        <div class="card"><dt>Déclencheur négatif</dt><dd>La clause « Ne PAS utiliser pour… » qui évite que la compétence s'active à tort.</dd></div>
+        <div class="card"><dt>kebab-case</dt><dd>Minuscules + tirets : <code>csv-cleaner</code>. Ni espaces, ni underscores, ni majuscules.</dd></div>
+        <div class="card"><dt>MCP</dt><dd>Model Context Protocol : la prise qui relie Claude à des outils externes (GitHub, Slack, Linear…).</dd></div>
+        <div class="card"><dt>Dégradation gracieuse</dt><dd>Si un outil est indisponible, faire ce qui est possible et dire clairement ce qui manque.</dd></div>
+        <div class="card"><dt>references/ · scripts/</dt><dd>Documents lus à la demande · code exécuté (validation, automatisation).</dd></div>
+      </dl>
+    </section>
+
+    <!-- ===== 2. Structure ===== -->
+    <section class="ia-section reveal" id="structure">
+      <h2><span class="ia-num">02</span> La structure d'un dossier</h2>
+      <div class="ia-two">
+        <pre class="ia-tree card" aria-label="Arborescence d'une compétence"><span class="t-dir">mon-skill/</span>          <span class="t-c">← kebab-case</span>
+├── <span class="t-file">SKILL.md</span>         <span class="t-c">← obligatoire : les instructions</span>
+├── <span class="t-dir">scripts/</span>         <span class="t-c">← code exécuté (facultatif)</span>
+│   └── validate.py
+├── <span class="t-dir">references/</span>      <span class="t-c">← docs lues si besoin (facultatif)</span>
+│   └── api-patterns.md
+└── <span class="t-dir">assets/</span>          <span class="t-c">← modèles, icônes, polices</span></pre>
+        <ul class="ia-rules">
+          <li><b>Nom du dossier</b> en kebab-case, descriptif : <code>csv-cleaner</code> plutôt que <code>tool-1</code>.</li>
+          <li><b>« claude » et « anthropic »</b> sont réservés dans le nom : l'envoi est refusé.</li>
+          <li><b>Pas de README.md</b> dans le dossier : il serait chargé comme du contenu de la compétence.</li>
+          <li><b>Moins de 500 lignes</b> pour SKILL.md. Les gros tableaux et la doc d'API vont dans <code>references/</code>.</li>
+          <li><b>Le code ne se colle pas</b> dans les instructions : il va dans <code>scripts/</code> et on y fait référence.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== 3. Chargement progressif ===== -->
+    <section class="ia-section reveal" id="chargement">
+      <h2><span class="ia-num">03</span> Comment Claude charge une compétence</h2>
+      <p class="ia-intro">Claude ne lit pas tout d'un coup : il charge par couches, ce qui garde son contexte léger.
+      C'est pour ça que la description compte tant… et qu'un fichier trop long est contre-productif.</p>
+      <ol class="ia-layers">
+        <li class="card" style="--c: var(--violet)"><span class="ia-layer-n">1</span><div><b>Métadonnées</b> — nom + description<small>Toujours visibles. C'est sur cette base que Claude décide d'activer ou non.</small></div></li>
+        <li class="card" style="--c: var(--pink)"><span class="ia-layer-n">2</span><div><b>Corps de SKILL.md</b> — les instructions<small>Chargé seulement quand la compétence se déclenche.</small></div></li>
+        <li class="card" style="--c: var(--orange)"><span class="ia-layer-n">3</span><div><b>references/</b> — documents complémentaires<small>Lus uniquement quand une instruction dit « consulte references/… ».</small></div></li>
+        <li class="card" style="--c: #0ea5e9"><span class="ia-layer-n">⚙</span><div><b>scripts/</b> — validation, automatisation<small>Exécutés à la demande, jamais chargés dans la mémoire de Claude.</small></div></li>
+      </ol>
+    </section>
+
+    <!-- ===== 4. Anatomie ===== -->
+    <section class="ia-section reveal" id="anatomie">
+      <h2><span class="ia-num">04</span> L'anatomie d'un SKILL.md</h2>
+      <div class="ia-two">
+        <pre class="ia-code card"><span class="k">---</span>
+<span class="p">name:</span> rapport-incidents-hebdo
+<span class="p">description:</span> Produit le rapport hebdo des incidents
+  à partir de Sentry. Utiliser quand l'utilisateur dit
+  "rapport d'incidents", "bugs de la semaine".
+  Ne PAS utiliser pour corriger un bug précis.
+<span class="p">metadata:</span>
+  author: Mourad Chabour
+  version: 1.0.0
+  mcp-server: sentry
+<span class="k">---</span>
+
+<span class="h"># Rapport d'incidents hebdomadaire</span>
+
+<span class="h">## CRITIQUE — avant toute chose</span>
+1. Vérifier que le MCP Sentry est connecté.
+2. Sinon, STOP et le dire à l'utilisateur.
+
+<span class="h">## Instructions</span>
+<span class="h">### Étape 1 : …</span>   <span class="c">(action, quoi dire, cas d'échec)</span>
+
+<span class="h">## Exemples</span>      <span class="c">(demande → actions → réponse)</span>
+<span class="h">## Dépannage</span>      <span class="c">(erreur exacte → cause → solution)</span></pre>
+        <div class="ia-anat">
+          <div class="ia-anat-item"><b>Les <code>---</code></b><p>Obligatoires en haut et en bas du frontmatter, sinon le fichier n'est pas lu.</p></div>
+          <div class="ia-anat-item"><b>description</b><p>Le champ le plus important. Pas de chevrons <code>&lt; &gt;</code>, pas de jargon marketing.</p></div>
+          <div class="ia-anat-item"><b>metadata</b><p>Minimal : auteur, version, serveur MCP s'il y en a un. Pas de ticket Jira, sprint ou cible de déploiement.</p></div>
+          <div class="ia-anat-item"><b>Section CRITIQUE en premier</b><p>Claude lit de haut en bas : une règle enfouie en bas est dépriorisée.</p></div>
+          <div class="ia-anat-item"><b>Étapes numérotées</b><p>Chacune dit quoi faire, quoi répondre, et quoi faire si ça échoue.</p></div>
+          <div class="ia-anat-item"><b>Exemples + Dépannage</b><p>Un exemple de sortie « finie » rend les résultats constants ; chaque erreur prévue a sa solution.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 5. Description ===== -->
+    <section class="ia-section reveal" id="description">
+      <h2><span class="ia-num">05</span> La formule de la description</h2>
+      <p class="ia-intro">Elle doit répondre à deux questions : <b>QUE fait la compétence ?</b> et <b>QUAND Claude doit-il l'utiliser ?</b></p>
+      <div class="ia-formula card">
+        <span class="f1">[Ce que ça fait] + [avec quoi]</span>
+        <span class="fplus">.</span>
+        <span class="f2">Utiliser quand l'utilisateur dit « … », « … », « … »</span>
+        <span class="fplus">.</span>
+        <span class="f3">Ne PAS utiliser pour [hors périmètre]</span>
+      </div>
+      <div class="ia-vs">
+        <div class="card ia-bad"><span class="ia-tag">Trop vague</span><p>« Aide pour les e-mails. »</p><small>Aucune phrase déclencheuse : Claude ne sait pas quand l'activer.</small></div>
+        <div class="card ia-bad"><span class="ia-tag">Trop large</span><p>« Traite des documents et analyse des données. »</p><small>Correspond à presque tout : elle se déclenche à tort.</small></div>
+        <div class="card ia-good"><span class="ia-tag">Bien</span><p>« Rédige des e-mails de prospection commerciale. Utiliser quand l'utilisateur dit "e-mail à froid", "modèle de prospection". Ne PAS utiliser pour les e-mails internes. »</p><small>Cas précis, phrases réelles, déclencheur négatif.</small></div>
+      </div>
+      <p class="ia-tip">Deux compétences proches (nettoyer un CSV / analyser un CSV) ? Chacune cite l'autre dans son « Ne PAS utiliser pour ».</p>
+    </section>
+
+    <!-- ===== 6. Méthodes ===== -->
+    <section class="ia-section reveal" id="methodes">
+      <h2><span class="ia-num">06</span> Deux façons de créer une compétence</h2>
+      <div class="ia-grid2">
+        <article class="card ia-method">
+          <span class="ia-badge">Méthode 1</span>
+          <h3>Transformer un document existant</h3>
+          <p>On part d'une procédure, d'un guide ou d'une checklist qu'on a déjà, et on demande à Claude de le convertir
+          en compétence (l'outil <em>skill-creator</em> guide la démarche). Idéal pour capitaliser ce qui existe.</p>
+        </article>
+        <article class="card ia-method">
+          <span class="ia-badge">Méthode 2</span>
+          <h3>Partir d'un prompt structuré</h3>
+          <p>On décrit la compétence rubrique par rubrique :</p>
+          <ul class="chips">
+            <li class="chip">Ce qu'elle fait</li><li class="chip">Déclenchement</li><li class="chip">Comportement</li>
+            <li class="chip">Entrée</li><li class="chip">Sortie</li><li class="chip">Style</li>
+            <li class="chip">Dépendances MCP</li><li class="chip">Exemple</li>
+          </ul>
+          <p class="ia-muted">Puis on l'enregistre dans <code>.claude/skills/</code> pour Claude Code, ou on l'importe dans l'application.</p>
+        </article>
+      </div>
+      <h3>Tester avant de publier</h3>
+      <div class="ia-tests">
+        <div class="card"><b>✓ Doit déclencher</b><p>Une demande typique : la compétence s'active-t-elle ?</p></div>
+        <div class="card"><b>✗ Ne doit pas déclencher</b><p>Une demande voisine hors périmètre : est-elle bien ignorée ?</p></div>
+        <div class="card"><b>⚠ Cas d'erreur</b><p>Une situation prévue dans le dépannage : est-elle bien gérée ?</p></div>
+      </div>
+    </section>
+
+    <!-- ===== 7. Checklist ===== -->
+    <section class="ia-section reveal" id="checklist">
+      <h2><span class="ia-num">07</span> Checklist avant envoi</h2>
+      <p class="ia-intro">Cochez au fur et à mesure (rien n'est enregistré, c'est un pense-bête).</p>
+      <div class="ia-check card">
+        <div class="ia-progress"><span id="check-bar"></span></div>
+        <p class="ia-check-count" id="check-count">0 / 10</p>
+        <ul id="checklist-list">
+          <li><label><input type="checkbox" /> Fichier nommé exactement <code>SKILL.md</code> <small>Claude cherche ce nom précis.</small></label></li>
+          <li><label><input type="checkbox" /> <code>---</code> en haut et en bas du frontmatter <small>Sinon le fichier n'est pas analysé.</small></label></li>
+          <li><label><input type="checkbox" /> Aucun <code>&lt;</code> ou <code>&gt;</code> dans le frontmatter <small>Les chevrons cassent l'analyse.</small></label></li>
+          <li><label><input type="checkbox" /> Le nom ne contient ni « claude » ni « anthropic » <small>Mots réservés.</small></label></li>
+          <li><label><input type="checkbox" /> Le nom est en kebab-case <small><code>my-skill</code>, pas <code>my_skill</code> ni <code>My Skill</code>.</small></label></li>
+          <li><label><input type="checkbox" /> Au moins 3 phrases déclencheuses dans la description <small>Claude doit savoir quand l'activer.</small></label></li>
+          <li><label><input type="checkbox" /> Des déclencheurs négatifs si besoin <small>« Ne PAS utiliser pour… »</small></label></li>
+          <li><label><input type="checkbox" /> Des instructions en étapes numérotées <small>Le précis bat le vague, à chaque fois.</small></label></li>
+          <li><label><input type="checkbox" /> Une gestion d'erreurs spécifique <small>« Les erreurs sont gérées » ne suffit pas.</small></label></li>
+          <li><label><input type="checkbox" /> SKILL.md fait moins de 500 lignes <small>Le reste part dans references/.</small></label></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== 8. Dépannage ===== -->
+    <section class="ia-section reveal" id="depannage">
+      <h2><span class="ia-num">08</span> Symptôme → cause → correction</h2>
+      <div class="ia-table card" role="table">
+        <div class="ia-tr ia-th" role="row"><span role="columnheader">Symptôme</span><span role="columnheader">Cause probable</span><span role="columnheader">Correction</span></div>
+        <div class="ia-tr" role="row"><span>Envoi refusé</span><span>Nom de fichier ou <code>---</code> manquants</span><span>Vérifier la casse de SKILL.md et les délimiteurs</span></div>
+        <div class="ia-tr" role="row"><span>Ne se déclenche jamais</span><span>Description trop vague</span><span>Ajouter les phrases que les gens tapent vraiment</span></div>
+        <div class="ia-tr" role="row"><span>Se déclenche sur tout</span><span>Description trop large</span><span>Ajouter « Ne PAS utiliser pour… »</span></div>
+        <div class="ia-tr" role="row"><span>Se déclenche, mais mauvaise sortie</span><span>Instructions vagues</span><span>Étapes numérotées avec actions précises</span></div>
+        <div class="ia-tr" role="row"><span>Les appels MCP échouent</span><span>Pas de gestion d'erreurs</span><span>Une erreur précise → une solution, pour chaque appel</span></div>
+        <div class="ia-tr" role="row"><span>Sortie incohérente</span><span>Pas de modèle de sortie</span><span>Montrer à quoi ressemble « fini »</span></div>
+        <div class="ia-tr" role="row"><span>Règles importantes ignorées</span><span>Info critique enfouie</span><span>La remonter tout en haut</span></div>
+      </div>
+    </section>
+
+    <!-- ===== 9. MCP ===== -->
+    <section class="ia-section reveal" id="mcp">
+      <h2><span class="ia-num">09</span> Compétences connectées à des outils (MCP)</h2>
+      <div class="ia-mcp">
+        <div class="ia-mcp-diagram" aria-hidden="true">
+          <span class="node n-claude">Claude<br /><small>+ compétence</small></span>
+          <span class="wire w1"></span><span class="wire w2"></span><span class="wire w3"></span>
+          <span class="node n-gh">GitHub</span><span class="node n-slack">Slack</span><span class="node n-linear">Linear</span>
+        </div>
+        <ol class="ia-mcp-rules">
+          <li><b>Vérifier la connexion d'abord</b>, avant tout appel d'outil.</li>
+          <li><b>Le déclarer</b> dans les métadonnées : <code>mcp-server: linear</code>.</li>
+          <li><b>Nommer les outils exacts</b> : « utiliser Linear MCP : <code>create_issue</code> ».</li>
+          <li><b>Dégrader gracieusement</b> : GitHub OK mais Slack absent → faire la partie GitHub et le signaler.</li>
+          <li><b>Erreur d'authentification</b> → dire à l'utilisateur de reconnecter l'outil dans les réglages.</li>
+          <li><b>Succès partiel</b> : « 2 tâches créées, 3 en échec (auth) » plutôt que tout recommencer ou se taire.</li>
+          <li><b>Jamais de publication automatique</b> (Slack, e-mail…) : toujours demander confirmation.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== 10. Mauvais vs bon ===== -->
+    <section class="ia-section reveal" id="exemples">
+      <h2><span class="ia-num">10</span> Mauvais vs bon : 4 réécritures</h2>
+      <p class="ia-intro">Le pack compare quatre compétences ratées à leur version corrigée. Cliquez pour basculer.</p>
+      <div class="ia-flips" id="flips">
+        <button type="button" class="ia-flip card" aria-pressed="false">
+          <span class="ia-flip-bad"><b>deployer</b>« Déploie des applications. » Aucune vérification, aucune confirmation avant la prod.</span>
+          <span class="ia-flip-good"><b>vercel-deploy-helper</b>Périmètre précis (Vercel), vérifie le build avant, demande confirmation pour la prod, explique chaque erreur.</span>
+        </button>
+        <button type="button" class="ia-flip card" aria-pressed="false">
+          <span class="ia-flip-bad"><b>rédacteur</b>« Écrit du contenu. » Pas de public, pas de ton, pas de format attendu.</span>
+          <span class="ia-flip-good"><b>rédacteur-blog-technique</b>Public et ton définis, plan imposé, exemple d'article fini, longueur cible.</span>
+        </button>
+        <button type="button" class="ia-flip card" aria-pressed="false">
+          <span class="ia-flip-bad"><b>support</b>« Aide le support client. » Risque de répondre directement aux clients.</span>
+          <span class="ia-flip-good"><b>zendesk-ticket-triage</b>Classe et priorise les tickets, propose une réponse mais n'envoie jamais rien seul.</span>
+        </button>
+        <button type="button" class="ia-flip card" aria-pressed="false">
+          <span class="ia-flip-bad"><b>graphiques</b>« Fait des graphiques. » Données ambiguës devinées en silence.</span>
+          <span class="ia-flip-good"><b>csv-vers-tableau-de-bord</b>Entrée CSV précisée, demande en cas d'ambiguïté (dates…), gère les gros fichiers.</span>
+        </button>
+      </div>
+      <p class="ia-tip">Le motif commun des bonnes versions : frontmatter propre → règles critiques en tête → étapes → exemples → dépannage.</p>
+    </section>
+
+    <!-- ===== 11. Exercices ===== -->
+    <section class="ia-section reveal" id="exercices">
+      <h2><span class="ia-num">11</span> Les trois exercices</h2>
+      <div class="ia-ex">
+        <article class="card"><span class="ia-badge">Débutant</span><h3>1 · Ma première compétence</h3>
+          <p><code>social-post-generator</code> : adapter un message à chaque réseau. Les limites par plateforme vont dans
+          <code>references/platform-limits.md</code> (Twitter/X 280 car. et 1–2 hashtags, LinkedIn 3 000 car. et 3–5, Instagram 2 200 car. et 5–15).
+          Bonus : un script <code>validate_post.py</code>.</p></article>
+        <article class="card"><span class="ia-badge">Intermédiaire</span><h3>2 · Déboguer une compétence cassée</h3>
+          <p>Un collègue envoie « My Email Writer/skill.md ». Il fallait trouver au moins 8 fautes ; le corrigé en liste 13.</p>
+          <details class="ia-details"><summary>Voir les 13 erreurs</summary>
+            <ol>
+              <li>Dossier avec espaces et majuscules → <code>email-writer/</code></li>
+              <li><code>skill.md</code> au lieu de <code>SKILL.md</code></li>
+              <li>Délimiteurs <code>---</code> absents</li>
+              <li>« claude » dans le nom (réservé)</li>
+              <li>Chevrons <code>&lt;professionnels&gt;</code> dans la description</li>
+              <li>Aucune phrase déclencheuse</li>
+              <li>Jira, sprint, cible de déploiement dans les métadonnées</li>
+              <li>Historique des versions dans les instructions</li>
+              <li>Section « Architecture » : du détail interne, pas une consigne</li>
+              <li>« Rédiger des e-mails » : instruction vague</li>
+              <li>« Si quelque chose ne va pas, gérez-le » : aucune gestion d'erreurs</li>
+              <li>Aucun exemple de bonne sortie</li>
+              <li>« Fonctionnalités avancées » : doc pour développeurs, pas actionnable</li>
+            </ol>
+          </details></article>
+        <article class="card"><span class="ia-badge">Avancé</span><h3>3 · Compétence connectée (MCP)</h3>
+          <p><code>pr-summary-bot</code> : résumer une Pull Request GitHub et la publier sur Slack. Vérifier les deux
+          connexions, continuer avec GitHub seul si Slack manque, <b>confirmer avant de publier</b>, et valider le résumé
+          (moins de 2 000 caractères) avec un script.</p></article>
+      </div>
+    </section>
+
+    <!-- ===== 12. Quiz ===== -->
+    <section class="ia-section reveal" id="quiz">
+      <h2><span class="ia-num">12</span> Quiz express</h2>
+      <p class="ia-intro">Dix questions inspirées du quiz du pack (qui en compte 30). Cliquez une réponse pour voir l'explication.</p>
+      <div class="ia-quiz" id="quiz-root"></div>
+      <div class="ia-quiz-foot">
+        <p class="ia-score" id="quiz-score" role="status"></p>
+        <button type="button" class="btn btn-ghost" id="quiz-reset">Recommencer</button>
+      </div>
+    </section>
+
+    <!-- ===== 13. Application ===== -->
+    <section class="ia-section reveal" id="application">
+      <h2><span class="ia-num">13</span> Ce que j'en retiens pour mon métier</h2>
+      <p class="ia-intro">Une compétence, c'est finalement de la <b>documentation exécutable</b> : le même réflexe que
+      les bundles partagés et les conventions que je pose pour les équipes, mais lisible par un agent.</p>
+      <div class="ia-ideas">
+        <div class="card"><b>Conventions d'équipe</b><p>Transformer nos règles de nommage, de structure de bundle Symfony et de contrats de messages RabbitMQ en compétences : chaque développeur (et Claude) applique la même norme.</p></div>
+        <div class="card"><b>Tickets prêts à développer</b><p>Une compétence qui transforme un besoin ou un compte rendu en tickets à structure identique, priorisés, avec critères d'acceptation.</p></div>
+        <div class="card"><b>Triage des erreurs</b><p>Connectée à Sentry et GitHub par MCP : classer les erreurs de la semaine, proposer un correctif, ne rien publier sans validation.</p></div>
+        <div class="card"><b>Revue d'architecture</b><p>Checklist de revue (idempotence des consommateurs, versionnement des API, sécurité des permissions) appliquée de façon systématique.</p></div>
+      </div>
+    </section>
+
+    <p class="ia-source">Source : pack de formation « Claude Skills » (AI Agents Accelerator), 10 documents. Synthèse et reformulation personnelles.</p>
+  </main>
+
+  <footer class="footer container">
+    <p><a href="index.html">← Retour au portfolio</a></p>
+    <ul class="socials">
+      <li><a href="carte.html">Carte de visite</a></li>
+      <li><a href="cv.html">CV (PDF)</a></li>
+    </ul>
+  </footer>
+
+  <script src="ia.js?v=16"></script>
+</body>
+</html>

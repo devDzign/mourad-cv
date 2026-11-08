@@ -1,0 +1,21 @@
+{
+  "name": "mourad-dev",
+  "version": "1.0.0",
+  "description": "Portfolio personnel : présentation, projets filtrables et formulaire de contact.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "dev:env": "node --watch --env-file=.env server.js"
+  },
+  "engines": {
+    "node": ">=20.6"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "gifenc": "^1.0.3",
+    "nodemailer": "^6.10.1",
+    "qrcode-generator": "^2.0.4"
+  },
+  "license": "MIT"
+}

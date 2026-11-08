@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Ce titre devient le nom proposé pour le fichier PDF -->
+  <title>Mourad-Chabour-CV</title>
+  <meta name="description" content="CV de Mourad Chabour, prêt à être enregistré en PDF." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%237c3aed'/><stop offset='1' stop-color='%23f97316'/></linearGradient></defs><rect width='100' height='100' rx='28' fill='url(%23g)'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="cv.css?v=12" />
+</head>
+<body>
+  <!-- Barre d'outils : visible à l'écran, masquée dans le PDF -->
+  <header class="toolbar">
+    <a href="index.html" class="tool-link">← Portfolio</a>
+    <div class="toolbar-actions">
+      <span class="tool-hint">Dans la fenêtre qui s'ouvre, choisissez « Enregistrer au format PDF ».</span>
+      <button type="button" class="tool-btn" id="print-btn" disabled>Préparation…</button>
+    </div>
+  </header>
+
+  <!-- La feuille A4 -->
+  <article class="sheet" id="sheet" aria-busy="true">
+    <header class="cv-head">
+      <div class="cv-id">
+        <h1 id="cv-name"></h1>
+        <p class="cv-role" id="cv-role"></p>
+        <p class="cv-tagline" id="cv-tagline"></p>
+        <ul class="cv-contact" id="cv-contact"></ul>
+      </div>
+      <figure class="cv-qr">
+        <img src="/api/qr.svg?path=/" alt="QR code vers le portfolio" />
+        <figcaption>Portfolio interactif</figcaption>
+      </figure>
+    </header>
+
+    <div class="cv-body">
+      <main class="cv-main">
+        <section class="cv-section">
+          <h2>Profil</h2>
+          <div id="cv-about"></div>
+        </section>
+        <section class="cv-section">
+          <h2>Mon rôle dans les équipes</h2>
+          <ul class="cv-roles" id="cv-roles"></ul>
+        </section>
+        <section class="cv-section">
+          <h2>Réalisations clés</h2>
+          <ul class="cv-projects" id="cv-projects"></ul>
+        </section>
+      </main>
+
+      <aside class="cv-side">
+        <section class="cv-section">
+          <h2>En bref</h2>
+          <dl class="cv-facts" id="cv-facts"></dl>
+        </section>
+        <section class="cv-section">
+          <h2>Domaines métier</h2>
+          <ul class="cv-domains" id="cv-domains"></ul>
+        </section>
+        <section class="cv-section">
+          <h2>Compétences</h2>
+          <div id="cv-skills"></div>
+        </section>
+        <section class="cv-section">
+          <h2>Parcours</h2>
+          <ol class="cv-timeline" id="cv-timeline"></ol>
+        </section>
+        <section class="cv-section">
+          <h2>Ma philosophie</h2>
+          <ul class="cv-quotes" id="cv-quotes"></ul>
+        </section>
+      </aside>
+    </div>
+
+    <footer class="cv-foot" id="cv-foot"></footer>
+  </article>
+
+  <script src="cv.js?v=12"></script>
+</body>
+</html>
