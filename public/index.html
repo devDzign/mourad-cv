@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=17" />
+  <link rel="stylesheet" href="style.css?v=18" />
   <!-- Applique le thème choisi avant l'affichage, pour éviter un flash de couleur -->
   <script>
     try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
@@ -178,6 +178,10 @@
     <!-- Parcours -->
     <section class="section container reveal" id="parcours">
       <h2 class="section-title"><span class="section-num">08</span> Parcours</h2>
+      <!-- Bandeau des entreprises (logos lus depuis /api/parcours, même liste que la page Parcours) -->
+      <div class="marquee logos-marquee" id="logos-marquee-wrap" hidden>
+        <div class="marquee-track" id="logos-marquee"></div>
+      </div>
       <ol class="timeline" id="timeline" data-stagger></ol>
       <p class="timeline-more"><a href="parcours.html" class="btn btn-ghost">Voir le parcours complet (15 ans)</a></p>
     </section>
@@ -258,7 +262,7 @@
   </dialog>
 
   <script src="covers.js?v=16"></script>
-  <script src="script.js?v=16"></script>
+  <script src="script.js?v=17"></script>
   <script src="architecture.js?v=18"></script>
 </body>
 </html>
