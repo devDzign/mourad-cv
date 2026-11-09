@@ -75,7 +75,8 @@
 .par-marquee { margin: 2.2rem 0 0; border-radius: 16px; border-inline: 0; }
 .par-logo { gap: 0.7rem; color: var(--text); text-decoration: none; font-size: 1.05rem; transition: color 0.2s; }
 .par-logo:hover { color: var(--accent-text); }
-.par-logo img { height: 26px; width: auto; max-width: 160px; object-fit: contain; }
+.par-logo img { height: 34px; width: auto; max-width: 160px; object-fit: contain; border-radius: 8px; background: #fff; padding: 2px; }
+.par-logo img[src$='.svg'] { background: transparent; padding: 0; height: 26px; }
 .par-logo-init, .par-entreprise-logo .par-logo-init {
   display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 12px;
   background: var(--gradient); color: #fff; font: 800 0.85rem var(--font-display); letter-spacing: 0.04em;

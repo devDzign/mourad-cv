@@ -1,10 +1,14 @@
 {
   "titre": "Parcours complet",
-  "intro": "Quinze ans de développement back-end, des premiers sites PHP aux microservices Symfony d'une plateforme d'investissement. Cette page retrace le chemin poste par poste : ce que j'ai construit, avec quelles technologies, et ce que chaque étape m'a appris.",
+  "intro": "Quinze ans de développement back-end, des premiers sites Symfony 2 aux microservices d'une plateforme d'investissement : dix entreprises, de la start-up au ministère, et un fil conducteur, les API et l'architecture des applications distribuées.",
   "chiffres": [
     {
       "valeur": "15 ans",
-      "label": "de développement back-end"
+      "label": "de développement back-end, depuis 2012"
+    },
+    {
+      "valeur": "10",
+      "label": "entreprises, de la start-up au ministère"
     },
     {
       "valeur": "5 ans",
@@ -13,23 +17,100 @@
     {
       "valeur": "13",
       "label": "bundles Symfony partagés"
-    },
-    {
-      "valeur": "6 000+",
-      "label": "commits dans 25+ dépôts"
     }
   ],
   "entreprises": {
-    "intro": "Les entreprises où j'ai travaillé. Chaque logo renvoie au site de la société.",
+    "intro": "Les entreprises où j'ai travaillé depuis 2012, de la plus récente à la plus ancienne. Chaque logo renvoie au site de la société.",
     "items": [
       {
         "nom": "Groupe Inter Invest (Elvest)",
         "logo": "logos/elvest.svg",
         "site": "https://elvest.fr",
         "periode": "2021 – aujourd'hui",
-        "poste": "Lead architecte back-end",
+        "poste": "Lead développeur, puis lead architecte back-end",
         "secteur": "Gestion de patrimoine · Investissement",
-        "description": "Groupe indépendant de gestion de patrimoine et d'investissement (épargne retraite, défiscalisation outre-mer, private equity, immobilier), devenu Elvest en 2026. Plusieurs milliers de conseillers partenaires et une plateforme digitale développée en interne."
+        "description": "Groupe indépendant de gestion de patrimoine et d'investissement : épargne retraite, défiscalisation outre-mer, private equity, immobilier. Devenu Elvest en 2026, avec plusieurs milliers de conseillers partenaires et une plateforme digitale développée en interne."
+      },
+      {
+        "nom": "Ministère de l'Intérieur",
+        "logo": "logos/ministere-de-l-interieur.jpg",
+        "site": "https://www.interieur.gouv.fr",
+        "periode": "2019 – 2021",
+        "poste": "Lead développeur Symfony / React, référent technique",
+        "secteur": "Secteur public",
+        "description": "Direction du numérique du ministère : applications internes et services aux agents, développés par des équipes projets multiples avec des exigences fortes de sécurité, d'authentification unique et d'industrialisation."
+      },
+      {
+        "nom": "Upply",
+        "logo": "logos/upply.jpg",
+        "site": "https://www.upply.com",
+        "periode": "2018 – 2019",
+        "poste": "Lead développeur Symfony, API REST en microservices",
+        "secteur": "Start-up · Logistique",
+        "description": "Start-up du groupe Geodis qui apporte transparence et flexibilité au marché du transport routier et maritime : prix de marché, cotations et mise en relation des chargeurs et des transporteurs."
+      },
+      {
+        "nom": "VISEO",
+        "logo": "logos/viseo.jpg",
+        "site": "https://www.viseo.com",
+        "periode": "2017 – 2018",
+        "poste": "Lead développeur senior Symfony 3 / Vue.js 2",
+        "secteur": "ESN · Conseil",
+        "description": "Cabinet de conseil et de services numériques international. Mission chez un éditeur de logiciel de merchandising pour le secteur cosmétique, fondé sur l'analyse des ventes et des comportements en point de vente."
+      },
+      {
+        "nom": "Groupe Argus",
+        "logo": "logos/groupe-argus.png",
+        "site": "https://www.largus.fr",
+        "periode": "2016 – 2017",
+        "poste": "Lead développeur PHP 7 / Symfony 3",
+        "secteur": "Médias · Automobile",
+        "description": "Référence de la cote automobile en France depuis 1927 : cotation des véhicules d'occasion, données et services pour les professionnels de l'automobile, site et applications grand public."
+      },
+      {
+        "nom": "Peugeot (PSA)",
+        "logo": "logos/peugeot.jpg",
+        "site": "https://www.peugeot.fr",
+        "periode": "2015",
+        "poste": "Développeur Symfony, configurateur de véhicules",
+        "secteur": "Industrie automobile",
+        "description": "Constructeur automobile du groupe PSA, aujourd'hui Stellantis. Mission sur le configurateur de véhicules multi-pays, consommé par les sites de la marque dans le monde."
+      },
+      {
+        "nom": "FHM Solutions",
+        "logo": "logos/fhm-solutions.jpg",
+        "site": "",
+        "periode": "2015",
+        "poste": "Développeur web PHP 5 / Symfony 2",
+        "secteur": "Agence web",
+        "description": "Agence de développement web. Mission courte sur une plateforme d'enchères : site responsive, géolocalisation, back-office d'administration et moteur de recherche Elasticsearch."
+      },
+      {
+        "nom": "Universal Music Group",
+        "logo": "logos/universal-music-group.jpg",
+        "site": "https://www.universalmusic.fr",
+        "periode": "2013 – 2015",
+        "poste": "Développeur web PHP 5 / Symfony 2",
+        "secteur": "Musique · Médias",
+        "description": "Première major mondiale de la musique. Site de téléchargement et d'écoute de titres pour les détenteurs de codes promotionnels, développé par une équipe de cinq développeurs."
+      },
+      {
+        "nom": "userADgents",
+        "logo": "logos/useradgents.jpg",
+        "site": "https://www.useradgents.com",
+        "periode": "2014",
+        "poste": "Consultant développeur web Symfony 2",
+        "secteur": "Agence digitale · Mobile",
+        "description": "Agence spécialisée dans les applications mobiles et les services digitaux. Mission sur le site du CESIN, club des experts de la sécurité de l'information, et ses web services pour l'application mobile."
+      },
+      {
+        "nom": "Cap Adrénaline",
+        "logo": "logos/cap-adrenaline.jpg",
+        "site": "https://www.cap-adrenaline.com",
+        "periode": "2012 – 2013",
+        "poste": "Développeur web, analyste programmeur",
+        "secteur": "E-commerce · Loisirs",
+        "description": "Site e-commerce de bons cadeaux d'activités à sensations (saut en parachute, pilotage, plongée). Premier poste en Symfony 2, également sur le site frère Dakotabox."
       }
     ]
   },
@@ -37,11 +118,11 @@
     {
       "debut": "2021",
       "fin": "aujourd'hui",
-      "titre": "Lead architecte back-end",
+      "titre": "Lead développeur & responsable technique back-end, puis lead architecte",
       "organisation": "Groupe Inter Invest (Elvest)",
       "lieu": "Paris",
       "actuel": true,
-      "resume": "Cinq ans sur la même plateforme de gestion de patrimoine : épargne retraite, défiscalisation outre-mer, private equity. Arrivé sur les applications historiques, je porte depuis 2025 les décisions de communication entre une dizaine de microservices et l'expérience développeur des équipes.",
+      "resume": "Cinq ans sur la même plateforme de gestion de patrimoine : épargne retraite, défiscalisation outre-mer, private equity. Référent technique sur les API et microservices du produit de souscription au Plan d'Épargne Retraite, puis lead architecte : je porte les décisions de communication entre une dizaine de microservices et l'expérience développeur des équipes.",
       "faits": [
         "Plus de 4 000 commits sur le site et les back-offices PHP / Symfony, dont 3 000 sur le back-end du Plan d'Épargne Retraite.",
         "Conception du socle inter-services : Outbox / Inbox sur RabbitMQ, JWT interne signé RSA, contrats OpenAPI et clients générés.",
@@ -61,19 +142,219 @@
       "detail": "timeline"
     },
     {
-      "aCompleter": true,
-      "debut": "2011",
-      "fin": "2021",
-      "titre": "Développeur PHP / Symfony — postes de 2011 à 2021",
-      "resume": "Dix années de développement web et back-end avant la plateforme d'investissement : sites et applications métier en PHP, Symfony de la version 2 à la 7, APIs REST, puis premières architectures distribuées. Le détail poste par poste arrive bientôt.",
-      "repere": "Les jalons vérifiables de ces années (études, certifications, projets personnels) figurent plus bas sur cette page."
+      "debut": "mai 2019",
+      "fin": "juin 2021",
+      "titre": "Lead développeur Symfony 4 / 5 et React, référent technique",
+      "organisation": "Ministère de l'Intérieur",
+      "lieu": "Paris",
+      "resume": "Référent technique full stack sur plusieurs projets du ministère : socle commun d'authentification, outillage des équipes et industrialisation des livraisons.",
+      "faits": [
+        "Librairie PHP et bundle Symfony d'authentification SSO, partagés entre les projets.",
+        "Clients HTTP et librairies générés depuis les contrats OpenAPI des API transverses.",
+        "Starter d'environnement de développement Symfony sous Docker, documentation des API et des projets.",
+        "Intégration et livraison continues avec GitLab Runner et GitHub Actions ; formation et encadrement des équipes projets."
+      ],
+      "stack": [
+        "PHP 7.4",
+        "Symfony 4.4 / 5.2",
+        "React",
+        "SSO",
+        "PHPUnit",
+        "PHPStan",
+        "Docker",
+        "Kubernetes",
+        "GitLab CI"
+      ]
+    },
+    {
+      "debut": "sept. 2018",
+      "fin": "août 2019",
+      "titre": "Lead développeur Symfony 4, API REST en microservices",
+      "organisation": "Upply",
+      "lieu": "Paris",
+      "resume": "Start-up de la logistique : une équipe de cinq développeurs, un Scrum Master et un Product Owner pour construire la plateforme de cotation du transport.",
+      "faits": [
+        "Contribution à la mise en place de l'architecture en microservices et de la structure des projets API REST.",
+        "Microservices de pricing des offres et de génération des factures.",
+        "API de paiement avec un prestataire PSP et plusieurs parcours de paiement.",
+        "Pré-grooming, découpage des user stories et revue des pull requests."
+      ],
+      "stack": [
+        "PHP 7.4",
+        "Symfony 4",
+        "API Platform",
+        "MongoDB",
+        "RabbitMQ",
+        "Redis",
+        "React",
+        "AWS",
+        "Docker",
+        "GitHub Actions"
+      ]
+    },
+    {
+      "debut": "août 2017",
+      "fin": "juil. 2018",
+      "titre": "Lead développeur senior Symfony 3 / Vue.js 2",
+      "organisation": "VISEO",
+      "lieu": "Boulogne-Billancourt",
+      "resume": "Création d'un logiciel de merchandising pour le secteur cosmétique : analyses quantitatives des ventes et des marges, données de panel, mise en valeur de l'offre et analyse des comportements en point de vente.",
+      "faits": [
+        "Conception et développement du back-end Symfony 3 et du front Vue.js 2.",
+        "Modélisation des indicateurs commerciaux (chiffre d'affaires, marges, panels) pour les analyses."
+      ],
+      "stack": [
+        "PHP 7",
+        "Symfony 3",
+        "Vue.js 2",
+        "MySQL",
+        "Git"
+      ]
+    },
+    {
+      "debut": "janv. 2016",
+      "fin": "juil. 2017",
+      "titre": "Lead développeur PHP 7 / Symfony 3.2",
+      "organisation": "Groupe Argus",
+      "lieu": "Paris",
+      "resume": "Refonte du back-office et création d'une API REST pour la référence de la cote automobile.",
+      "faits": [
+        "Bundle de journalisation des événements applicatifs et plateforme de gestion des tâches planifiées.",
+        "API REST complète avec authentification à jeton, documentée techniquement et fonctionnellement.",
+        "Interfaces de gestion des applications et mini CMS pour le SEO.",
+        "Formation de l'équipe aux bonnes pratiques Symfony et aux outils de développement."
+      ],
+      "stack": [
+        "PHP 7",
+        "Symfony 3.2",
+        "MariaDB",
+        "React",
+        "Twig",
+        "Bootstrap 3",
+        "Jira"
+      ]
+    },
+    {
+      "debut": "avr. 2015",
+      "fin": "déc. 2015",
+      "titre": "Développeur Symfony 2, configurateur de véhicules PSA",
+      "organisation": "Peugeot",
+      "lieu": "Paris, Grande Armée",
+      "resume": "Configurateur de véhicules du groupe PSA, consommé par le front et par les sites pays.",
+      "faits": [
+        "API REST pour le front et les applications des sites pays, documentées avec NelmioApiDocBundle.",
+        "Back-office de gestion des véhicules, dynamisation des templates du front.",
+        "Tests unitaires et fonctionnels de non-régression, correction des tickets client."
+      ],
+      "stack": [
+        "PHP 5.6",
+        "Symfony 2.8",
+        "MongoDB",
+        "Twig",
+        "Smarty",
+        "Scrum"
+      ]
+    },
+    {
+      "debut": "sept. 2015",
+      "fin": "oct. 2015",
+      "titre": "Développeur web PHP 5 / Symfony 2",
+      "organisation": "FHM Solutions",
+      "lieu": "Île-de-France",
+      "resume": "Plateforme d'enchères : site responsive, cartes Google Maps, traduction, espace d'administration et recherche Elasticsearch.",
+      "faits": [
+        "Back-office de gestion des utilisateurs, des enchères et de leurs règles, import et export.",
+        "Moteur de recherche Elasticsearch avec FOSElasticaBundle, authentification et rôles avec FOSUserBundle, tests PHPUnit."
+      ],
+      "stack": [
+        "PHP 5",
+        "Symfony 2",
+        "MongoDB",
+        "Elasticsearch",
+        "Twig",
+        "Bootstrap"
+      ]
+    },
+    {
+      "debut": "mai 2013",
+      "fin": "mars 2015",
+      "titre": "Développeur web PHP 5 / Symfony 2",
+      "organisation": "Universal Music Group",
+      "lieu": "Paris",
+      "resume": "Site permettant aux détenteurs d'un code de télécharger et d'écouter gratuitement des titres, avec une équipe de cinq développeurs et un chef de projet.",
+      "faits": [
+        "API REST complète pour le front de l'application musicale, authentification OAuth avec FOSOAuthServerBundle.",
+        "Gestion et migration des bases MySQL, recherche Elasticsearch.",
+        "Droits d'utilisation par plateforme et par rôle ; tests unitaires et fonctionnels PHPUnit."
+      ],
+      "stack": [
+        "PHP 5",
+        "Symfony 2",
+        "MySQL",
+        "Elasticsearch",
+        "OAuth",
+        "Twig",
+        "GitLab"
+      ]
+    },
+    {
+      "debut": "mars 2014",
+      "fin": "sept. 2014",
+      "titre": "Consultant développeur web Symfony 2",
+      "organisation": "userADgents",
+      "lieu": "Paris",
+      "resume": "Site du CESIN et web services pour son application mobile.",
+      "faits": [
+        "Envoi automatique de mailings et notifications à la création ou mise à jour d'un composant, avec compteur.",
+        "Formulaires d'administration, extraction de listes en CSV avec filtres, upload de fichiers persistants.",
+        "Mise en production chez le client et maintenance applicative."
+      ],
+      "stack": [
+        "PHP 5",
+        "Symfony 2",
+        "Twig",
+        "Bootstrap 3",
+        "jQuery",
+        "Jira"
+      ]
+    },
+    {
+      "debut": "févr. 2012",
+      "fin": "mai 2013",
+      "titre": "Développeur web, analyste programmeur",
+      "organisation": "Cap Adrénaline",
+      "lieu": "Paris 11e",
+      "resume": "Site e-commerce de bons cadeaux d'activités, et son site frère Dakotabox : premier poste, premiers pas avec Symfony 2.",
+      "faits": [
+        "Web service REST avec FOSRestBundle pour lister les bons cadeaux et changer leur statut, avec authentification.",
+        "API de paiement améliorée et module pour le service après-vente.",
+        "Site rendu responsive, classement des commentaires par thématique, modification des bons cadeaux par le client."
+      ],
+      "stack": [
+        "PHP 5",
+        "Symfony 2",
+        "MySQL",
+        "Twig",
+        "jQuery",
+        "Redmine"
+      ]
     }
   ],
   "formation": [
     {
-      "periode": "2010 – 2013",
-      "titre": "Université Paris VII Denis Diderot",
-      "text": "Trois années d'études, de 2010-2011 à 2012-2013. L'intitulé exact du diplôme reste à préciser."
+      "periode": "2012 – 2013",
+      "titre": "Master 2 en ingénierie informatique",
+      "text": "Université Paris Cité (ex Paris VII Denis Diderot) : programmation, algorithmes pour Internet, répartition et systèmes."
+    },
+    {
+      "periode": "2011 – 2012",
+      "titre": "Maîtrise d'informatique",
+      "text": "Université Paris Cité : option Systèmes, Réseaux, Internet."
+    },
+    {
+      "periode": "2010 – 2011",
+      "titre": "Licence 3 d'informatique",
+      "text": "Université Paris Cité."
     }
   ],
   "certifications": [
