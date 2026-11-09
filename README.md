@@ -103,27 +103,17 @@ Avec Gmail, utilisez un **mot de passe d'application** (Compte Google → Sécur
 
 ## Déployer (GitHub + Render)
 
-GitHub Pages n'héberge que des fichiers statiques et ne peut pas faire tourner Express : on utilise donc Render, qui se branche sur votre dépôt GitHub.
+GitHub Pages n'héberge que des fichiers statiques et ne peut pas faire tourner Express : on utilise donc [Render](https://render.com), qui se branche sur le dépôt GitHub (https://github.com/devDzign/mourad-cv) et redéploie à chaque `git push` sur `main`.
 
-1. **Créer le dépôt GitHub** et y pousser le projet :
-   ```bash
-   git init
-   git add .
-   git commit -m "Premier commit du portfolio"
-   git branch -M main
-   git remote add origin https://github.com/<votre-compte>/<nom-du-depot>.git
-   git push -u origin main
-   ```
-2. Sur [render.com](https://render.com), connectez-vous avec GitHub puis **New → Web Service** et choisissez le dépôt.
-3. Réglages :
-   - Runtime : **Node**
-   - Build Command : `npm install`
-   - Start Command : `npm start`
-   - Instance Type : **Free**
-4. Dans **Environment**, ajoutez `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` et `CONTACT_TO`.
-5. Cliquez sur **Create Web Service**. Votre site est en ligne sur `https://<nom>.onrender.com`.
+Le fichier **`render.yaml`** à la racine décrit le service (Node, `npm install`, `npm start`, offre gratuite, région Francfort). Render le lit tout seul :
 
-Ensuite, chaque `git push` sur `main` redéploie le site automatiquement. Un nom de domaine personnalisé peut être ajouté dans **Settings → Custom Domains**.
+1. Créez un compte sur [render.com](https://render.com) avec votre compte GitHub, et autorisez l'accès au dépôt `devDzign/mourad-cv` quand Render le demande.
+2. Dans le tableau de bord : **New → Blueprint**, choisissez le dépôt `mourad-cv`, puis **Apply**. Render crée le service `mourad-cv` et lance le premier déploiement (2 à 3 minutes).
+3. Le site est en ligne sur `https://mourad-cv.onrender.com` (le nom peut varier si celui-ci est pris : il s'affiche en haut de la page du service).
+4. Dans le service, onglet **Environment**, renseignez `SITE_URL` avec cette adresse : les QR codes, la carte de visite et le CV l'utiliseront. Pour recevoir les messages du formulaire par email, ajoutez aussi `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` et `CONTACT_TO` (voir `.env.example`). Chaque enregistrement redéploie le site.
+5. Un nom de domaine personnalisé peut être ajouté dans **Settings → Custom Domains**.
+
+Sans Blueprint, la création manuelle fonctionne aussi : **New → Web Service**, dépôt `mourad-cv`, Runtime **Node**, Build Command `npm install`, Start Command `npm start`, Instance Type **Free**, puis les mêmes variables d'environnement.
 
 ### Limites de l'offre gratuite
 

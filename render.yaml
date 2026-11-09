@@ -1,0 +1,33 @@
+# Blueprint Render : décrit le service pour le déployer en quelques clics.
+# Sur render.com : New → Blueprint → choisir ce dépôt → Apply.
+# Les variables marquées sync: false sont à saisir dans le tableau de bord (jamais dans Git).
+services:
+  - type: web
+    name: mourad-cv
+    runtime: node
+    plan: free
+    region: frankfurt
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/profile
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20.18.0
+      # Adresse publique du site, utilisée par les QR codes, la carte et le CV.
+      # À renseigner après le premier déploiement, ex. https://mourad-cv.onrender.com
+      - key: SITE_URL
+        sync: false
+      # Envoi d'email du formulaire de contact (facultatif : sans ces valeurs,
+      # les messages sont seulement enregistrés dans data/messages.json).
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: CONTACT_TO
+        sync: false
