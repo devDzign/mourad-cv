@@ -2,18 +2,37 @@
 
 Portfolio personnel en Node.js + Express : présentation, compétences, projets filtrables et formulaire de contact (email + sauvegarde JSON).
 
-## Lancer en local
+## Démarrer le projet
 
-Prérequis : [Node.js](https://nodejs.org) 20.6 ou plus récent.
+Prérequis : [Node.js](https://nodejs.org) 20.6 ou plus récent (`node --version` pour vérifier). Aucune base de données, aucun build : le serveur Express sert directement les fichiers de `public/`.
 
 ```bash
-npm install
-npm run dev
+git clone <url-du-depot> && cd mourad-dev   # ou ouvrez le dossier existant
+npm install                                 # une seule fois, installe les 4 dépendances
+npm run dev                                 # lance le serveur sur http://localhost:3000
 ```
 
-Ouvrez http://localhost:3000. Le serveur redémarre tout seul quand vous modifiez `server.js`.
+Le serveur redémarre tout seul quand vous modifiez `server.js`. Les fichiers de `public/` et de `data/` sont relus à chaque requête : un simple rechargement de la page suffit.
 
-Pour tester l'envoi d'email en local : copiez `.env.example` en `.env`, remplissez-le, puis lancez `npm run dev:env`.
+| Commande | Usage |
+|---|---|
+| `npm run dev` | Développement, sans envoi d'email (les messages du formulaire sont seulement enregistrés dans `data/messages.json`) |
+| `npm run dev:env` | Développement avec le fichier `.env` chargé, pour tester l'envoi d'email |
+| `npm start` | Production (commande utilisée par Render) |
+
+Pour tester l'envoi d'email en local : copiez `.env.example` en `.env`, remplissez `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` et `CONTACT_TO`, puis lancez `npm run dev:env`.
+
+Pages disponibles une fois le serveur lancé :
+
+| Adresse | Page |
+|---|---|
+| http://localhost:3000 | Portfolio (présentation, compétences, projets, schéma d'architecture, contact) |
+| http://localhost:3000/carte | Carte de visite numérique avec QR code |
+| http://localhost:3000/cv | CV imprimable en PDF |
+| http://localhost:3000/ia | Notes de formation « compétences Claude » |
+| http://localhost:3000/entretien | Préparation d'entretien (page personnelle, non référencée) |
+
+Si le port 3000 est déjà pris, lancez avec un autre port : `PORT=3001 npm run dev`. Pour arrêter le serveur : `Ctrl+C` dans le terminal.
 
 ## Modifier le contenu
 
@@ -66,6 +85,12 @@ Les QR codes sont générés par le serveur (`/api/qr.svg` et `/api/qr.gif`, ce 
 ## Page « IA · Compétences Claude »
 
 **`/ia`** (fichiers `public/ia.html`, `ia.css`, `ia.js`) : synthèse expliquée d'un pack de formation sur les compétences (skills) Claude — définition et vocabulaire, structure d'un dossier, chargement progressif, anatomie de `SKILL.md`, formule de description, checklist interactive, tableau de dépannage, règles MCP, exemples « mauvais vs bon » à basculer, exercices et un quiz de 10 questions avec score. Liens depuis le menu (« IA »), la section Contact et le pied de page. Le contenu est directement dans `ia.html` ; les questions du quiz sont dans le tableau `QUIZ` en haut de `ia.js`.
+
+## Page « Préparer mon entretien »
+
+**`/entretien`** (fichiers `public/entretien.html`, `entretien.css`, `entretien.js`) : espace personnel, non référencé (`noindex`) et sans lien depuis le site, pour préparer un entretien de Staff Engineer ou d'architecte transverse. Fil rouge et trois preuves, pitch en trois durées modifiable et chronométré avec jauge de débit, parcours et principes repris du portfolio, histoires au format STAR avec notes personnelles, questions probables filtrables avec points clés, mode entraînement (question au hasard, 2 minutes, auto-évaluation qui fait revenir les questions faibles), questions à poser et checklist de la veille. Le bouton « Antisèche PDF » imprime une version compacte.
+
+Le contenu se modifie dans **`data/entretien.json`** (servi par `/api/entretien`). Les modifications de pitch, notes, scores et cases cochées restent dans le navigateur (`localStorage`).
 
 ## Messages reçus
 
