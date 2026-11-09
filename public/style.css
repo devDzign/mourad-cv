@@ -1569,8 +1569,8 @@ body::after {
 
 .hero-stats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, max-content));
-  gap: 14px 34px;
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  gap: 18px 44px;
   margin: 40px 0 0;
   padding: 22px 0 0;
   list-style: none;
@@ -1584,11 +1584,12 @@ body::after {
   font-weight: 800;
   line-height: 1.1;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 .hero-stat span {
   display: block;
-  max-width: 170px;
+  max-width: 230px;
   font-size: 0.9rem;
   color: var(--muted);
 }
@@ -1827,6 +1828,52 @@ body::after {
   to { transform: translateX(-50%); }
 }
 
+/* Bandeau des entreprises (section Parcours) : même mécanique, avec les logos */
+.logos-marquee {
+  margin: 0 0 34px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+
+.logo-item {
+  gap: 12px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: color 0.2s;
+}
+
+.logo-item:hover { color: var(--accent-text); }
+.logo-item::after { color: var(--orange); }
+
+.logo-item img {
+  height: 34px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+  padding: 2px;
+}
+
+.logo-item img[src$='.svg'] {
+  background: transparent;
+  padding: 0;
+  height: 26px;
+}
+
+.logo-init {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--gradient);
+  color: #fff;
+  font: 800 0.85rem var(--font-display);
+  letter-spacing: 0.04em;
+}
+
 /* ----- Fiche « En bref » ----- */
 .facts {
   display: grid;
@@ -1962,7 +2009,7 @@ body::after {
   }
 
   .hero-stats {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px 16px;
   }
 

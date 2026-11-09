@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <!-- Reprend la charte du site (couleurs, polices, boutons, cartes), puis les styles de cette page -->
-  <link rel="stylesheet" href="style.css?v=17" />
-  <link rel="stylesheet" href="parcours.css?v=2" />
+  <link rel="stylesheet" href="style.css?v=19" />
+  <link rel="stylesheet" href="parcours.css?v=4" />
   <script>
     try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
   </script>
@@ -40,6 +40,17 @@
       <h1 id="par-titre">Parcours complet</h1>
       <p class="par-intro" id="par-intro"></p>
       <ul class="par-chiffres" id="par-chiffres"></ul>
+    </section>
+
+    <!-- Bandeau des logos d'entreprises qui défile (même mécanique que les technologies de l'accueil) -->
+    <div class="marquee par-marquee" id="par-marquee-wrap" hidden>
+      <div class="marquee-track" id="par-marquee"></div>
+    </div>
+
+    <section class="par-section" aria-labelledby="par-entreprises-t" id="par-entreprises-sec" hidden>
+      <h2 id="par-entreprises-t">Entreprises</h2>
+      <p class="par-intro" id="par-entreprises-intro"></p>
+      <ul class="par-entreprises" id="par-entreprises"></ul>
     </section>
 
     <section class="par-section" aria-labelledby="par-postes-t">
@@ -81,6 +92,6 @@
     <p class="par-erreur" id="par-erreur" hidden>Contenu indisponible pour le moment.</p>
   </main>
 
-  <script src="parcours.js?v=2"></script>
+  <script src="parcours.js?v=3"></script>
 </body>
 </html>

@@ -308,6 +308,40 @@ function renderArchitecture(architecture) {
   if (architecture) $('#archi-intro').textContent = architecture.intro;
 }
 
+/* ---------- Entreprises (même liste que la page Parcours, lue depuis /api/parcours) ---------- */
+
+function logoEntreprise(e) {
+  // Logo si disponible, sinon les initiales dans une pastille
+  if (e.logo) return el('img', { src: e.logo, alt: e.nom, loading: 'lazy' });
+  const initiales = e.nom.split(/\s+/).map((m) => m[0]).join('').slice(0, 3).toUpperCase();
+  return el('span', { class: 'logo-init', text: initiales });
+}
+
+async function renderEntreprises() {
+  const wrap = $('#logos-marquee-wrap');
+  if (!wrap) return;
+  try {
+    const res = await fetch('/api/parcours');
+    if (!res.ok) return;
+    const items = (await res.json()).entreprises?.items || [];
+    if (!items.length) return;
+    // La liste est répétée pour remplir au moins deux largeurs d'écran, puis doublée pour la boucle sans couture
+    const fois = Math.max(2, Math.ceil(8 / items.length));
+    const ligne = () =>
+      Array.from({ length: fois }, () => items).flat().map((e) =>
+        el('a', { class: 'marquee-item logo-item', href: e.site || 'parcours.html', target: e.site ? '_blank' : '_self', rel: 'noopener', title: `${e.nom} · ${e.periode || ''}` }, [
+          logoEntreprise(e),
+          el('span', { class: 'logo-nom', text: e.nom }),
+        ])
+      );
+    fill('#logos-marquee', [...ligne(), ...ligne()]);
+    wrap.hidden = false;
+  } catch (err) {
+    // Le bandeau est un complément : sans lui, la page reste complète
+    console.warn('Entreprises indisponibles', err);
+  }
+}
+
 /* ---------- Chargement des données ---------- */
 
 async function loadData() {
@@ -321,6 +355,7 @@ async function loadData() {
     renderTeam(profile.team);
     renderPhilosophy(profile.philosophy);
     renderTimeline(profile.timeline);
+    renderEntreprises();
     renderArchitecture(profile.architecture);
     const { categories, projects } = await projectsRes.json();
     allProjects = projects;
