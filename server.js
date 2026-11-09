@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 3000;
 const CONTENT_FILE = path.join(__dirname, 'data', 'content.json');
 const MESSAGES_FILE = path.join(__dirname, 'data', 'messages.json');
 const ENTRETIEN_FILE = path.join(__dirname, 'data', 'entretien.json');
+const PARCOURS_FILE = path.join(__dirname, 'data', 'parcours.json');
 
 // Render (comme la plupart des hébergeurs) place un proxy devant l'app :
 // cette option permet de récupérer la vraie IP du visiteur pour l'anti-spam.
@@ -48,6 +49,16 @@ app.get('/api/projects', async (req, res) => {
   } catch (err) {
     console.error('Lecture de content.json impossible :', err.message);
     res.status(500).json({ error: 'Projets indisponibles.' });
+  }
+});
+
+// Parcours complet : postes, formation, certifications, projets personnels. Relu à chaque requête.
+app.get('/api/parcours', async (req, res) => {
+  try {
+    res.json(JSON.parse(await fs.readFile(PARCOURS_FILE, 'utf8')));
+  } catch (err) {
+    console.error('Lecture de parcours.json impossible :', err.message);
+    res.status(500).json({ error: 'Contenu indisponible.' });
   }
 });
 
@@ -211,6 +222,7 @@ async function siteUrl(req) {
 // Pages dédiées, avec une adresse courte : /carte, /cv, /ia, /entretien et /offres
 app.get('/carte', (req, res) => res.sendFile(path.join(__dirname, 'public', 'carte.html')));
 app.get('/cv', (req, res) => res.sendFile(path.join(__dirname, 'public', 'cv.html')));
+app.get('/parcours', (req, res) => res.sendFile(path.join(__dirname, 'public', 'parcours.html')));
 app.get('/ia', (req, res) => res.sendFile(path.join(__dirname, 'public', 'ia.html')));
 app.get('/entretien', (req, res) => res.sendFile(path.join(__dirname, 'public', 'entretien.html')));
 app.get('/offres', (req, res) => res.sendFile(path.join(__dirname, 'public', 'offres.html')));

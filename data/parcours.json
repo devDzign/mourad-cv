@@ -1,0 +1,149 @@
+{
+  "titre": "Parcours complet",
+  "intro": "Quinze ans de développement back-end, des premiers sites PHP aux microservices Symfony d'une plateforme d'investissement. Cette page retrace le chemin poste par poste : ce que j'ai construit, avec quelles technologies, et ce que chaque étape m'a appris.",
+  "chiffres": [
+    {
+      "valeur": "15 ans",
+      "label": "de développement back-end"
+    },
+    {
+      "valeur": "5 ans",
+      "label": "en gestion de patrimoine et investissement"
+    },
+    {
+      "valeur": "13",
+      "label": "bundles Symfony partagés"
+    },
+    {
+      "valeur": "6 000+",
+      "label": "commits dans 25+ dépôts"
+    }
+  ],
+  "postes": [
+    {
+      "debut": "2021",
+      "fin": "aujourd'hui",
+      "titre": "Lead architecte back-end",
+      "organisation": "Groupe Inter Invest (Elvest)",
+      "lieu": "Paris",
+      "actuel": true,
+      "resume": "Cinq ans sur la même plateforme de gestion de patrimoine : épargne retraite, défiscalisation outre-mer, private equity. Arrivé sur les applications historiques, je porte depuis 2025 les décisions de communication entre une dizaine de microservices et l'expérience développeur des équipes.",
+      "faits": [
+        "Plus de 4 000 commits sur le site et les back-offices PHP / Symfony, dont 3 000 sur le back-end du Plan d'Épargne Retraite.",
+        "Conception du socle inter-services : Outbox / Inbox sur RabbitMQ, JWT interne signé RSA, contrats OpenAPI et clients générés.",
+        "Treize bundles Symfony partagés, recettes Flex privées et 2IT LaunchPad, l'environnement local Kubernetes + Tilt de l'équipe.",
+        "Grille d'audit en dix axes appliquée par tous les leads à leurs dépôts, et intégration encadrée de Claude Code."
+      ],
+      "stack": [
+        "PHP 8.4",
+        "Symfony 8",
+        "API Platform",
+        "RabbitMQ",
+        "Keycloak",
+        "ClickHouse",
+        "Kubernetes",
+        "PostgreSQL"
+      ],
+      "detail": "timeline"
+    },
+    {
+      "aCompleter": true,
+      "debut": "2011",
+      "fin": "2021",
+      "titre": "Développeur PHP / Symfony — postes de 2011 à 2021",
+      "resume": "Dix années de développement web et back-end avant la plateforme d'investissement : sites et applications métier en PHP, Symfony de la version 2 à la 7, APIs REST, puis premières architectures distribuées. Le détail poste par poste arrive bientôt.",
+      "repere": "Les jalons vérifiables de ces années (études, certifications, projets personnels) figurent plus bas sur cette page."
+    }
+  ],
+  "formation": [
+    {
+      "periode": "2010 – 2013",
+      "titre": "Université Paris VII Denis Diderot",
+      "text": "Trois années d'études, de 2010-2011 à 2012-2013. L'intitulé exact du diplôme reste à préciser."
+    }
+  ],
+  "certifications": [
+    {
+      "date": "Janv. 2020",
+      "titre": "Dive Into Refactoring",
+      "organisme": "refactoring.guru"
+    },
+    {
+      "date": "Janv. 2020",
+      "titre": "React — The Complete Guide",
+      "organisme": "Udemy"
+    },
+    {
+      "date": "Janv. 2018",
+      "titre": "Vue.js 2 par la pratique",
+      "organisme": "Udemy"
+    },
+    {
+      "date": "Déc. 2017",
+      "titre": "Create the REST API in Symfony",
+      "organisme": "Udemy"
+    },
+    {
+      "date": "Déc. 2014",
+      "titre": "Développez votre site web avec Symfony 2",
+      "organisme": "OpenClassrooms"
+    },
+    {
+      "date": "Déc. 2014",
+      "titre": "Gérer son code avec Git et GitHub",
+      "organisme": "OpenClassrooms"
+    }
+  ],
+  "projets": [
+    {
+      "periode": "2013 – 2014",
+      "titre": "Plateforme de gestion de stage",
+      "text": "Projet personnel : suivi des conventions et des étudiants."
+    },
+    {
+      "periode": "2013 – 2014",
+      "titre": "Site e-commerce",
+      "text": "Projet personnel en PHP 5 et Symfony 2 : catalogue, panier et commandes."
+    }
+  ],
+  "publications": {
+    "intro": "Articles publiés sur LinkedIn : retours d'expérience sur l'architecture, l'événementiel et l'IA dans le quotidien d'une équipe.",
+    "profil": "https://www.linkedin.com/in/mchabour/",
+    "items": [
+      {
+        "date": "Nov. 2026",
+        "titre": "Sous-agents IA : pourquoi les utiliser et ce qu'on y gagne",
+        "url": "https://fr.linkedin.com/pulse/sous-agents-ia-pourquoi-les-utiliser-et-ce-quon-y-gagne-chabour-fxz0e"
+      },
+      {
+        "date": "Mai 2026",
+        "titre": "Comment on a journalisé tous les events Messenger d'une plateforme sans écrire une ligne de logger",
+        "url": "https://fr.linkedin.com/pulse/comment-journalis%C3%A9-tous-les-events-messenger-dune-sans-mourad-chabour-atfwe"
+      },
+      {
+        "date": "Avr. 2026",
+        "titre": "Comment on a conçu un micro-service de signature électronique zéro downtime",
+        "url": "https://fr.linkedin.com/pulse/comment-con%C3%A7u-un-micro-service-de-signature-z%C3%A9ro-downtime-chabour-tntcc"
+      },
+      {
+        "date": "Avr. 2026",
+        "titre": "3 erreurs fatales que font les devs juniors en entretien",
+        "url": "https://fr.linkedin.com/pulse/3-erreurs-fatales-que-font-les-devs-juniors-en-mourad-chabour-hjvbe"
+      }
+    ]
+  },
+  "langues": [
+    {
+      "langue": "Français",
+      "niveau": "Langue maternelle"
+    },
+    {
+      "langue": "Anglais",
+      "niveau": "Professionnel"
+    },
+    {
+      "langue": "Kabyle",
+      "niveau": "Courant"
+    }
+  ]
+}

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=16" />
+  <link rel="stylesheet" href="style.css?v=17" />
   <!-- Applique le thème choisi avant l'affichage, pour éviter un flash de couleur -->
   <script>
     try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
@@ -44,6 +44,7 @@
         <li><a href="#projets">Projets</a></li>
         <li><a href="#architecture">Architecture</a></li>
         <li><a href="#parcours">Parcours</a></li>
+        <li><a href="parcours.html">Parcours complet</a></li>
         <li><a href="ia.html" class="nav-ia">IA</a></li>
         <li><a href="#contact" class="nav-cta">Contact</a></li>
       </ul>
@@ -178,6 +179,7 @@
     <section class="section container reveal" id="parcours">
       <h2 class="section-title"><span class="section-num">08</span> Parcours</h2>
       <ol class="timeline" id="timeline" data-stagger></ol>
+      <p class="timeline-more"><a href="parcours.html" class="btn btn-ghost">Voir le parcours complet (15 ans)</a></p>
     </section>
 
     <!-- Contact -->
@@ -189,6 +191,7 @@
           <p>Écrivez-moi via ce formulaire, je vous réponds généralement sous 48&nbsp;heures.</p>
           <div class="contact-extras">
             <a href="carte.html" class="btn btn-ghost">Ma carte de visite</a>
+            <a href="parcours.html" class="btn btn-ghost">Mon parcours complet</a>
             <a href="cv.html" class="btn btn-ghost">Mon CV en PDF</a>
             <a href="ia.html" class="btn btn-ghost">Mes notes IA · Claude Skills</a>
           </div>

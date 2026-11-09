@@ -29,6 +29,7 @@ Pages disponibles une fois le serveur lancé :
 | http://localhost:3000 | Portfolio (présentation, compétences, projets, schéma d'architecture, contact) |
 | http://localhost:3000/carte | Carte de visite numérique avec QR code |
 | http://localhost:3000/cv | CV imprimable en PDF |
+| http://localhost:3000/parcours | Parcours complet : postes, formation, certifications, projets, publications |
 | http://localhost:3000/ia | Notes de formation « compétences Claude » |
 | http://localhost:3000/entretien | Préparation d'entretien (page personnelle, non référencée) |
 | http://localhost:3000/offres | Offres d'emploi analysées et scorées, avec brouillon de candidature (page personnelle) |
@@ -82,6 +83,10 @@ Réglages dans `data/content.json`, clé `contact` :
 - `website` : adresse publique du site, utilisée par les QR codes, la carte et le CV. Vide, c'est l'adresse de la page qui est utilisée (donc `localhost` en local). On peut aussi la définir avec la variable d'environnement `SITE_URL` sur Render.
 
 Les QR codes sont générés par le serveur (`/api/qr.svg` et `/api/qr.gif`, ce dernier pour les emails) avec la petite librairie `qrcode-generator`.
+
+## Page « Parcours complet »
+
+**`/parcours`** (fichiers `public/parcours.html`, `parcours.css`, `parcours.js`) : le parcours de carrière détaillé, lié depuis le menu, la frise et la section Contact de l'accueil. Le contenu est dans **`data/parcours.json`** (servi par `/api/parcours`) : postes (période, organisation, résumé, faits marquants, stack), formation, certifications, projets personnels, publications LinkedIn et langues. Un poste avec `detail: "timeline"` déplie les étapes année par année de `content.json` ; un poste avec `aCompleter: true` s'affiche en pointillés, comme emplacement à remplir.
 
 ## Page « IA · Compétences Claude »
 

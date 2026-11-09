@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parcours complet — Mourad Chabour</title>
+  <meta name="description" content="Quinze ans de développement back-end, poste par poste : des premiers sites PHP aux microservices Symfony d'une plateforme d'investissement." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%237c3aed'/><stop offset='1' stop-color='%23f97316'/></linearGradient></defs><rect width='100' height='100' rx='28' fill='url(%23g)'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Reprend la charte du site (couleurs, polices, boutons, cartes), puis les styles de cette page -->
+  <link rel="stylesheet" href="style.css?v=17" />
+  <link rel="stylesheet" href="parcours.css?v=2" />
+  <script>
+    try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body class="par-page">
+  <div class="blobs" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+
+  <header class="par-top container">
+    <a href="index.html" class="par-back">← Portfolio</a>
+    <div class="par-top-tools">
+      <a href="cv.html" class="par-back">CV imprimable</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Passer en mode sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="container par-main">
+    <section class="par-hero">
+      <p class="par-eyebrow">Parcours</p>
+      <h1 id="par-titre">Parcours complet</h1>
+      <p class="par-intro" id="par-intro"></p>
+      <ul class="par-chiffres" id="par-chiffres"></ul>
+    </section>
+
+    <section class="par-section" aria-labelledby="par-postes-t">
+      <h2 id="par-postes-t">Expériences</h2>
+      <ol class="par-frise" id="par-postes"></ol>
+    </section>
+
+    <div class="par-grid">
+      <div class="par-col">
+        <section class="par-section" aria-labelledby="par-formation-t">
+          <h2 id="par-formation-t">Formation</h2>
+          <ul class="par-liste" id="par-formation"></ul>
+        </section>
+        <section class="par-section" aria-labelledby="par-langues-t">
+          <h2 id="par-langues-t">Langues</h2>
+          <ul class="par-liste par-langues" id="par-langues"></ul>
+        </section>
+      </div>
+
+      <section class="par-section" aria-labelledby="par-certifs-t">
+        <h2 id="par-certifs-t">Certifications</h2>
+        <ul class="par-liste" id="par-certifs"></ul>
+      </section>
+
+      <section class="par-section" aria-labelledby="par-projets-t">
+        <h2 id="par-projets-t">Projets personnels</h2>
+        <ul class="par-liste" id="par-projets"></ul>
+      </section>
+
+    </div>
+
+    <section class="par-section" aria-labelledby="par-publis-t">
+      <h2 id="par-publis-t">Publications</h2>
+      <p class="par-intro" id="par-publis-intro"></p>
+      <ul class="par-publis" id="par-publis"></ul>
+      <p class="par-publis-lien"><a id="par-publis-profil" href="#" target="_blank" rel="noopener">Tous mes articles sur LinkedIn →</a></p>
+    </section>
+
+    <p class="par-erreur" id="par-erreur" hidden>Contenu indisponible pour le moment.</p>
+  </main>
+
+  <script src="parcours.js?v=2"></script>
+</body>
+</html>

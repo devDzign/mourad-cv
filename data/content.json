@@ -11,7 +11,7 @@
   ],
   "available": false,
   "about": [
-    "Depuis 2021, je travaille sur le back-end d'une plateforme d'investissement : d'abord sur les applications historiques, puis sur la nouvelle architecture en microservices Symfony / API Platform. En tant que lead architecte, je porte les décisions de communication entre les services : événements asynchrones fiabilisés par le pattern Outbox / Inbox sur RabbitMQ, appels synchrones sécurisés par un JWT interne, contrats OpenAPI et clients générés.",
+    "Développeur back-end depuis quinze ans, dont les cinq dernières sur le back-end d'une plateforme d'investissement : d'abord sur les applications historiques, puis sur la nouvelle architecture en microservices Symfony / API Platform. En tant que lead architecte, je porte les décisions de communication entre les services : événements asynchrones fiabilisés par le pattern Outbox / Inbox sur RabbitMQ, appels synchrones sécurisés par un JWT interne, contrats OpenAPI et clients générés.",
     "Ces décisions, je les transforme en outils concrets : plus de dix bundles Symfony partagés (Outbox, sécurité Keycloak et JWT, permissions, workflows, GED, clients d'API), des recettes Flex privées qui configurent un service en une commande, et 2IT LaunchPad, l'environnement local Kubernetes + Tilt de l'équipe. Mon objectif : qu'un développeur démarre vite, comprenne pourquoi les choses sont faites ainsi, et livre sans réinventer la roue. J'intègre aussi l'IA (Claude Code, skills, hooks, MCP) dans notre façon de travailler."
   ],
   "facts": [
@@ -20,8 +20,8 @@
       "value": "Lead architecte back-end"
     },
     {
-      "label": "Depuis",
-      "value": "2021, sur la même plateforme"
+      "label": "Expérience",
+      "value": "15 ans, dont 5 sur la plateforme actuelle"
     },
     {
       "label": "Stack",
@@ -42,8 +42,8 @@
   ],
   "stats": [
     {
-      "value": "5 ans",
-      "label": "sur la plateforme, du legacy aux microservices"
+      "value": "15 ans",
+      "label": "de développement back-end, dont 5 sur la plateforme"
     },
     {
       "value": "13",
@@ -117,7 +117,7 @@
     "website": ""
   },
   "domains": {
-    "intro": "Cinq ans dans la gestion de patrimoine et l'investissement : je connais les produits, les acteurs et les contraintes réglementaires derrière le code que j'écris.",
+    "intro": "Cinq ans dans la gestion de patrimoine et l'investissement, après dix ans de développement web et back-end sur d'autres secteurs : je connais les produits, les acteurs et les contraintes réglementaires derrière le code que j'écris.",
     "items": [
       {
         "icon": "retirement",
