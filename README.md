@@ -31,6 +31,7 @@ Pages disponibles une fois le serveur lancé :
 | http://localhost:3000/cv | CV imprimable en PDF |
 | http://localhost:3000/ia | Notes de formation « compétences Claude » |
 | http://localhost:3000/entretien | Préparation d'entretien (page personnelle, non référencée) |
+| http://localhost:3000/offres | Offres d'emploi analysées et scorées, avec brouillon de candidature (page personnelle) |
 
 Si le port 3000 est déjà pris, lancez avec un autre port : `PORT=3001 npm run dev`. Pour arrêter le serveur : `Ctrl+C` dans le terminal.
 
@@ -91,6 +92,12 @@ Les QR codes sont générés par le serveur (`/api/qr.svg` et `/api/qr.gif`, ce 
 **`/entretien`** (fichiers `public/entretien.html`, `entretien.css`, `entretien.js`) : espace personnel, non référencé (`noindex`) et sans lien depuis le site, pour préparer un entretien de Staff Engineer ou d'architecte transverse. Fil rouge et trois preuves, pitch en trois durées modifiable et chronométré avec jauge de débit, parcours et principes repris du portfolio, histoires au format STAR avec notes personnelles, questions probables filtrables avec points clés, mode entraînement (question au hasard, 2 minutes, auto-évaluation qui fait revenir les questions faibles), questions à poser et checklist de la veille. Le bouton « Antisèche PDF » imprime une version compacte.
 
 Le contenu se modifie dans **`data/entretien.json`** (servi par `/api/entretien`). Les modifications de pitch, notes, scores et cases cochées restent dans le navigateur (`localStorage`).
+
+## Page « Offres à matcher »
+
+**`/offres`** (fichiers `public/offres.html`, `offres.css`, `offres.js`, module serveur `offres.js`) : le serveur lit le job board GitHub de JL Recrutement (un README qui liste les offres par ville, une fiche Markdown par entreprise), analyse chaque fiche et la compare au profil. Chaque offre reçoit un score sur 100 et un verdict (Postuler, À étudier, Peu adapté), avec les atouts reconnus, les écarts à assumer et des notes de contexte (séniorité, localisation, métier). Le bouton « Préparer ma candidature » ouvre un brouillon de message en français, modifiable, à copier ou à ouvrir directement dans la messagerie avec l'objet et le corps remplis. Les offres déjà vues, les messages retouchés et les statuts (envoyée, écartée) restent dans le navigateur.
+
+Réglages dans **`data/offres.json`** : dépôt source et email du recruteur, compétences reconnues et leur poids, compétences non maîtrisées, textes du message. Le dépôt est relu au plus toutes les 30 minutes (bouton « Relire le dépôt » pour forcer). Sans jeton, l'API GitHub autorise 60 requêtes par heure ; définir `GITHUB_TOKEN` dans l'environnement relève cette limite.
 
 ## Messages reçus
 

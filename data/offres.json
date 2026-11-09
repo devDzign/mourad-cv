@@ -1,0 +1,45 @@
+{
+  "source": {
+    "repo": "jlondiche/Le-job-board",
+    "branch": "master",
+    "recruteur": "Jeanne Londiche",
+    "email": "jeanne.londiche@jlrecrutement.com",
+    "cache_minutes": 30
+  },
+  "poste_vise": ["Staff Engineer", "Architecte transverse", "Lead back-end"],
+  "lieux_ok": ["Paris", "Remote", "Full remote"],
+  "competences": [
+    { "mots": ["symfony"], "label": "Symfony", "poids": 3 },
+    { "mots": ["php"], "label": "PHP", "poids": 3 },
+    { "mots": ["api platform", "api-platform"], "label": "API Platform", "poids": 2 },
+    { "mots": ["rabbitmq", "messenger", "asynchrone", "async", "event", "événement"], "label": "RabbitMQ / événementiel", "poids": 2 },
+    { "mots": ["ddd", "hexagonale", "clean code", "solid", "design pattern", "craft"], "label": "DDD / craft", "poids": 2 },
+    { "mots": ["oauth2", "oidc", "keycloak", "sso", "openid"], "label": "OAuth2 / OIDC", "poids": 2 },
+    { "mots": ["architecture", "soa", "microservice", "scalabilit", "performance"], "label": "Architecture & performance", "poids": 2 },
+    { "mots": ["tdd", "test", "phpunit"], "label": "Tests", "poids": 1 },
+    { "mots": ["ci/cd", "devops", "cicd", "déploiement"], "label": "CI/CD", "poids": 1 },
+    { "mots": ["docker"], "label": "Docker", "poids": 1 },
+    { "mots": ["kubernetes", "k8s", "helm"], "label": "Kubernetes", "poids": 1 },
+    { "mots": ["postgresql", "postgres"], "label": "PostgreSQL", "poids": 1 },
+    { "mots": ["mysql"], "label": "MySQL", "poids": 1 },
+    { "mots": ["react"], "label": "React", "poids": 1 },
+    { "mots": ["typescript"], "label": "TypeScript", "poids": 1 },
+    { "mots": ["openapi", "swagger", "api rest", "rest"], "label": "API REST / OpenAPI", "poids": 1 },
+    { "mots": [" ia ", " ia.", "intelligence artificielle", "llm", "claude", "copilot", "mcp"], "label": "IA", "poids": 2 },
+    { "mots": ["lead", "senior", "sénior", "architecte", "staff", "mentor", "partage"], "label": "Séniorité / leadership", "poids": 2 },
+    { "mots": ["épargne", "retraite", "patrimoine", "assurance", "investissement", "financ", "fintech"], "label": "Métier épargne / finance", "poids": 3 }
+  ],
+  "non_maitrise": [
+    { "mots": ["python", "fastapi", "django"], "label": "Python", "poids": 3 },
+    { "mots": ["data engineer", "data manager", "spark", "airflow", "dbt", "snowflake", "bigquery"], "label": "Data engineering", "poids": 3 },
+    { "mots": ["jquery", "scss", "bem", "twig", "maquette", "figma"], "label": "Intégration front", "poids": 1 },
+    { "mots": ["sylius", "magento", "prestashop"], "label": "Plateforme e-commerce", "poids": 1 },
+    { "mots": ["java ", "kotlin", ".net", "c#", "golang", " go "], "label": "Autre langage principal", "poids": 3 },
+    { "mots": ["angular", "vue"], "label": "Autre framework front", "poids": 1 }
+  ],
+  "message": {
+    "signature": "Mourad Chabour",
+    "disponibilite": "disponible pour un premier échange dès cette semaine, en visio ou à Paris",
+    "pieces": "Mon CV est joint ; mon portfolio détaille les projets et un schéma animé de l'architecture que je porte."
+  }
+}

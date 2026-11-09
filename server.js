@@ -3,6 +3,7 @@ const fs = require('fs/promises');
 const path = require('path');
 const nodemailer = require('nodemailer');
 const qrcode = require('qrcode-generator');
+const { getOffres } = require('./offres');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -57,6 +58,17 @@ app.get('/api/entretien', async (req, res) => {
   } catch (err) {
     console.error('Lecture de entretien.json impossible :', err.message);
     res.status(500).json({ error: 'Contenu indisponible.' });
+  }
+});
+
+// Offres d'emploi lues depuis un job board GitHub, analysées et scorées (voir offres.js).
+// ?refresh=1 force la relecture du dépôt (sinon cache de 30 min).
+app.get('/api/offres', async (req, res) => {
+  try {
+    res.json(await getOffres({ siteUrl: await siteUrl(req), force: req.query.refresh === '1' }));
+  } catch (err) {
+    console.error('Lecture des offres impossible :', err.message);
+    res.status(502).json({ error: 'Offres indisponibles : ' + err.message });
   }
 });
 
@@ -196,11 +208,12 @@ async function siteUrl(req) {
   return (website || `${req.protocol}://${req.get('host')}`).replace(/\/$/, '');
 }
 
-// Pages dédiées, avec une adresse courte : /carte, /cv, /ia et /entretien
+// Pages dédiées, avec une adresse courte : /carte, /cv, /ia, /entretien et /offres
 app.get('/carte', (req, res) => res.sendFile(path.join(__dirname, 'public', 'carte.html')));
 app.get('/cv', (req, res) => res.sendFile(path.join(__dirname, 'public', 'cv.html')));
 app.get('/ia', (req, res) => res.sendFile(path.join(__dirname, 'public', 'ia.html')));
 app.get('/entretien', (req, res) => res.sendFile(path.join(__dirname, 'public', 'entretien.html')));
+app.get('/offres', (req, res) => res.sendFile(path.join(__dirname, 'public', 'offres.html')));
 
 // QR code qui pointe vers une page de ce site, ex. /api/qr.svg?path=/carte
 // Seuls les chemins internes sont acceptés : impossible de s'en servir pour un autre site.

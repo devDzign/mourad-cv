@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Offres à matcher — Mourad Chabour</title>
+  <meta name="description" content="Espace personnel : offres d'emploi lues depuis un job board GitHub, score d'adéquation avec mon profil et brouillon de candidature prêt à envoyer." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%237c3aed'/><stop offset='1' stop-color='%23f97316'/></linearGradient></defs><rect width='100' height='100' rx='28' fill='url(%23g)'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Reprend la charte du site (couleurs, polices, boutons, cartes), puis les styles de cette page -->
+  <link rel="stylesheet" href="style.css?v=16" />
+  <link rel="stylesheet" href="offres.css?v=1" />
+  <script>
+    try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body class="off-page">
+  <div class="blobs" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+
+  <header class="off-top container">
+    <a href="index.html" class="off-back">← Portfolio</a>
+    <div class="off-top-tools">
+      <a href="entretien.html" class="off-back">Préparer l'entretien</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Changer de thème">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- ===== En-tête ===== -->
+    <section class="off-hero">
+      <p class="off-kicker">Espace personnel · Veille d'offres</p>
+      <h1>Les offres qui <span class="gradient-text">me correspondent</span></h1>
+      <p class="off-lead">
+        Le serveur lit le job board de <a id="off-source-link" href="#" target="_blank" rel="noopener">JL Recrutement sur GitHub</a>,
+        analyse chaque fiche, la compare à mon profil et prépare un message de candidature. Je relis, j'ajuste, j'envoie.
+      </p>
+      <div class="off-summary" id="off-summary" aria-live="polite">
+        <span class="off-pill off-pill-loading">Lecture du dépôt…</span>
+      </div>
+      <div class="off-hero-visual" aria-hidden="true">
+        <div class="off-radar">
+          <span class="off-radar-ring"></span><span class="off-radar-ring"></span><span class="off-radar-ring"></span>
+          <span class="off-radar-sweep"></span>
+          <span class="off-radar-dot d1"></span><span class="off-radar-dot d2"></span><span class="off-radar-dot d3"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Filtres ===== -->
+    <section class="off-filters card" aria-label="Filtres">
+      <div class="off-filter-group" id="off-filter-verdict" role="group" aria-label="Adéquation">
+        <button type="button" data-verdict="" aria-pressed="true">Toutes</button>
+        <button type="button" data-verdict="Postuler">Postuler</button>
+        <button type="button" data-verdict="À étudier">À étudier</button>
+        <button type="button" data-verdict="Peu adapté">Peu adapté</button>
+      </div>
+      <div class="off-filter-group" id="off-filter-ville" role="group" aria-label="Ville"></div>
+      <label class="off-check"><input type="checkbox" id="off-only-new" /> Nouvelles seulement</label>
+      <label class="off-check"><input type="checkbox" id="off-hide-done" checked /> Masquer celles déjà traitées</label>
+      <button type="button" class="btn btn-ghost off-small" id="off-refresh" title="Relire le dépôt GitHub maintenant">Relire le dépôt</button>
+    </section>
+
+    <!-- ===== Liste ===== -->
+    <section class="off-list" id="off-list" aria-live="polite"></section>
+
+    <p class="off-source">Réglages du matching dans data/offres.json (compétences, poids, écarts, textes du message). Statuts et messages retouchés restent dans ce navigateur.</p>
+  </main>
+
+  <!-- Fenêtre de candidature -->
+  <dialog class="off-modal" id="off-modal" aria-labelledby="off-modal-title">
+    <div class="off-modal-head">
+      <div>
+        <p class="off-modal-kicker" id="off-modal-kicker"></p>
+        <h2 id="off-modal-title"></h2>
+      </div>
+      <button type="button" class="off-modal-close" id="off-modal-close" aria-label="Fermer">&times;</button>
+    </div>
+    <div class="off-modal-body">
+      <div class="off-modal-cols">
+        <aside class="off-modal-aside">
+          <h3>Pourquoi ça colle</h3>
+          <ul id="off-modal-atouts" class="off-modal-list off-ok"></ul>
+          <h3>Écarts à assumer</h3>
+          <ul id="off-modal-manques" class="off-modal-list off-ko"></ul>
+          <h3>Contexte</h3>
+          <ul id="off-modal-notes" class="off-modal-list"></ul>
+          <h3>Ce qu'ils demandent</h3>
+          <ul id="off-modal-profil" class="off-modal-list off-muted"></ul>
+        </aside>
+        <div class="off-modal-main">
+          <div class="off-modal-bar">
+            <h3>Mon message</h3>
+            <div class="off-modal-tools">
+              <span class="off-saved" id="off-saved"></span>
+              <button type="button" class="btn btn-ghost off-small" id="off-msg-reset" title="Revenir au brouillon généré">Brouillon généré</button>
+            </div>
+          </div>
+          <textarea id="off-msg" class="off-msg" spellcheck="true" aria-label="Message de candidature, modifiable"></textarea>
+          <div class="off-modal-actions">
+            <button type="button" class="btn btn-primary" id="off-copy">Copier le message</button>
+            <a class="btn btn-ghost" id="off-mailto" href="#">Ouvrir dans ma messagerie</a>
+            <a class="btn btn-ghost" id="off-open" href="#" target="_blank" rel="noopener">Voir l'annonce</a>
+          </div>
+          <div class="off-status" role="group" aria-label="Statut de la candidature">
+            <span>Statut :</span>
+            <button type="button" data-status="" class="off-status-btn">À faire</button>
+            <button type="button" data-status="envoye" class="off-status-btn">Candidature envoyée</button>
+            <button type="button" data-status="ignore" class="off-status-btn">Pas pour moi</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="footer container">
+    <p>© <span id="year"></span> Mourad Chabour</p>
+    <ul class="socials">
+      <li><a href="index.html">Portfolio</a></li>
+      <li><a href="entretien.html">Préparer l'entretien</a></li>
+      <li><a href="cv.html">CV (PDF)</a></li>
+    </ul>
+  </footer>
+
+  <script src="offres.js?v=1"></script>
+</body>
+</html>
