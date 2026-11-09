@@ -38,7 +38,7 @@
     { id: 'front', type: 'front', x: 380, y: 28, w: 440, h: 56, title: 'Fronts investisseur & partenaire', sub: 'React · navigateur' },
     { id: 'kong', type: 'gateway', x: 420, y: 142, w: 360, h: 56, title: 'Kong Gateway', sub: 'routage /pe · /dist · /permissions · Swagger /docs' },
     { id: 'keycloak', type: 'auth', x: 880, y: 142, w: 270, h: 56, title: 'Keycloak 26', sub: 'SSO OIDC · token exchange' },
-    { id: 'cif', type: 'service', x: 50, y: 158, w: 240, h: 74, title: 'CIFDigital', sub: 'Conseillers CIF · Symfony 8' },
+    { id: 'cif', type: 'service', x: 50, y: 158, w: 240, h: 74, title: 'CIFDigital', sub: 'Lettre de mission · Symfony 8' },
     { id: 'pe', type: 'service', x: 50, y: 262, w: 240, h: 78, title: 'api-ms-pe', sub: 'Private Equity · Symfony 8' },
     { id: 'dist', type: 'service', x: 340, y: 262, w: 240, h: 78, title: 'api-distrib', sub: 'Distribution · API Platform' },
     { id: 'engine', type: 'engine', x: 630, y: 262, w: 240, h: 78, title: 'distrib-engine', sub: 'Workflows · Workflow Core' },
@@ -66,7 +66,8 @@
     { id: 'kong-dist', kind: 'http', from: 'kong', to: 'dist', pts: [[540, 198], [540, 262]], label: '/dist', lp: [520, 234] },
     { id: 'kong-perm', kind: 'http', from: 'kong', to: 'perm', pts: [[740, 198], [740, 226], [1000, 226], [1000, 262]], label: '/permissions', lp: [880, 216] },
     { id: 'perm-keycloak', kind: 'http', from: 'perm', to: 'keycloak', pts: [[1120, 262], [1120, 198]], label: 'JWKS', lp: [1150, 232] },
-    { id: 'pe-cif', kind: 'http', from: 'pe', to: 'cif', pts: [[110, 262], [110, 232]], label: 'JWT', lp: [78, 250] },
+    { id: 'kong-cif', kind: 'http', from: 'kong', to: 'cif', pts: [[420, 176], [290, 176]], label: '/cif-digital', lp: [355, 166] },
+    { id: 'cif-dist', kind: 'http', from: 'cif', to: 'dist', pts: [[290, 210], [400, 210], [400, 262]], label: 'JWT', lp: [335, 200] },
     { id: 'pe-dist', kind: 'http', from: 'pe', to: 'dist', pts: [[290, 300], [340, 300]], label: 'JWT', lp: [315, 288] },
     { id: 'dist-engine', kind: 'http', from: 'dist', to: 'engine', pts: [[580, 300], [630, 300]], label: 'HTTP', lp: [605, 288] },
     { id: 'engine-perm', kind: 'http', from: 'engine', to: 'perm', pts: [[870, 300], [920, 300]], label: 'HTTP', lp: [895, 288] },
@@ -118,9 +119,16 @@
       steps: [
         { text: 'Un partenaire consulte un fonds : Kong route vers api-ms-pe.', moves: [{ e: 'front-kong', k: 'http', l: 'GET /pe/fonds' }, { e: 'kong-pe', k: 'http', l: '/pe', delay: 650 }] },
         { text: 'api-ms-pe appelle api-distrib en HTTP, authentifié par un JWT interne signé RSA (scope INVESTISSEMENT).', moves: [{ e: 'pe-dist', k: 'http', l: 'GET /dist/ · JWT' }] },
-        { text: 'En parallèle, api-ms-pe interroge CIFDigital pour récupérer le conseiller rattaché au fonds, avec le même JWT interne.', moves: [{ e: 'pe-cif', k: 'http', l: 'GET /cif/conseillers · JWT', back: 'conseiller' }] },
         { text: 'api-distrib vérifie les permissions du scope et répond.', moves: [{ e: 'dist-pg', k: 'sql', l: 'SELECT', back: 'lignes' }, { e: 'pe-dist', k: 'http', l: '200', rev: true, delay: 1300 }] },
         { text: "Le fonds est mis à jour : l'événement part sur l'exchange private_equity pour la synchronisation Domos.", moves: [{ e: 'pe-pg', k: 'sql', l: 'UPDATE + outbox', back: 'commit' }, { e: 'pe-ex', k: 'event', l: 'fonds.updated', delay: 1300 }] },
+      ],
+    },
+    {
+      title: 'Un conseiller produit sa lettre de mission',
+      steps: [
+        { text: 'Le conseiller valide un KYC enrichi : Kong route la requête vers CIFDigital (/cif-digital).', moves: [{ e: 'front-kong', k: 'http', l: 'POST /cif-digital/cifs' }, { e: 'kong-cif', k: 'http', l: '/cif-digital', delay: 650 }] },
+        { text: "CIFDigital vérifie le compte visé auprès d'api-distrib (GET /userinfo), authentifié par le JWT interne, sur le modèle d'api-ms-pe.", moves: [{ e: 'cif-dist', k: 'http', l: 'GET /dist/userinfo · JWT', back: 'compte' }, { e: 'dist-pg', k: 'sql', l: 'SELECT', back: 'lignes', delay: 700 }] },
+        { text: "La lettre de mission et la déclaration d'adéquation sont produites, puis renvoyées au conseiller.", moves: [{ e: 'kong-cif', k: 'http', l: '201 lettre de mission', rev: true }, { e: 'front-kong', k: 'http', l: '201', rev: true, delay: 650 }] },
       ],
     },
     {
