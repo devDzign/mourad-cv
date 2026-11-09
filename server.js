@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 const CONTENT_FILE = path.join(__dirname, 'data', 'content.json');
 const MESSAGES_FILE = path.join(__dirname, 'data', 'messages.json');
+const ENTRETIEN_FILE = path.join(__dirname, 'data', 'entretien.json');
 
 // Render (comme la plupart des hébergeurs) place un proxy devant l'app :
 // cette option permet de récupérer la vraie IP du visiteur pour l'anti-spam.
@@ -46,6 +47,16 @@ app.get('/api/projects', async (req, res) => {
   } catch (err) {
     console.error('Lecture de content.json impossible :', err.message);
     res.status(500).json({ error: 'Projets indisponibles.' });
+  }
+});
+
+// Préparation d'entretien : pitch, histoires STAR, questions. Relu à chaque requête, comme content.json.
+app.get('/api/entretien', async (req, res) => {
+  try {
+    res.json(JSON.parse(await fs.readFile(ENTRETIEN_FILE, 'utf8')));
+  } catch (err) {
+    console.error('Lecture de entretien.json impossible :', err.message);
+    res.status(500).json({ error: 'Contenu indisponible.' });
   }
 });
 
@@ -185,10 +196,11 @@ async function siteUrl(req) {
   return (website || `${req.protocol}://${req.get('host')}`).replace(/\/$/, '');
 }
 
-// Pages dédiées, avec une adresse courte : /carte, /cv et /ia
+// Pages dédiées, avec une adresse courte : /carte, /cv, /ia et /entretien
 app.get('/carte', (req, res) => res.sendFile(path.join(__dirname, 'public', 'carte.html')));
 app.get('/cv', (req, res) => res.sendFile(path.join(__dirname, 'public', 'cv.html')));
 app.get('/ia', (req, res) => res.sendFile(path.join(__dirname, 'public', 'ia.html')));
+app.get('/entretien', (req, res) => res.sendFile(path.join(__dirname, 'public', 'entretien.html')));
 
 // QR code qui pointe vers une page de ce site, ex. /api/qr.svg?path=/carte
 // Seuls les chemins internes sont acceptés : impossible de s'en servir pour un autre site.

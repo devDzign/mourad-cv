@@ -1,0 +1,128 @@
+{
+  "cible": {
+    "postes": ["Staff Engineer", "Architecte transverse"],
+    "fil_rouge": "Je rends les bonnes décisions techniques faciles à appliquer par toutes les équipes, et je mesure ce qu'elles changent.",
+    "trois_preuves": [
+      { "titre": "Un socle de communication commun", "texte": "Pattern Outbox / Inbox sur RabbitMQ, JWT interne signé RSA, contrats OpenAPI : le même cadre dans une dizaine de microservices." },
+      { "titre": "Des décisions transformées en outils", "texte": "13 bundles Symfony, recettes Flex privées, 2IT LaunchPad : la bonne pratique est le chemin le plus court." },
+      { "titre": "Une influence qui dépasse mon équipe", "texte": "Décisions écrites avec leurs inconvénients, grille d'audit en 10 axes partagée par tous les leads, guides et présentations, IA encadrée." }
+    ]
+  },
+  "pitch": {
+    "30s": "Je suis Mourad Chabour, lead architecte back-end. Depuis cinq ans sur la même plateforme d'investissement, j'ai accompagné le passage d'applications PHP historiques à une dizaine de microservices Symfony. Mon rôle : décider comment les services communiquent, transformer ces décisions en bundles que les équipes installent en une commande, et mesurer ce que ça change. Je cherche aujourd'hui un poste de Staff Engineer ou d'architecte transverse pour porter ce travail à l'échelle de plusieurs équipes.",
+    "2min": "Je suis Mourad Chabour, lead architecte back-end sur une plateforme d'investissement : épargne retraite, défiscalisation, private equity.\n\nMon parcours s'y lit en trois temps. En 2021, j'arrive sur les applications historiques, site et back-offices PHP / Symfony : des milliers de commits d'évolutions métier sur le PER, et une connaissance du métier que je n'ai jamais lâchée. En 2024, on décide de passer en microservices : je construis les premières briques communes, le bundle d'authentification Keycloak et le moteur de workflows événementiel. Depuis 2025, je suis lead architecte : je porte les décisions de communication entre services et je les diffuse aux équipes.\n\nTrois réalisations résument ce que je fais. D'abord l'Outbox Bundle : aucun événement perdu entre une écriture en base et sa publication sur RabbitMQ, un historique dans ClickHouse, le rejeu sans doublon ; il tourne dans quatre services. Ensuite le JWT interne signé RSA, qui sécurise tous les appels synchrones entre services avec des permissions filtrées par scope. Enfin, et c'est ce qui me tient le plus à cœur, l'expérience développeur : treize bundles, des recettes Flex privées, 2IT LaunchPad, pour qu'un service se configure en une commande et qu'un développeur comprenne pourquoi les choses sont faites ainsi.\n\nCe que je cherche maintenant, c'est un poste de Staff Engineer ou d'architecte transverse : décider avec plusieurs équipes, écrire les décisions avec leurs inconvénients, outiller leur application et mesurer leurs effets. C'est déjà ce que je fais avec la grille d'audit en dix axes que tous nos leads utilisent, et avec l'intégration encadrée de Claude Code dans nos dépôts. Je veux le faire à une échelle plus large.",
+    "5min": "Je suis Mourad Chabour, lead architecte back-end. Depuis 2021 je travaille sur la même plateforme de gestion de patrimoine : épargne retraite, défiscalisation outre-mer, private equity. Cinq ans sur un même produit, c'est ce qui me permet de parler autant du métier que de la technique.\n\n**Le parcours.** Je suis arrivé sur les applications historiques : le site, les back-offices, le back-end du Plan d'Épargne Retraite. Trois mille commits sur le PER : souscription, versements, arbitrages, gestion pilotée avec ses poches et ses courbes d'allocation. C'est là que j'ai appris que la difficulté n'est jamais le framework, c'est la règle métier et ses cas limites.\n\nEn 2024, l'entreprise décide de sortir du monolithe. On ne réécrit pas tout : on fait cohabiter. J'ai construit les premières briques communes, le bundle Keycloak, le moteur de workflows, puis en 2025 le socle de communication. Depuis, je suis lead architecte : mon périmètre, c'est la façon dont une dizaine de microservices se parlent, et la façon dont les équipes s'approprient ces règles.\n\n**Ce que je décide, et comment.** Ma première règle : asynchrone par défaut, synchrone par nécessité. Un service qui attend un autre hérite de ses pannes. Les échanges passent donc par des événements métier sur RabbitMQ, fiabilisés par le pattern Outbox / Inbox que j'ai implémenté en bundle au-dessus de Symfony Messenger : l'événement est écrit dans la même transaction que la donnée, publié ensuite, historisé dans ClickHouse, rejouable sans doublon. Quand un appel synchrone est indispensable, il passe par un JWT interne signé RSA, avec des permissions filtrées par scope de service. Et chaque API commence par son contrat OpenAPI, committé, à partir duquel les clients sont générés.\n\nMa deuxième règle : toute décision a un prix, et je l'écris. Exemple : la synchronisation du legacy vers la nouvelle distribution. Plutôt qu'une double écriture dans le code historique, on capte les changements par une table d'audit et un engine dédié fait le mapping. J'ai écrit la décision avec son contexte, l'alternative rejetée, et les risques acceptés noir sur blanc. Le jour où le contexte change, on sait pourquoi on avait choisi ça.\n\n**Ce qui fait la différence d'un rôle transverse.** Une règle qui reste dans un document finit oubliée. Je la transforme en outil : treize bundles partagés, des recettes Flex privées pour qu'un composer require configure un service, 2IT LaunchPad pour faire tourner les quatre-vingts services de l'écosystème sur le poste de chaque développeur. La bonne pratique doit être le chemin le plus court.\n\nEt je mesure. J'ai conçu une grille d'audit en dix axes, runtime, dépendances, tests, CI, architecture, exploitabilité, que chaque lead applique à ses dépôts avec le même barème et une revue croisée. On constate, on chiffre, puis on arbitre.\n\n**Transmettre.** Je présente les nouveaux services aux équipes, j'écris les guides qui permettent de s'en servir seul : démarrage en cinq minutes du bundle JWT, guides Keycloak, note d'architecture de la GED pour les équipes appelantes. Et j'ai introduit Claude Code dans nos dépôts de façon encadrée : guides par projet, skills et hooks partagés, suivi d'usage dans ClickHouse pour savoir ce qui sert vraiment. L'IA accélère, l'humain valide.\n\n**Pourquoi ce poste.** Ce que je fais déjà, c'est le travail d'un Staff Engineer : décider avec plusieurs équipes, outiller, mesurer, transmettre. Je veux le faire avec un mandat clair et une échelle plus large, là où une décision d'architecture bien écrite et bien outillée fait gagner du temps à des dizaines de développeurs."
+  },
+  "histoires": [
+    {
+      "id": "outbox",
+      "titre": "Aucun événement perdu",
+      "question": "Parlez-moi d'un problème d'architecture que vous avez résolu.",
+      "tags": ["Fiabilité", "Événementiel", "Bundle"],
+      "situation": "Dès les premiers microservices, publier un événement après une écriture en base pouvait échouer entre les deux : donnée enregistrée, événement perdu, services désynchronisés sans que personne ne le voie.",
+      "tache": "Garantir qu'aucun message ne se perd, rendre chaque échange traçable, et que ce soit identique dans tous les services sans que chaque équipe le réimplémente.",
+      "action": "J'ai conçu et écrit l'Outbox Bundle au-dessus de Symfony Messenger : événement écrit dans la même transaction que la donnée, relay vers RabbitMQ, Inbox côté consommateur avec garde contre les doublons, historique complet dans ClickHouse, retry exponentiel, queues d'erreur et rejeu. Plus de 140 commits, compatible Symfony 7 et 8, et une version open source autonome.",
+      "resultat": "Quatre services l'utilisent (api-distrib, distrib-engine, api-ms-pe, api-permission). Un message en échec se voit dans outbox-viewer avec sa chaîne de rejeu, et se rejoue sans doublon. Une règle d'architecture est devenue un composer require."
+    },
+    {
+      "id": "legacy",
+      "titre": "Faire cohabiter l'ancien et le nouveau",
+      "question": "Racontez une décision difficile que vous avez prise et comment vous l'avez fait accepter.",
+      "tags": ["Décision", "Migration", "Écrit"],
+      "situation": "Le site legacy reste en production pendant la migration. La nouvelle distribution a besoin de ses données, à jour, sans ralentir ni fragiliser le code historique.",
+      "tache": "Choisir un mécanisme de synchronisation, et surtout le faire accepter par les équipes legacy et distribution qui n'avaient pas les mêmes contraintes.",
+      "action": "J'ai comparé double écriture, batch nocturne et capture par table d'audit. J'ai retenu l'audit : le legacy publie des événements bruts legacy.api.event.* sur le bus, et distrib-engine fait le mapping vers le nouveau modèle. J'ai rédigé la décision avec le contexte, les alternatives rejetées, et les risques acceptés écrits noir sur blanc (latence, mapping à maintenir).",
+      "resultat": "Décision adoptée sans bloquer le legacy, mapping centralisé dans un seul service, et un document que l'on peut rouvrir le jour où le contexte change. C'est devenu le modèle de nos décisions d'architecture."
+    },
+    {
+      "id": "jwt",
+      "titre": "Sécuriser les appels entre services",
+      "question": "Comment gérez-vous la sécurité dans une architecture distribuée ?",
+      "tags": ["Sécurité", "Keycloak", "Bundle"],
+      "situation": "Les services commençaient à s'appeler en HTTP avec des mécanismes différents : clés partagées ici, rien là. Chaque équipe réécrivait une logique sensible.",
+      "tache": "Un seul modèle d'authentification entre services, stateless, qui dise qui appelle et ce qu'il a le droit de faire, et qui s'installe sans effort.",
+      "action": "J'ai écrit le bundle Internal JWT Authenticator : JWT interne signé RSA, permissions filtrées par scope et par cible, et le bundle Keycloak Authenticator pour les utilisateurs (OIDC, cache des clés publiques, impersonation cross-realm). Guide « démarrage en 5 minutes », recette Flex, support Symfony 8.",
+      "resultat": "Tous les appels synchrones passent par le JWT interne depuis fin 2025. Un nouveau service est sécurisé par un composer require et dix lignes de configuration."
+    },
+    {
+      "id": "audit",
+      "titre": "Mesurer avant d'agir",
+      "question": "Comment priorisez-vous la dette technique sur plusieurs équipes ?",
+      "tags": ["Mesure", "Transverse", "Leads"],
+      "situation": "Vingt-cinq dépôts, plusieurs équipes, et chacun une idée différente de l'état de sa dette. Impossible d'arbitrer sur des impressions.",
+      "tache": "Donner à tous les leads la même façon de faire l'état des lieux, avec des preuves et un barème commun.",
+      "action": "J'ai conçu une grille en dix axes : runtime, Symfony, dépendances, analyse statique, style, tests, CI, architecture, migrations, exploitabilité. Chaque axe a ses preuves attendues et son barème ; chaque lead remplit la grille pour ses dépôts, puis revue croisée entre leads.",
+      "resultat": "Un état des lieux comparable d'un dépôt à l'autre, des trous identifiés plutôt qu'estimés, et des arbitrages de montée de version fondés sur des chiffres. On constate, on chiffre, puis on arbitre."
+    },
+    {
+      "id": "dx",
+      "titre": "La bonne pratique, chemin le plus court",
+      "question": "Comment faites-vous appliquer les standards sans devenir un goulot d'étranglement ?",
+      "tags": ["DX", "Outillage", "Autonomie"],
+      "situation": "Plusieurs équipes développent en parallèle sur des dizaines de dépôts. Chaque friction d'installation ou de configuration se paie au centuple, et les règles écrites dans un wiki n'étaient pas suivies.",
+      "tache": "Faire en sorte que faire bien soit plus rapide que faire vite.",
+      "action": "Treize bundles prêts à l'emploi pour les besoins transverses, un endpoint Symfony Flex privé pour que nos bundles s'installent configurés, des SDK générés depuis les contrats OpenAPI, et des contributions à 2IT LaunchPad : certificat SSL outillé, Swagger derrière Kong, suivi d'usage des skills Claude Code.",
+      "resultat": "Démarrer un nouveau service prend des minutes, pas des jours. Les recettes Flex ont été reprises par l'équipe Techlead. Je ne relis pas chaque configuration : l'outil la produit juste."
+    },
+    {
+      "id": "resilience",
+      "titre": "Un fournisseur tombe, le parcours continue",
+      "question": "Donnez un exemple où vous avez amélioré la résilience d'un système.",
+      "tags": ["Résilience", "Fournisseurs", "Asynchrone"],
+      "situation": "Les notifications et la signature électronique dépendent de fournisseurs externes. Une panne chez l'un d'eux bloquait des parcours de souscription.",
+      "tache": "Qu'une panne de fournisseur ne bloque jamais un parcours, et que l'on sache toujours par où un message est passé.",
+      "action": "Notifier : traitement asynchrone via RabbitMQ, transport Brevo ajouté avec bascule automatique depuis Mailjet et traçabilité du transport utilisé. Signature : clients Universign et YouSign générés avec Jane PHP, circuit breaker, bascule automatique, webhooks asynchrones, stockage des preuves.",
+      "resultat": "Deux services transverses multi-fournisseurs. Une bascule se fait sans intervention, et l'historique dit quel fournisseur a traité quoi."
+    },
+    {
+      "id": "ia",
+      "titre": "Embarquer l'IA sans perdre le contrôle",
+      "question": "Comment intégrez-vous l'IA dans le travail d'une équipe de développement ?",
+      "tags": ["IA", "Claude Code", "Mesure"],
+      "situation": "Les développeurs utilisaient des assistants IA chacun à leur façon, sans contexte projet partagé ni idée de ce que ça apportait vraiment.",
+      "tache": "Introduire Claude Code dans les dépôts de façon encadrée, avec du contexte, des garde-fous, et une mesure de l'usage réel.",
+      "action": "Guides Claude Code par projet, skills et hooks partagés (commit conventionnel, pipeline QA), serveur MCP Symfony AI Mate pour la lecture des logs et du profiler, et un suivi d'usage des skills envoyé dans ClickHouse puis synthétisé dans Notion.",
+      "resultat": "Un usage homogène entre équipes, des changements toujours relus par un humain, et des chiffres pour savoir quels skills servent. L'IA accélère, l'humain valide."
+    }
+  ],
+  "questions": [
+    { "cat": "Parcours", "q": "Présentez-vous en deux minutes.", "cles": ["Trois temps : legacy 2021, briques communes 2024, lead architecte 2025", "Trois preuves : Outbox, JWT interne, DX", "Pourquoi ce poste : faire la même chose à plus grande échelle"] },
+    { "cat": "Parcours", "q": "Pourquoi quitter un poste où vous êtes lead architecte ?", "cles": ["Pas une fuite : cinq ans, une plateforme menée du monolithe aux microservices", "Je cherche un mandat transverse explicite et une échelle plus large", "Rester honnête sur ce que j'ai fini et ce que je laisse en bon état"] },
+    { "cat": "Parcours", "q": "Quelle différence faites-vous entre lead, Staff Engineer et architecte ?", "cles": ["Lead : une équipe, un produit", "Staff : plusieurs équipes, impact par levier (outils, décisions, standards), pas de reporting hiérarchique", "Architecte transverse : le même rôle avec un accent sur la cohérence du système", "Je me reconnais dans le Staff qui code encore"] },
+    { "cat": "Architecture", "q": "Quand choisissez-vous l'asynchrone plutôt que le synchrone ?", "cles": ["Asynchrone par défaut : un service qui attend hérite des pannes de l'autre", "Synchrone quand la réponse est nécessaire pour continuer (droits, lecture immédiate)", "Dans les deux cas : contrat écrit, traçabilité, rejeu possible"] },
+    { "cat": "Architecture", "q": "Comment garantissez-vous la cohérence des données entre microservices ?", "cles": ["Pas de transaction distribuée : cohérence à terme assumée", "Outbox / Inbox : l'événement part dans la même transaction que la donnée", "Idempotence côté consommateur, rejeu sans doublon", "Un seul service propriétaire par donnée"] },
+    { "cat": "Architecture", "q": "Quelle est la plus grosse erreur d'architecture que vous ayez faite ?", "cles": ["Choisir une vraie erreur, pas une fausse modestie", "Ce que ça a coûté, ce qu'on a changé, la règle qui en est sortie", "Exemple : une règle laissée dans un document plutôt qu'outillée, et personne ne l'a appliquée"] },
+    { "cat": "Architecture", "q": "Comment abordez-vous la migration d'un monolithe ?", "cles": ["On ne réécrit pas tout : on fait cohabiter", "Capturer les changements du legacy (table d'audit → événements)", "SSO commun, migration Keycloak, impersonation entre realms", "Chaque étape livre quelque chose d'utilisable"] },
+    { "cat": "Architecture", "q": "Comment concevez-vous une API ?", "cles": ["Le contrat d'abord : OpenAPI committé et versionné", "Clients générés (Jane PHP), docs et collections Postman tenues à jour", "Exposition derrière Kong, auth par JWT interne ou Keycloak"] },
+    { "cat": "Influence", "q": "Comment faites-vous adopter une décision par des équipes qui ne vous reportent pas ?", "cles": ["Écrire la décision : contexte, options, inconvénients acceptés", "L'outiller : bundle, recette, commande Make", "La présenter, puis laisser un guide pour s'en servir seul", "Mesurer et revenir avec des chiffres"] },
+    { "cat": "Influence", "q": "Racontez un désaccord technique avec un pair ou un manager.", "cles": ["Poser le désaccord sur des faits mesurables", "Chercher l'option qui garde une porte de sortie", "Décider, écrire les risques acceptés, puis s'y tenir même si ce n'était pas mon option"] },
+    { "cat": "Influence", "q": "Comment transmettez-vous vos connaissances ?", "cles": ["Présentations aux équipes (permissions, tech d'équipe)", "Guides courts : démarrage rapide, pas-à-pas, pièges connus", "Notes d'architecture pour les équipes appelantes", "Pair avec les leads sur la grille d'audit"] },
+    { "cat": "Influence", "q": "Comment gérez-vous votre temps entre code, décisions et accompagnement ?", "cles": ["Je code encore : les bundles sont ma façon de décider", "Itérations courtes, livrer daté et incomplet plutôt que parfait et jamais rendu", "Les demandes transverses passent par des outils réutilisables, pas des réponses au cas par cas"] },
+    { "cat": "Métier", "q": "Qu'avez-vous compris du métier de l'investissement ?", "cles": ["PER : souscription, versements, arbitrages, gestion pilotée par poches", "Private equity : fonds FCPR/FPCI, conventions cabinet × fonds, rétrocessions", "Contraintes réglementaires : KYC, lettre de mission, pièces justificatives", "Le code suit la règle métier, pas l'inverse"] },
+    { "cat": "Métier", "q": "Comment travaillez-vous avec le produit et les métiers ?", "cles": ["Comprendre la règle avant de coder, poser les cas limites", "Documenter le vocabulaire (lexique par domaine)", "Montrer tôt : schémas animés, prototypes"] },
+    { "cat": "Ce poste", "q": "Que feriez-vous dans vos 90 premiers jours ?", "cles": ["30 jours : écouter, lire le code et les incidents, cartographier les flux", "60 jours : un état des lieux chiffré partagé (grille d'audit adaptée)", "90 jours : une première décision écrite et outillée, choisie pour son effet de levier"] },
+    { "cat": "Ce poste", "q": "Qu'attendez-vous de votre manager et de l'organisation ?", "cles": ["Un mandat clair sur le périmètre transverse", "L'accès aux équipes et à leurs incidents", "Le droit d'écrire des décisions qui engagent, et le temps de les outiller"] },
+    { "cat": "Ce poste", "q": "Quelles sont vos limites ou vos zones d'inconfort ?", "cles": ["Être honnête : par exemple l'infra bas niveau, le front avancé", "Montrer comment je les compense : LaunchPad, React sur outbox-viewer", "Ce que j'apprends en ce moment"] },
+    { "cat": "Ce poste", "q": "Pourquoi nous ?", "cles": ["À préparer pour chaque entreprise : leur stack, leur stade de migration, leurs équipes", "Relier à mes trois preuves", "Une question concrète sur leur architecture pour montrer que j'ai regardé"] }
+  ],
+  "mes_questions": [
+    "Combien d'équipes et de services le rôle couvre-t-il, et à qui le poste rapporte-t-il ?",
+    "Comment une décision d'architecture est-elle prise et écrite aujourd'hui ? Qui peut la contester ?",
+    "Quel est le dernier incident de production marquant, et qu'en avez-vous changé ?",
+    "Où en est la migration du système historique, et qu'est-ce qui la freine ?",
+    "Comment mesurez-vous la santé technique des dépôts et la vélocité des équipes ?",
+    "Quelle place a l'IA dans le quotidien des développeurs, et comment est-elle encadrée ?",
+    "À quoi ressemble une réussite pour ce poste dans un an ?",
+    "Qu'est-ce qui a fait échouer la personne précédente, ou ce qui manque dans l'équipe actuelle ?"
+  ],
+  "checklist": [
+    "Relire l'offre et noter trois points où mes preuves répondent à leurs attentes",
+    "Regarder leur stack, leurs offres d'emploi récentes, leur blog technique, leurs dépôts publics",
+    "Préparer la réponse à « Pourquoi nous ? » spécifique à cette entreprise",
+    "Choisir trois histoires STAR à placer et répéter chacune à voix haute en moins de deux minutes",
+    "Répéter le pitch de deux minutes chrono, debout, une fois le matin même",
+    "Préparer deux questions à poser, dont une sur leur architecture",
+    "Avoir sous la main : le schéma d'architecture du portfolio, la carte de visite, le CV",
+    "Prévoir la fin : remercier, demander les prochaines étapes et le délai de réponse"
+  ]
+}

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Préparer mon entretien — Mourad Chabour</title>
+  <meta name="description" content="Espace personnel de préparation d'entretien : pitch chronométré, histoires STAR, questions probables et mode entraînement pour un poste de Staff Engineer ou d'architecte transverse." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%237c3aed'/><stop offset='1' stop-color='%23f97316'/></linearGradient></defs><rect width='100' height='100' rx='28' fill='url(%23g)'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Reprend la charte du site (couleurs, polices, boutons, cartes), puis les styles de cette page -->
+  <link rel="stylesheet" href="style.css?v=16" />
+  <link rel="stylesheet" href="entretien.css?v=1" />
+  <script>
+    try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body class="ent-page">
+  <div class="blobs" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+
+  <header class="ent-top container">
+    <a href="index.html" class="ent-back">← Portfolio</a>
+    <div class="ent-top-tools">
+      <button type="button" class="btn btn-ghost ent-print" id="ent-print" title="Imprimer l'antisèche (pitch, fil rouge, histoires, questions)">Antisèche PDF</button>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Changer de thème">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- ===== En-tête ===== -->
+    <section class="ent-hero">
+      <p class="ent-kicker">Espace personnel · Préparation d'entretien</p>
+      <h1>Parler de moi en <span class="gradient-text" id="ent-poste">Staff Engineer</span></h1>
+      <p class="ent-lead">
+        Tout ce qu'il me faut avant un entretien : un fil rouge, un pitch en trois durées que je peux
+        réécrire et chronométrer, mes histoires au format STAR, les questions probables avec leurs points
+        clés, et un mode entraînement qui me note.
+      </p>
+      <div class="ent-switch" role="group" aria-label="Poste visé" id="ent-postes"></div>
+      <div class="ent-hero-visual" aria-hidden="true">
+        <div class="ent-mic"><span class="ent-mic-head"></span><span class="ent-mic-body"></span><span class="ent-mic-base"></span></div>
+        <div class="ent-waves"><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+      <nav class="ent-toc" aria-label="Sommaire">
+        <a href="#fil-rouge">Fil rouge</a>
+        <a href="#pitch">Pitch</a>
+        <a href="#parcours">Parcours</a>
+        <a href="#histoires">Histoires STAR</a>
+        <a href="#questions">Questions</a>
+        <a href="#entrainement">Entraînement</a>
+        <a href="#mes-questions">Mes questions</a>
+        <a href="#checklist">Veille</a>
+      </nav>
+    </section>
+
+    <!-- ===== 1. Fil rouge ===== -->
+    <section class="ent-section reveal" id="fil-rouge">
+      <h2><span class="ent-num">01</span> Le fil rouge</h2>
+      <p class="ent-intro">Une phrase à laquelle chaque réponse doit pouvoir se raccrocher, et trois preuves à placer dans la conversation.</p>
+      <blockquote class="ent-fil card" id="ent-fil"></blockquote>
+      <div class="ent-preuves" id="ent-preuves"></div>
+      <div class="ent-stats" id="ent-stats"></div>
+    </section>
+
+    <!-- ===== 2. Pitch ===== -->
+    <section class="ent-section reveal" id="pitch">
+      <h2><span class="ent-num">02</span> « Présentez-vous »</h2>
+      <p class="ent-intro">Trois durées pour trois contextes : l'ascenseur, l'ouverture d'entretien, la présentation détaillée. Le texte est modifiable et se garde dans ce navigateur.</p>
+      <div class="ent-pitch card">
+        <div class="ent-pitch-bar">
+          <div class="ent-tabs" role="tablist" aria-label="Durée du pitch">
+            <button type="button" role="tab" class="ent-tab" data-pitch="30s" aria-selected="true">30 secondes</button>
+            <button type="button" role="tab" class="ent-tab" data-pitch="2min">2 minutes</button>
+            <button type="button" role="tab" class="ent-tab" data-pitch="5min">5 minutes</button>
+          </div>
+          <div class="ent-pitch-tools">
+            <span class="ent-meter" id="ent-meter" aria-live="polite"></span>
+            <button type="button" class="btn btn-ghost ent-small" id="ent-pitch-reset" title="Revenir au texte d'origine">Texte d'origine</button>
+          </div>
+        </div>
+        <div class="ent-editor" id="ent-pitch-text" contenteditable="true" spellcheck="true" aria-label="Texte du pitch, modifiable"></div>
+        <div class="ent-timer">
+          <div class="ent-timer-ring" id="ent-ring" style="--p: 0"><span class="ent-timer-value" id="ent-timer-value">0:00</span></div>
+          <div class="ent-timer-ctl">
+            <p class="ent-timer-hint" id="ent-timer-hint">Objectif : 30 s. Lancez le chrono et lisez à voix haute.</p>
+            <div class="ent-timer-btns">
+              <button type="button" class="btn btn-primary" id="ent-timer-start">Démarrer</button>
+              <button type="button" class="btn btn-ghost" id="ent-timer-stop" disabled>Arrêter</button>
+              <button type="button" class="btn btn-ghost" id="ent-timer-reset">Remettre à zéro</button>
+            </div>
+            <p class="ent-timer-result" id="ent-timer-result" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+      <p class="ent-tip">Rythme de parole visé : 140 à 160 mots par minute. En dessous, on hésite ; au-dessus, on débite. La jauge compare le texte à la durée choisie.</p>
+    </section>
+
+    <!-- ===== 3. Parcours ===== -->
+    <section class="ent-section reveal" id="parcours">
+      <h2><span class="ent-num">03</span> Le parcours en trois temps</h2>
+      <p class="ent-intro">La chronologie du portfolio, à raconter comme une progression : chaque étape prépare la suivante.</p>
+      <ol class="ent-timeline" id="ent-timeline"></ol>
+      <h3>Mes principes, à citer quand une question s'y prête</h3>
+      <div class="ent-principes" id="ent-principes"></div>
+    </section>
+
+    <!-- ===== 4. Histoires STAR ===== -->
+    <section class="ent-section reveal" id="histoires">
+      <h2><span class="ent-num">04</span> Mes histoires au format STAR</h2>
+      <p class="ent-intro">Situation, Tâche, Action, Résultat. Chaque histoire répond à une question type ; en entretien, j'en place trois. Je peux ajouter une note personnelle à chacune.</p>
+      <div class="ent-stories" id="ent-stories"></div>
+    </section>
+
+    <!-- ===== 5. Questions ===== -->
+    <section class="ent-section reveal" id="questions">
+      <h2><span class="ent-num">05</span> Les questions probables</h2>
+      <p class="ent-intro">Cliquez sur une question pour voir les points clés à placer. Les pastilles indiquent ma dernière auto-évaluation en entraînement.</p>
+      <div class="ent-filters" id="ent-filters" role="group" aria-label="Filtrer par catégorie"></div>
+      <div class="ent-questions" id="ent-questions"></div>
+    </section>
+
+    <!-- ===== 6. Entraînement ===== -->
+    <section class="ent-section reveal" id="entrainement">
+      <h2><span class="ent-num">06</span> Mode entraînement</h2>
+      <p class="ent-intro">Une question au hasard, deux minutes pour répondre à voix haute, puis je me note. Les questions mal notées reviennent plus souvent.</p>
+      <div class="ent-train card">
+        <div class="ent-train-head">
+          <span class="ent-train-cat" id="ent-train-cat"></span>
+          <span class="ent-train-timer" id="ent-train-timer">2:00</span>
+        </div>
+        <p class="ent-train-q" id="ent-train-q">Prêt ? Cliquez sur « Nouvelle question ».</p>
+        <details class="ent-train-keys" id="ent-train-keys" hidden>
+          <summary>Voir les points clés</summary>
+          <ul id="ent-train-keys-list"></ul>
+        </details>
+        <div class="ent-train-btns">
+          <button type="button" class="btn btn-primary" id="ent-train-next">Nouvelle question</button>
+          <button type="button" class="btn btn-ghost" id="ent-train-go" disabled>Lancer 2 min</button>
+        </div>
+        <div class="ent-rate" id="ent-rate" hidden>
+          <span>Comment c'était ?</span>
+          <button type="button" class="ent-rate-btn" data-rate="1" title="À retravailler">😬 À retravailler</button>
+          <button type="button" class="ent-rate-btn" data-rate="2" title="Correct">🙂 Correct</button>
+          <button type="button" class="ent-rate-btn" data-rate="3" title="Solide">💪 Solide</button>
+        </div>
+        <p class="ent-train-progress" id="ent-train-progress"></p>
+      </div>
+    </section>
+
+    <!-- ===== 7. Mes questions ===== -->
+    <section class="ent-section reveal" id="mes-questions">
+      <h2><span class="ent-num">07</span> Les questions que je pose</h2>
+      <p class="ent-intro">Un entretien se passe dans les deux sens. J'en choisis deux, dont une sur leur architecture.</p>
+      <ul class="ent-asks" id="ent-asks"></ul>
+    </section>
+
+    <!-- ===== 8. Checklist ===== -->
+    <section class="ent-section reveal" id="checklist">
+      <h2><span class="ent-num">08</span> La veille de l'entretien</h2>
+      <div class="ent-check card">
+        <ul id="ent-check-list"></ul>
+        <div class="ent-check-foot">
+          <span id="ent-check-score"></span>
+          <button type="button" class="btn btn-ghost ent-small" id="ent-check-reset">Tout décocher</button>
+        </div>
+      </div>
+    </section>
+
+    <p class="ent-source">Contenu dans data/entretien.json · vos modifications de pitch, notes et scores restent dans ce navigateur.</p>
+  </main>
+
+  <footer class="footer container">
+    <p>© <span id="year"></span> <span id="footer-name"></span></p>
+    <ul class="socials">
+      <li><a href="index.html">Portfolio</a></li>
+      <li><a href="cv.html">CV (PDF)</a></li>
+      <li><a href="carte.html">Carte de visite</a></li>
+    </ul>
+  </footer>
+
+  <script src="entretien.js?v=1"></script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Portfolio personnel (Node.js ≥ 20.6 + Express) : page principale, carte de visite numérique, CV imprimable et page de formation « IA ». Le code, les commentaires et les textes sont en français : garder cette convention.
+Portfolio personnel (Node.js ≥ 20.6 + Express) : page principale, carte de visite numérique, CV imprimable, page de formation « IA » et page personnelle de préparation d'entretien. Le code, les commentaires et les textes sont en français : garder cette convention.
 
 ## Commandes
 
@@ -21,12 +21,14 @@ Il n'y a ni build, ni linter, ni tests : le front est en HTML/CSS/JS vanilla ser
   - `/api/profile` (contenu sans les projets) et `/api/projects` (projets + catégories dédupliquées dans l'ordre d'apparition) ;
   - `/api/contact` : honeypot `website`, validation, rate limit en mémoire (3 messages / IP / 10 min), puis sauvegarde dans `data/messages.json` (écritures sérialisées via une file de promesses) **et** email SMTP. Succès si au moins un des deux canaux fonctionne. SMTP actif seulement si `SMTP_HOST`, `SMTP_USER`, `SMTP_PASS` et `CONTACT_TO` sont tous définis ;
   - `/api/qr.svg`, `/api/qr.gif` (QR vers un chemin interne validé par regex), `/api/vcard` ;
-  - pages courtes `/carte`, `/cv`, `/ia` ; toute autre route `/api/*` renvoie un 404 JSON.
+  - `/api/entretien` : contenu de `data/entretien.json` (préparation d'entretien) ;
+  - pages courtes `/carte`, `/cv`, `/ia`, `/entretien` ; toute autre route `/api/*` renvoie un 404 JSON.
 - **`data/content.json`** : source unique du contenu (identité, textes, compétences, réseaux, `contact`, projets). Relu à chaque requête, donc pas besoin de redémarrer. Un lien vide (`""`) n'est pas affiché ; `demo` commençant par `#` pointe vers une section de la page ; `visual` d'un projet référence une illustration de `covers.js`.
 - **URL publique** (QR, carte, CV) : `SITE_URL` > `content.contact.website` > hôte de la requête (`siteUrl()` dans `server.js`).
 - **Front (`public/`)** : une paire HTML/CSS/JS par page. `index.html` charge `covers.js` (illustrations SVG animées des cartes projets, exposées dans `window.COVERS`), `script.js` (rendu depuis `/api/profile` et `/api/projects`, filtres, modale, formulaire) et `architecture.js`. `carte.html` et `ia.html` réutilisent `style.css` ; `cv.html` n'utilise que `cv.css`.
 - **`architecture.js`** : schéma SVG animé piloté par les constantes `NODES`, `EDGES` (types `http`, `event`, `sql`) et `SCENARIOS` en haut du fichier, avec export SVG et GIF (via `gifenc`). Respecte `prefers-reduced-motion`.
 - **`ia.html`** : contenu en dur dans le HTML ; les questions du quiz sont dans le tableau `QUIZ` en haut de `ia.js`.
+- **`entretien.html`** (`/entretien`, `noindex`, non liée depuis le site) : préparation d'entretien pour un poste Staff Engineer / architecte transverse. Le contenu (fil rouge, pitchs 30 s / 2 min / 5 min, histoires STAR, questions, checklist) est dans `data/entretien.json` ; parcours et principes viennent de `/api/profile`. Pitch réécrit, notes, scores d'entraînement et cases cochées sont gardés dans `localStorage` (préfixe `ent:`).
 - **Thème clair/sombre** : tokens CSS dans `style.css`, `:root[data-theme]` + `prefers-color-scheme`, choix mémorisé dans `localStorage` (clé `theme`) et appliqué par un petit script inline dans le `<head>` de chaque page pour éviter le flash.
 
 ## Points d'attention
