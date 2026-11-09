@@ -1,4 +1,4 @@
-/* Parcours complet : frise des postes, formation, certifications, projets, publications.
+/* Parcours complet : entreprises (logos), frise des postes, formation, certifications, projets, publications.
    Le contenu vient de /api/parcours ; le détail des cinq dernières années
    réutilise la timeline de /api/profile pour ne pas dupliquer le contenu. */
 
@@ -79,8 +79,53 @@ function poste(p, timeline) {
   return el('li', { cls }, [el('div', { cls: 'par-poste-in' }, [...entete, ...corps])]);
 }
 
+/* ----- Entreprises : bandeau de logos qui défile + fiches ----- */
+function logo(e) {
+  // Logo si disponible, sinon les initiales de l'entreprise dans une pastille
+  if (e.logo) return el('img', { attrs: { src: e.logo, alt: e.nom, loading: 'lazy' } });
+  const initiales = e.nom.split(/\s+/).map((m) => m[0]).join('').slice(0, 3).toUpperCase();
+  return el('span', { cls: 'par-logo-init', text: initiales });
+}
+
+function rendreEntreprises(ent) {
+  const items = ent?.items || [];
+  if (!items.length) return;
+  $('#par-marquee-wrap').hidden = false;
+  $('#par-entreprises-sec').hidden = false;
+  $('#par-entreprises-intro').textContent = ent.intro || '';
+
+  // Le bandeau répète la liste jusqu'à remplir au moins deux largeurs d'écran, puis la double pour la boucle
+  const fois = Math.max(2, Math.ceil(8 / items.length));
+  const ligne = () =>
+    Array.from({ length: fois }, () => items).flat().map((e) =>
+      el('a', { cls: 'marquee-item par-logo', attrs: { href: e.site || '#', target: '_blank', rel: 'noopener', title: e.nom } }, [
+        logo(e),
+        el('span', { cls: 'par-logo-nom', text: e.nom }),
+      ])
+    );
+  $('#par-marquee').replaceChildren(...ligne(), ...ligne());
+
+  $('#par-entreprises').replaceChildren(
+    ...items.map((e) =>
+      el('li', { cls: 'par-entreprise' }, [
+        el('div', { cls: 'par-entreprise-logo' }, [logo(e)]),
+        el('div', {}, [
+          el('p', { cls: 'par-periode', text: [e.periode, e.secteur].filter(Boolean).join(' · ') }),
+          el('h3', {}, [
+            e.site ? el('a', { text: e.nom, attrs: { href: e.site, target: '_blank', rel: 'noopener' } }) : el('span', { text: e.nom }),
+          ]),
+          e.poste ? el('p', { cls: 'par-org', text: e.poste }) : null,
+          e.description ? el('p', { cls: 'par-resume', text: e.description }) : null,
+        ]),
+      ])
+    )
+  );
+}
+
 /* ----- Rendu ----- */
 function rendre(data, profile) {
+  rendreEntreprises(data.entreprises);
+
   if (data.titre) {
     $('#par-titre').textContent = data.titre;
     document.title = `${data.titre} — ${profile?.name || 'Mourad Chabour'}`;

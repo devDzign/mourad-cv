@@ -86,7 +86,7 @@ Les QR codes sont générés par le serveur (`/api/qr.svg` et `/api/qr.gif`, ce 
 
 ## Page « Parcours complet »
 
-**`/parcours`** (fichiers `public/parcours.html`, `parcours.css`, `parcours.js`) : le parcours de carrière détaillé, lié depuis le menu, la frise et la section Contact de l'accueil. Le contenu est dans **`data/parcours.json`** (servi par `/api/parcours`) : postes (période, organisation, résumé, faits marquants, stack), formation, certifications, projets personnels, publications LinkedIn et langues. Un poste avec `detail: "timeline"` déplie les étapes année par année de `content.json` ; un poste avec `aCompleter: true` s'affiche en pointillés, comme emplacement à remplir.
+**`/parcours`** (fichiers `public/parcours.html`, `parcours.css`, `parcours.js`) : le parcours de carrière détaillé, lié depuis le menu, la frise et la section Contact de l'accueil. Le contenu est dans **`data/parcours.json`** (servi par `/api/parcours`) : entreprises (nom, logo stocké dans `public/logos/`, site, période, poste, secteur, description) affichées dans un bandeau de logos qui défile puis en fiches ; postes (période, organisation, résumé, faits marquants, stack), formation, certifications, projets personnels, publications LinkedIn et langues. Pour ajouter une entreprise : déposer son logo SVG ou PNG dans `public/logos/` et ajouter une entrée dans `entreprises.items` ; sans logo, les initiales s'affichent dans une pastille. Un poste avec `detail: "timeline"` déplie les étapes année par année de `content.json` ; un poste avec `aCompleter: true` s'affiche en pointillés, comme emplacement à remplir.
 
 ## Page « IA · Compétences Claude »
 

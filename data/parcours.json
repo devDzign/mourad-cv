@@ -19,6 +19,20 @@
       "label": "commits dans 25+ dépôts"
     }
   ],
+  "entreprises": {
+    "intro": "Les entreprises où j'ai travaillé. Chaque logo renvoie au site de la société.",
+    "items": [
+      {
+        "nom": "Groupe Inter Invest (Elvest)",
+        "logo": "logos/elvest.svg",
+        "site": "https://elvest.fr",
+        "periode": "2021 – aujourd'hui",
+        "poste": "Lead architecte back-end",
+        "secteur": "Gestion de patrimoine · Investissement",
+        "description": "Groupe indépendant de gestion de patrimoine et d'investissement (épargne retraite, défiscalisation outre-mer, private equity, immobilier), devenu Elvest en 2026. Plusieurs milliers de conseillers partenaires et une plateforme digitale développée en interne."
+      }
+    ]
+  },
   "postes": [
     {
       "debut": "2021",
