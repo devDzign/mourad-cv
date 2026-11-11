@@ -159,6 +159,26 @@
 .ent-check input:checked + span { text-decoration: line-through; color: var(--muted); }
 .ent-check-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 16px; font-weight: 700; }
 
+/* ----- 9. Entretien annuel ----- */
+.ent-demande { border-left-color: var(--orange); font-size: clamp(1.15rem, 2.2vw, 1.45rem); }
+.ent-annuel .ent-stats { margin: 0 0 18px; }
+.ent-bilan { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.ent-bilan-item { padding: 18px 20px; border-top: 4px solid var(--c, var(--violet)); display: grid; gap: 6px; align-content: start; }
+.ent-bilan-num { font: 800 0.8rem var(--mono); color: var(--c, var(--violet)); }
+.ent-bilan-item b { font-family: var(--font-display); font-size: 1.05rem; }
+.ent-bilan-item p { margin: 0; color: var(--muted); font-size: 0.93rem; }
+.ent-bilan-preuve { font-weight: 600; color: var(--text) !important; padding-top: 6px; border-top: 1px dashed var(--border); }
+.ent-args { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.ent-obj p { margin: 0; padding: 0 20px 18px 46px; color: var(--muted); }
+.ent-obj summary span:nth-child(2) { font-style: italic; }
+.ent-annuel-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+.ent-deroule { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; counter-reset: step; }
+.ent-deroule li { counter-increment: step; display: grid; grid-template-columns: 34px 1fr; gap: 4px 12px; padding: 14px 18px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); }
+.ent-deroule li::before { content: counter(step); grid-row: 1 / span 2; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font: 800 0.9rem var(--font-display); color: #fff; background: var(--gradient); }
+.ent-deroule b { font-family: var(--font-display); }
+.ent-deroule span { color: var(--muted); font-size: 0.93rem; }
+.ent-alt { grid-template-columns: 1fr; }
+
 .ent-source { margin: 50px 0 10px; font-size: 0.9rem; color: var(--muted); text-align: center; }
 .ent-page .footer a { color: inherit; }
 
@@ -166,7 +186,7 @@
 @media (max-width: 900px) {
   .ent-hero { grid-template-columns: 1fr; }
   .ent-hero-visual { grid-column: 1; grid-row: auto; margin: 20px 0 0; transform: scale(0.85); }
-  .ent-preuves, .ent-stories, .ent-asks { grid-template-columns: 1fr; }
+  .ent-preuves, .ent-stories, .ent-asks, .ent-bilan, .ent-annuel-cols { grid-template-columns: 1fr; }
   .ent-timer { grid-template-columns: 1fr; justify-items: center; text-align: center; }
   .ent-timer-btns { justify-content: center; }
   .ent-timeline::before { left: 16px; }
@@ -182,7 +202,11 @@
 /* ----- Impression : antisèche compacte ----- */
 @media print {
   .blobs, .ent-top, .ent-hero-visual, .ent-toc, .ent-switch, .ent-pitch-bar, .ent-timer, .ent-tip, .ent-filters,
-  #entrainement, #checklist, .ent-note, .ent-source, .footer, .ent-dot, .ent-stats { display: none !important; }
+  #entrainement, #checklist, .ent-note, .ent-source, .footer, .ent-dot, .ent-stats, .ent-annuel .ent-check { display: none !important; }
+  .ent-annuel .ent-stats { display: flex !important; }
+  .ent-bilan { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .ent-bilan-item { padding: 8px 10px; font-size: 0.82rem; }
+  .ent-obj p { padding: 0 0 8px 24px; font-size: 0.85rem; }
   body { background: #fff; color: #000; }
   .ent-hero { padding: 0; display: block; }
   .ent-hero h1 { font-size: 1.8rem; margin: 0 0 6px; }
