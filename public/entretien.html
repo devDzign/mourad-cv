@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <!-- Reprend la charte du site (couleurs, polices, boutons, cartes), puis les styles de cette page -->
   <link rel="stylesheet" href="style.css?v=19" />
-  <link rel="stylesheet" href="entretien.css?v=2" />
+  <link rel="stylesheet" href="entretien.css?v=3" />
   <script>
     try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
   </script>
@@ -202,6 +202,20 @@
       <h3>Mes arguments</h3>
       <div class="ent-preuves ent-args" id="ent-annuel-args"></div>
 
+      <h3>Le marché, pour chiffrer la demande</h3>
+      <p class="ent-intro" id="ent-annuel-marche-intro"></p>
+      <blockquote class="ent-fil card ent-demande ent-cible" id="ent-annuel-marche-cible"></blockquote>
+      <div class="ent-marche">
+        <div class="card ent-marche-card">
+          <h4>Grilles de salaire</h4>
+          <ul id="ent-annuel-grilles"></ul>
+        </div>
+        <div class="card ent-marche-card">
+          <h4>Offres relevées</h4>
+          <ul id="ent-annuel-offres"></ul>
+        </div>
+      </div>
+
       <h3>Les objections probables</h3>
       <div class="ent-questions" id="ent-annuel-objections"></div>
 
@@ -238,6 +252,6 @@
     </ul>
   </footer>
 
-  <script src="entretien.js?v=2"></script>
+  <script src="entretien.js?v=3"></script>
 </body>
 </html>

@@ -423,6 +423,18 @@ function renderAnnuel(a) {
   const args = $('#ent-annuel-args');
   a.arguments.forEach((p, i) => args.append(el('div', { class: 'card', style: `--c:${colors[i % 3]}` }, [el('b', { text: p.titre }), el('p', { text: p.texte })])));
 
+  if (a.marche) {
+    $('#ent-annuel-marche-intro').textContent = a.marche.intro;
+    $('#ent-annuel-marche-cible').textContent = a.marche.cible;
+    const gr = $('#ent-annuel-grilles');
+    a.marche.grilles.forEach((g) => gr.append(el('li', {}, [el('b', { text: g.valeur }), el('span', { text: g.source })])));
+    const of = $('#ent-annuel-offres');
+    a.marche.offres.forEach((o) => of.append(el('li', {}, [
+      el('b', { text: o.salaire }),
+      el('span', {}, [el('a', { href: o.url, target: '_blank', rel: 'noopener', text: o.poste }), ` · ${o.entreprise}`]),
+    ])));
+  }
+
   const obj = $('#ent-annuel-objections');
   a.objections.forEach((o) => obj.append(el('details', { class: 'card ent-q ent-obj' }, [
     el('summary', {}, [el('span', { class: 'ent-dot', 'data-rate': 1 }), el('span', { text: `« ${o.objection} »` }), el('span', { class: 'ent-q-cat', text: 'Réponse' })]),

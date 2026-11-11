@@ -218,7 +218,7 @@
       },
       {
         "titre": "Une demande alignée sur le marché",
-        "texte": "Les postes de Staff Engineer / architecte transverse sur une stack Symfony et microservices se situent au-dessus de ma rémunération actuelle. À chiffrer avec deux ou trois offres avant l'entretien."
+        "texte": "PHP n'est que la technologie. Ce que je tiens, c'est l'architecture d'une plateforme fintech : dix microservices, RabbitMQ, Outbox / Inbox, sécurité inter-services, expérience développeur. À Paris, ce rôle se paie entre 80 et 105 k€ fixe ; les offres étiquetées « PHP » plafonnent à 65-80 k€ parce qu'elles décrivent un autre métier."
       },
       {
         "titre": "Je m'engage sur la suite",
@@ -253,6 +253,74 @@
       "Un budget formation ou conférence (Symfony, architecture) et du temps dédié aux sujets transverses",
       "Un point intermédiaire dans six mois, daté dans le compte rendu de l'entretien"
     ],
+    "marche": {
+    "intro": "Relevé le 11 novembre 2026. Les grilles qui disent « développeur PHP » décrivent un autre poste : la référence, c'est architecte / Staff backend en fintech, à Paris.",
+    "cible": "Cible : 85 à 95 k€ fixe. Plancher : 80 k€, en dessous du marché d'un architecte senior parisien.",
+    "grilles": [
+      {
+        "source": "Glassdoor, Lead Architect Paris (20 salaires, fév. 2026)",
+        "valeur": "81 k€ en moyenne, de 60 à 107 k€"
+      },
+      {
+        "source": "Lity 2026, architecte senior Paris",
+        "valeur": "74 à 91 k€"
+      },
+      {
+        "source": "Galileo RH 2026, architecte logiciel confirmé",
+        "valeur": "90 k€"
+      },
+      {
+        "source": "Bureau des talents, architecte senior 6 ans et plus, Paris",
+        "valeur": "80 à 110 k€"
+      },
+      {
+        "source": "Silkhom 2026, architecte technique senior 5 ans et plus, Paris",
+        "valeur": "110 à 120 k€"
+      },
+      {
+        "source": "Glassdoor, Staff Backend Engineer Paris",
+        "valeur": "72 à 84 k€"
+      }
+    ],
+    "offres": [
+      {
+        "poste": "Staff Software Engineer Backend",
+        "entreprise": "Matera, fintech, Paris",
+        "salaire": "88 k€",
+        "url": "https://iampro.io/careers/backend-developer/paris"
+      },
+      {
+        "poste": "Ingénieur Backend / API Gateway",
+        "entreprise": "Bluecoders, Paris hybride",
+        "salaire": "85 à 105 k€",
+        "url": "https://iampro.io/careers/backend-developer/paris"
+      },
+      {
+        "poste": "Senior Backend Engineer, paiements",
+        "entreprise": "Fintech via Skill Hunter, Paris, août 2026",
+        "salaire": "70 à 105 k€ + BSPCE",
+        "url": "https://skillhunter.fr/job/16-senior-backend-engineer-fintech-2/"
+      },
+      {
+        "poste": "Architecte API",
+        "entreprise": "Meritis, Paris, nov. 2026",
+        "salaire": "jusqu'à 90 k€",
+        "url": "https://iampro.io/careers/backend-developer/paris"
+      },
+      {
+        "poste": "Senior Développeur PHP / Python Backend",
+        "entreprise": "unyc, Paris hybride",
+        "salaire": "69 à 114 k€ (estimation)",
+        "url": "https://iampro.io/careers/backend-developer/paris"
+      },
+      {
+        "poste": "Tech Lead PHP Symfony",
+        "entreprise": "Les Artisans Recrutement, Paris, nov. 2026",
+        "salaire": "65 à 72 k€ : le plafond des offres « PHP »",
+        "url": "https://www.dreamworkhq.com/job/0f6cff74-5d40-4b5d-90bf-f7a6e0648a2b"
+      }
+    ]
+  },
     "deroule": [
       {
         "etape": "Ouvrir",

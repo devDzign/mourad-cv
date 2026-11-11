@@ -169,6 +169,16 @@
 .ent-bilan-item p { margin: 0; color: var(--muted); font-size: 0.93rem; }
 .ent-bilan-preuve { font-weight: 600; color: var(--text) !important; padding-top: 6px; border-top: 1px dashed var(--border); }
 .ent-args { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.ent-cible { border-left-color: var(--green); font-size: 1.15rem; }
+.ent-marche { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 30px; }
+.ent-marche-card { padding: 18px 20px; }
+.ent-marche-card h4 { margin: 0 0 10px; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.ent-marche-card ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.ent-marche-card li { display: grid; grid-template-columns: 150px 1fr; gap: 10px; align-items: baseline; font-size: 0.92rem; padding: 6px 0; border-top: 1px dashed var(--border); }
+.ent-marche-card li:first-child { border-top: 0; padding-top: 0; }
+.ent-marche-card b { font-family: var(--font-display); color: var(--accent-text); }
+.ent-marche-card span { color: var(--muted); }
+.ent-marche-card a { color: var(--text); font-weight: 600; }
 .ent-obj p { margin: 0; padding: 0 20px 18px 46px; color: var(--muted); }
 .ent-obj summary span:nth-child(2) { font-style: italic; }
 .ent-annuel-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
@@ -186,7 +196,8 @@
 @media (max-width: 900px) {
   .ent-hero { grid-template-columns: 1fr; }
   .ent-hero-visual { grid-column: 1; grid-row: auto; margin: 20px 0 0; transform: scale(0.85); }
-  .ent-preuves, .ent-stories, .ent-asks, .ent-bilan, .ent-annuel-cols { grid-template-columns: 1fr; }
+  .ent-preuves, .ent-stories, .ent-asks, .ent-bilan, .ent-annuel-cols, .ent-marche { grid-template-columns: 1fr; }
+  .ent-marche-card li { grid-template-columns: 1fr; gap: 2px; }
   .ent-timer { grid-template-columns: 1fr; justify-items: center; text-align: center; }
   .ent-timer-btns { justify-content: center; }
   .ent-timeline::before { left: 16px; }
