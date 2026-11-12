@@ -1,7 +1,8 @@
 /* =============================================================================
  * Page « Préparer mon entretien » : thème, rendu depuis /api/entretien et
  * /api/profile, pitch modifiable et chronométré, histoires STAR avec notes,
- * questions filtrables, mode entraînement noté, checklist.
+ * questions filtrables, mode entraînement noté, checklist, et rubrique
+ * « entretien annuel » (réplique modifiable, bilan 2026, objections).
  * Tout ce qui est personnel (pitch réécrit, notes, scores, cases cochées)
  * reste dans localStorage, préfixe « ent: ».
  * ===========================================================================*/
@@ -87,6 +88,7 @@ async function init() {
   renderTraining(entretien.questions);
   renderAsks(entretien.mes_questions);
   renderChecklist(entretien.checklist);
+  if (entretien.entretien_annuel) renderAnnuel(entretien.entretien_annuel);
 }
 
 // Poste visé : change le titre, mémorisé
@@ -380,6 +382,85 @@ function renderChecklist(items) {
     $$('input', root).forEach((c) => { c.checked = false; });
     update();
   });
+  update();
+}
+
+/* ---------- Entretien annuel : demande d'augmentation ---------- */
+function renderAnnuel(a) {
+  $('#ent-annuel-titre').textContent = a.titre;
+  $('#ent-annuel-objectif').textContent = a.objectif;
+  $('#ent-annuel-demande').textContent = a.demande;
+
+  // Réplique modifiable, gardée dans ce navigateur (même mécanique que le pitch)
+  const editor = $('#ent-annuel-text');
+  const meter = $('#ent-annuel-meter');
+  const updateMeter = () => {
+    const n = words(editor.innerText);
+    meter.textContent = `${n} mots · ≈ ${fmt(Math.round(n / 150 * 60))} à voix haute`;
+    meter.className = 'ent-meter ' + (editor.innerText.includes('[X]') ? 'is-warn' : 'is-ok');
+  };
+  const load = () => { editor.innerHTML = mdToHtml(store.get('annuel:replique', null) ?? a.replique); updateMeter(); };
+  let saveTimer;
+  editor.addEventListener('input', () => { updateMeter(); clearTimeout(saveTimer); saveTimer = setTimeout(() => store.set('annuel:replique', editor.innerText), 400); });
+  editor.addEventListener('paste', (e) => { e.preventDefault(); document.execCommand('insertText', false, (e.clipboardData || window.clipboardData).getData('text')); });
+  $('#ent-annuel-reset').addEventListener('click', () => {
+    if (store.get('annuel:replique', null) === null || confirm('Revenir au texte d\'origine ? Vos modifications seront perdues.')) { store.del('annuel:replique'); load(); }
+  });
+  load();
+
+  const chiffres = $('#ent-annuel-chiffres');
+  a.chiffres.forEach((c) => chiffres.append(el('div', { class: 'ent-stat' }, [el('b', { text: c.valeur }), el('span', { text: c.label })])));
+
+  const colors = ['var(--violet)', 'var(--pink)', 'var(--orange)', '#0ea5e9', 'var(--green)'];
+  const bilan = $('#ent-annuel-bilan');
+  a.bilan.forEach((b, i) => bilan.append(el('article', { class: 'card ent-bilan-item', style: `--c:${colors[i % colors.length]}` }, [
+    el('span', { class: 'ent-bilan-num', text: String(i + 1).padStart(2, '0') }),
+    el('b', { text: b.titre }),
+    el('p', { text: b.texte }),
+    el('p', { class: 'ent-bilan-preuve', text: b.preuve }),
+  ])));
+
+  const args = $('#ent-annuel-args');
+  a.arguments.forEach((p, i) => args.append(el('div', { class: 'card', style: `--c:${colors[i % 3]}` }, [el('b', { text: p.titre }), el('p', { text: p.texte })])));
+
+  if (a.marche) {
+    $('#ent-annuel-marche-intro').textContent = a.marche.intro;
+    $('#ent-annuel-marche-cible').textContent = a.marche.cible;
+    const gr = $('#ent-annuel-grilles');
+    a.marche.grilles.forEach((g) => gr.append(el('li', {}, [el('b', { text: g.valeur }), el('span', { text: g.source })])));
+    const of = $('#ent-annuel-offres');
+    a.marche.offres.forEach((o) => of.append(el('li', {}, [
+      el('b', { text: o.salaire }),
+      el('span', {}, [el('a', { href: o.url, target: '_blank', rel: 'noopener', text: o.poste }), ` · ${o.entreprise}`]),
+    ])));
+  }
+
+  const obj = $('#ent-annuel-objections');
+  a.objections.forEach((o) => obj.append(el('details', { class: 'card ent-q ent-obj' }, [
+    el('summary', {}, [el('span', { class: 'ent-dot', 'data-rate': 1 }), el('span', { text: `« ${o.objection} »` }), el('span', { class: 'ent-q-cat', text: 'Réponse' })]),
+    el('p', { text: o.reponse }),
+  ])));
+
+  const der = $('#ent-annuel-deroule');
+  a.deroule.forEach((d) => der.append(el('li', {}, [el('b', { text: d.etape }), el('span', { text: d.texte })])));
+  const alt = $('#ent-annuel-alt');
+  a.alternatives.forEach((t) => alt.append(el('li', {}, el('span', { text: t }))));
+
+  // Liste de préparation cochable, gardée sous ent:annuel:check
+  const root = $('#ent-annuel-check'), score = $('#ent-annuel-check-score');
+  const state = store.get('annuel:check', {});
+  const update = () => {
+    const done = Object.values(state).filter(Boolean).length;
+    score.textContent = done === a.preparer.length ? `${done} / ${a.preparer.length} · prêt.` : `${done} / ${a.preparer.length}`;
+    store.set('annuel:check', state);
+  };
+  a.preparer.forEach((label, i) => {
+    const input = el('input', { type: 'checkbox' });
+    input.checked = !!state[i];
+    input.addEventListener('change', () => { state[i] = input.checked; update(); });
+    root.append(el('li', {}, el('label', {}, [input, el('span', { text: label })])));
+  });
+  $('#ent-annuel-check-reset').addEventListener('click', () => { Object.keys(state).forEach((k) => { state[k] = false; }); $$('input', root).forEach((c) => { c.checked = false; }); update(); });
   update();
 }
 

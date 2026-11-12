@@ -124,5 +124,231 @@
     "Préparer deux questions à poser, dont une sur leur architecture",
     "Avoir sous la main : le schéma d'architecture du portfolio, la carte de visite, le CV",
     "Prévoir la fin : remercier, demander les prochaines étapes et le délai de réponse"
-  ]
+  ],
+  "entretien_annuel": {
+    "titre": "Entretien annuel 2026",
+    "objectif": "Obtenir une revalorisation qui corresponde au rôle tenu en 2026 : lead architecte transverse, pas développeur senior.",
+    "demande": "Je demande une revalorisation de [X] % de mon salaire fixe, avec le titre de Lead architecte reconnu officiellement.",
+    "replique": "Avant de parler de la suite, je voudrais revenir sur ce qu'a été 2026, parce que mon rôle a changé.\n\nCette année, j'ai tenu le poste de lead architecte : j'ai décidé comment nos dix microservices communiquent, et j'ai transformé chaque décision en outil que les équipes installent en une commande. Concrètement : la migration Keycloak et l'impersonation, le JWT interne signé RSA généralisé à tous les appels entre services, la GED centralisée jusqu'à sa version 2 avec son SDK, le microservice de signature électronique sans interruption de service, et plus de deux cent soixante-dix commits sur le microservice Private Equity.\n\nJ'ai aussi porté des sujets qui dépassent mon équipe : les recettes Flex privées reprises par l'équipe Techlead, la grille d'audit en dix axes que tous les leads appliquent, et l'intégration encadrée de Claude Code avec des guides, des skills et une mesure d'usage. À l'extérieur, quatre articles publiés qui parlent de ce que nous faisons ici.\n\nCe périmètre, c'est celui d'un architecte transverse. Ma rémunération, elle, est restée celle de mon poste précédent. Je demande qu'elle suive le rôle que je tiens : [X] % sur le fixe, et le titre de lead architecte reconnu officiellement. Je tiens à ce projet, cinq ans sur la plateforme le montrent, et je veux continuer à le porter avec un cadre clair.",
+    "bilan": [
+      {
+        "titre": "Lead architecte des microservices",
+        "texte": "Décisions de communication entre services écrites avec leurs inconvénients, puis outillées en bundles. Asynchrone par défaut via Outbox / Inbox, synchrone sous JWT interne.",
+        "preuve": "Dix microservices sur le même socle, 13 bundles partagés."
+      },
+      {
+        "titre": "Migration Keycloak et impersonation",
+        "texte": "Bundle Keycloak Authenticator (OIDC, cache des clés, impersonation cross-realm) et JWT interne signé RSA généralisé à tous les appels synchrones.",
+        "preuve": "Un nouveau service est sécurisé par un composer require et dix lignes de configuration."
+      },
+      {
+        "titre": "Microservice Private Equity",
+        "texte": "Catalogue des fonds FCPR / FPS / FPCI, conventions cabinet × fonds, rétrocessions, intégration GED, événements sur l'exchange private_equity pour Domos.",
+        "preuve": "270+ commits en 2026, OpenAPI et collection Postman tenus à jour."
+      },
+      {
+        "titre": "GED centralisée et son SDK",
+        "texte": "Développement principal de la GED jusqu'à la v2.0.0, GED Bundle et client pour les équipes appelantes, note d'architecture partagée.",
+        "preuve": "Utilisée par Private Equity et Distribution."
+      },
+      {
+        "titre": "Signature électronique zéro downtime",
+        "texte": "Clients Universign et YouSign générés, circuit breaker, bascule automatique entre fournisseurs, webhooks asynchrones, stockage des preuves.",
+        "preuve": "Une panne de fournisseur ne bloque plus un parcours de souscription."
+      },
+      {
+        "titre": "Expérience développeur",
+        "texte": "Socle commun et recettes Flex privées, SDK générés depuis les contrats OpenAPI, contributions à 2IT LaunchPad.",
+        "preuve": "Recettes reprises par l'équipe Techlead ; un service démarre en minutes."
+      },
+      {
+        "titre": "Grille d'audit en dix axes",
+        "texte": "Runtime, dépendances, tests, CI, architecture, exploitabilité… Même barème pour tous les leads, revue croisée.",
+        "preuve": "Un état des lieux comparable sur 25 dépôts, des arbitrages chiffrés."
+      },
+      {
+        "titre": "IA encadrée dans les dépôts",
+        "texte": "Guides Claude Code par projet, skills et hooks partagés, serveur MCP Symfony AI Mate, suivi d'usage dans ClickHouse synthétisé dans Notion.",
+        "preuve": "Un usage homogène entre équipes, toujours relu par un humain."
+      },
+      {
+        "titre": "Rayonnement",
+        "texte": "Quatre articles LinkedIn en 2026 (signature zéro downtime, journalisation des events Messenger, sous-agents IA), présentations aux équipes, guides développeur.",
+        "preuve": "La plateforme est visible à l'extérieur, et ça aide à recruter."
+      }
+    ],
+    "chiffres": [
+      {
+        "valeur": "10",
+        "label": "microservices sur le même socle de communication"
+      },
+      {
+        "valeur": "13",
+        "label": "bundles Symfony partagés"
+      },
+      {
+        "valeur": "270+",
+        "label": "commits sur Private Equity en 2026"
+      },
+      {
+        "valeur": "10 axes",
+        "label": "de la grille d'audit appliquée par tous les leads"
+      },
+      {
+        "valeur": "4",
+        "label": "articles publiés en 2026"
+      },
+      {
+        "valeur": "5 ans",
+        "label": "sur la plateforme"
+      }
+    ],
+    "arguments": [
+      {
+        "titre": "Le périmètre a changé, pas la fiche de paie",
+        "texte": "Je suis passé de développeur senior sur un produit à lead architecte sur dix services et plusieurs équipes. Je demande que la rémunération suive le rôle réellement tenu."
+      },
+      {
+        "titre": "Un impact mesurable",
+        "texte": "Aucun événement perdu entre services, un socle de sécurité unique, des services qui démarrent en minutes : ce sont des heures gagnées par chaque développeur, chaque semaine."
+      },
+      {
+        "titre": "Un coût de remplacement élevé",
+        "texte": "Cinq ans de connaissance du métier (PER, private equity, distribution) et de l'architecture. Recruter un architecte au prix du marché coûterait plus que l'augmentation demandée."
+      },
+      {
+        "titre": "Une demande alignée sur le marché",
+        "texte": "PHP n'est que la technologie. Ce que je tiens, c'est l'architecture d'une plateforme fintech : dix microservices, RabbitMQ, Outbox / Inbox, sécurité inter-services, expérience développeur. À Paris, ce rôle se paie entre 80 et 105 k€ fixe ; les offres étiquetées « PHP » plafonnent à 65-80 k€ parce qu'elles décrivent un autre métier."
+      },
+      {
+        "titre": "Je m'engage sur la suite",
+        "texte": "Pour 2027 : finir la migration du legacy, généraliser la grille d'audit, faire monter deux développeurs sur l'architecture. Je ne demande pas un rattrapage, je demande un cadre pour continuer."
+      }
+    ],
+    "objections": [
+      {
+        "objection": "Il n'y a pas de budget cette année.",
+        "reponse": "Je comprends. Dans ce cas, je voudrais qu'on fixe par écrit une date et un montant pour le prochain point, et qu'on acte le titre dès maintenant, qui ne coûte rien."
+      },
+      {
+        "objection": "Tu es déjà bien payé pour un développeur.",
+        "reponse": "Justement : je ne tiens plus un poste de développeur. Comparons avec le marché d'un lead architecte, pas avec mon ancien poste."
+      },
+      {
+        "objection": "On verra ça à l'entretien de l'année prochaine.",
+        "reponse": "Le travail a été fait en 2026, c'est maintenant qu'il doit être reconnu. Quels critères précis doivent être remplis pour que la réponse soit oui, et à quelle date ?"
+      },
+      {
+        "objection": "Il faut passer par la grille de salaires.",
+        "reponse": "Alors passons par la grille : quel niveau correspond à lead architecte, et que faut-il pour y être positionné officiellement ?"
+      },
+      {
+        "objection": "Tout le monde a fait des efforts cette année.",
+        "reponse": "Je ne compare pas mes efforts à ceux des autres. Je parle de mon périmètre, qui a changé, et de résultats que je peux montrer un par un."
+      }
+    ],
+    "alternatives": [
+      "Une prime exceptionnelle pour 2026 si le fixe ne peut pas bouger immédiatement, avec une revalorisation planifiée",
+      "Le titre officiel de Lead architecte, avec le périmètre écrit dans la fiche de poste",
+      "Un budget formation ou conférence (Symfony, architecture) et du temps dédié aux sujets transverses",
+      "Un point intermédiaire dans six mois, daté dans le compte rendu de l'entretien"
+    ],
+    "marche": {
+    "intro": "Relevé le 11 novembre 2026. Les grilles qui disent « développeur PHP » décrivent un autre poste : la référence, c'est architecte / Staff backend en fintech, à Paris.",
+    "cible": "Cible : 85 à 95 k€ fixe. Plancher : 80 k€, en dessous du marché d'un architecte senior parisien.",
+    "grilles": [
+      {
+        "source": "Glassdoor, Lead Architect Paris (20 salaires, fév. 2026)",
+        "valeur": "81 k€ en moyenne, de 60 à 107 k€"
+      },
+      {
+        "source": "Lity 2026, architecte senior Paris",
+        "valeur": "74 à 91 k€"
+      },
+      {
+        "source": "Galileo RH 2026, architecte logiciel confirmé",
+        "valeur": "90 k€"
+      },
+      {
+        "source": "Bureau des talents, architecte senior 6 ans et plus, Paris",
+        "valeur": "80 à 110 k€"
+      },
+      {
+        "source": "Silkhom 2026, architecte technique senior 5 ans et plus, Paris",
+        "valeur": "110 à 120 k€"
+      },
+      {
+        "source": "Glassdoor, Staff Backend Engineer Paris",
+        "valeur": "72 à 84 k€"
+      }
+    ],
+    "offres": [
+      {
+        "poste": "Staff Software Engineer Backend",
+        "entreprise": "Matera, fintech, Paris",
+        "salaire": "88 k€",
+        "url": "https://iampro.io/careers/backend-developer/paris"
+      },
+      {
+        "poste": "Ingénieur Backend / API Gateway",
+        "entreprise": "Bluecoders, Paris hybride",
+        "salaire": "85 à 105 k€",
+        "url": "https://iampro.io/careers/backend-developer/paris"
+      },
+      {
+        "poste": "Senior Backend Engineer, paiements",
+        "entreprise": "Fintech via Skill Hunter, Paris, août 2026",
+        "salaire": "70 à 105 k€ + BSPCE",
+        "url": "https://skillhunter.fr/job/16-senior-backend-engineer-fintech-2/"
+      },
+      {
+        "poste": "Architecte API",
+        "entreprise": "Meritis, Paris, nov. 2026",
+        "salaire": "jusqu'à 90 k€",
+        "url": "https://iampro.io/careers/backend-developer/paris"
+      },
+      {
+        "poste": "Senior Développeur PHP / Python Backend",
+        "entreprise": "unyc, Paris hybride",
+        "salaire": "69 à 114 k€ (estimation)",
+        "url": "https://iampro.io/careers/backend-developer/paris"
+      },
+      {
+        "poste": "Tech Lead PHP Symfony",
+        "entreprise": "Les Artisans Recrutement, Paris, nov. 2026",
+        "salaire": "65 à 72 k€ : le plafond des offres « PHP »",
+        "url": "https://www.dreamworkhq.com/job/0f6cff74-5d40-4b5d-90bf-f7a6e0648a2b"
+      }
+    ]
+  },
+    "deroule": [
+      {
+        "etape": "Ouvrir",
+        "texte": "Annoncer d'emblée qu'on parlera de rémunération, pour que ce ne soit pas une surprise de fin d'entretien."
+      },
+      {
+        "etape": "Montrer",
+        "texte": "Dérouler le bilan 2026 en trois minutes, des faits et des chiffres, pas des adjectifs."
+      },
+      {
+        "etape": "Demander",
+        "texte": "Une phrase, un chiffre, un titre. Puis se taire : le silence travaille pour celui qui a posé la question."
+      },
+      {
+        "etape": "Écouter",
+        "texte": "Noter l'objection sans la contrer tout de suite. Reformuler, puis répondre avec la réponse préparée."
+      },
+      {
+        "etape": "Conclure",
+        "texte": "Obtenir une décision ou une date écrite. Envoyer un mail de compte rendu le jour même."
+      }
+    ],
+    "preparer": [
+      "Chiffrer la demande : deux ou trois offres du marché pour un poste équivalent, et le pourcentage visé",
+      "Relire le bilan 2026 et choisir les trois réalisations à détailler si on me le demande",
+      "Préparer la réponse à chaque objection à voix haute",
+      "Imprimer le bilan (bouton Antisèche PDF) et l'apporter",
+      "Décider de ma limite basse et de ce que je fais si la réponse est non"
+    ]
+  }
 }

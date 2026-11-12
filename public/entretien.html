@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <!-- Reprend la charte du site (couleurs, polices, boutons, cartes), puis les styles de cette page -->
   <link rel="stylesheet" href="style.css?v=19" />
-  <link rel="stylesheet" href="entretien.css?v=1" />
+  <link rel="stylesheet" href="entretien.css?v=3" />
   <script>
     try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
   </script>
@@ -28,7 +28,7 @@
     <a href="index.html" class="ent-back">← Portfolio</a>
     <div class="ent-top-tools">
       <a href="offres.html" class="ent-back">Offres à matcher</a>
-      <button type="button" class="btn btn-ghost ent-print" id="ent-print" title="Imprimer l'antisèche (pitch, fil rouge, histoires, questions)">Antisèche PDF</button>
+      <button type="button" class="btn btn-ghost ent-print" id="ent-print" title="Imprimer l'antisèche (pitch, fil rouge, histoires, questions, entretien annuel)">Antisèche PDF</button>
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Changer de thème">
         <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>
@@ -60,6 +60,7 @@
         <a href="#entrainement">Entraînement</a>
         <a href="#mes-questions">Mes questions</a>
         <a href="#checklist">Veille</a>
+        <a href="#annuel">Entretien annuel</a>
       </nav>
     </section>
 
@@ -176,6 +177,69 @@
       </div>
     </section>
 
+    <!-- ===== 9. Entretien annuel ===== -->
+    <section class="ent-section reveal ent-annuel" id="annuel">
+      <h2><span class="ent-num">09</span> <span id="ent-annuel-titre">Entretien annuel</span> : demander une augmentation</h2>
+      <p class="ent-intro" id="ent-annuel-objectif"></p>
+
+      <h3>Ma demande, en une phrase</h3>
+      <blockquote class="ent-fil card ent-demande" id="ent-annuel-demande"></blockquote>
+
+      <h3>Ma réplique</h3>
+      <div class="ent-pitch card">
+        <div class="ent-pitch-bar">
+          <span class="ent-meter" id="ent-annuel-meter" aria-live="polite"></span>
+          <button type="button" class="btn btn-ghost ent-small" id="ent-annuel-reset" title="Revenir au texte d'origine">Texte d'origine</button>
+        </div>
+        <div class="ent-editor" id="ent-annuel-text" contenteditable="true" spellcheck="true" aria-label="Réplique pour l'entretien annuel, modifiable"></div>
+      </div>
+      <p class="ent-tip">Remplacer « [X] % » par le chiffre décidé avant l'entretien. Le texte modifié se garde dans ce navigateur.</p>
+
+      <h3>Ce que j'ai fait en 2026</h3>
+      <div class="ent-stats" id="ent-annuel-chiffres"></div>
+      <div class="ent-bilan" id="ent-annuel-bilan"></div>
+
+      <h3>Mes arguments</h3>
+      <div class="ent-preuves ent-args" id="ent-annuel-args"></div>
+
+      <h3>Le marché, pour chiffrer la demande</h3>
+      <p class="ent-intro" id="ent-annuel-marche-intro"></p>
+      <blockquote class="ent-fil card ent-demande ent-cible" id="ent-annuel-marche-cible"></blockquote>
+      <div class="ent-marche">
+        <div class="card ent-marche-card">
+          <h4>Grilles de salaire</h4>
+          <ul id="ent-annuel-grilles"></ul>
+        </div>
+        <div class="card ent-marche-card">
+          <h4>Offres relevées</h4>
+          <ul id="ent-annuel-offres"></ul>
+        </div>
+      </div>
+
+      <h3>Les objections probables</h3>
+      <div class="ent-questions" id="ent-annuel-objections"></div>
+
+      <div class="ent-annuel-cols">
+        <div>
+          <h3>Le déroulé</h3>
+          <ol class="ent-deroule" id="ent-annuel-deroule"></ol>
+        </div>
+        <div>
+          <h3>Si le fixe ne bouge pas</h3>
+          <ul class="ent-asks ent-alt" id="ent-annuel-alt"></ul>
+        </div>
+      </div>
+
+      <h3>À préparer avant</h3>
+      <div class="ent-check card">
+        <ul id="ent-annuel-check"></ul>
+        <div class="ent-check-foot">
+          <span id="ent-annuel-check-score"></span>
+          <button type="button" class="btn btn-ghost ent-small" id="ent-annuel-check-reset">Tout décocher</button>
+        </div>
+      </div>
+    </section>
+
     <p class="ent-source">Contenu dans data/entretien.json · vos modifications de pitch, notes et scores restent dans ce navigateur.</p>
   </main>
 
@@ -188,6 +252,6 @@
     </ul>
   </footer>
 
-  <script src="entretien.js?v=1"></script>
+  <script src="entretien.js?v=3"></script>
 </body>
 </html>
