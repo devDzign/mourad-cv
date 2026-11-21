@@ -26,3 +26,7 @@ yarn-error.log*
 Thumbs.db
 
 .superelvest
+# Projets vidéo locaux (sources lourdes, médias et node_modules)
+video/
+film/
+pub-portfolio/
