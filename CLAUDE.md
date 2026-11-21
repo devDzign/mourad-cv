@@ -40,3 +40,9 @@ Il n'y a ni build, ni linter, ni tests : le front est en HTML/CSS/JS vanilla ser
 - Les fichiers CSS/JS sont référencés avec un paramètre de cache-busting (`style.css?v=16`, `cv.js?v=12`…). Après modification d'un fichier, incrémenter son `?v=` dans toutes les pages HTML qui le chargent.
 - `data/messages.json` et `.env` sont ignorés par Git. Sur Render (offre gratuite), le disque est effacé à chaque redéploiement : l'email est le canal principal pour les messages.
 - `public/architecture.svg` et `public/architecture.excalidraw` sont une ancienne version « croquis » du schéma, indépendante de `architecture.js`.
+
+## Release
+
+release_tag_deploys: no
+
+Render redéploie le site à chaque push sur `main` (`autoDeploy: true` dans `render.yaml`) : un tag `vX.Y.Z` ne déclenche aucun déploiement, il ne fait que marquer une version.
