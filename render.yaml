@@ -19,6 +19,12 @@ services:
       # À renseigner après le premier déploiement, ex. https://mourad-cv.onrender.com
       - key: SITE_URL
         sync: false
+      # Identifiant et mot de passe des pages personnelles /entretien et /offres.
+      # Sans ces deux valeurs, ces pages répondent 404 en production.
+      - key: PRIVATE_USER
+        sync: false
+      - key: PRIVATE_PASSWORD
+        sync: false
       # Envoi d'email du formulaire de contact (facultatif : sans ces valeurs,
       # les messages sont seulement enregistrés dans data/messages.json).
       - key: SMTP_HOST
