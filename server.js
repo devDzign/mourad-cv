@@ -1,4 +1,5 @@
 const express = require('express');
+const crypto = require('crypto');
 const fs = require('fs/promises');
 const path = require('path');
 const nodemailer = require('nodemailer');
@@ -17,6 +18,59 @@ const PARCOURS_FILE = path.join(__dirname, 'data', 'parcours.json');
 // cette option permet de récupérer la vraie IP du visiteur pour l'anti-spam.
 app.set('trust proxy', 1);
 app.use(express.json({ limit: '10kb' }));
+
+/* ---------- Pages personnelles : /entretien et /offres ---------- */
+
+// « noindex » ne protège rien : ces pages, leurs scripts et leurs routes d'API
+// demandent un identifiant et un mot de passe (authentification HTTP Basic),
+// définis par PRIVATE_USER et PRIVATE_PASSWORD.
+// Sans ces variables : accès libre en local, 404 en production (fermé par défaut).
+const PRIVATE_PATH = /^\/(api\/)?(entretien|offres)(\.(html|js|css))?\/?$/;
+const EN_PRODUCTION = process.env.NODE_ENV === 'production' || Boolean(process.env.RENDER);
+
+// Comparaison en temps constant, pour ne rien révéler du mot de passe par la durée de réponse.
+function memeTexte(a, b) {
+  const hash = (texte) => crypto.createHash('sha256').update(String(texte)).digest();
+  return crypto.timingSafeEqual(hash(a), hash(b));
+}
+
+// Ramène le chemin demandé à sa forme simple (décodé, sans « // » ni « .. », en minuscules),
+// comme le fera express.static, pour qu'une variante d'écriture ne contourne pas le contrôle.
+function cheminNormalise(req) {
+  try {
+    return path.posix.normalize(decodeURIComponent(req.path)).toLowerCase();
+  } catch {
+    return null; // encodage invalide
+  }
+}
+
+app.use((req, res, next) => {
+  const chemin = cheminNormalise(req);
+  if (chemin === null) return res.status(400).send('Adresse invalide.');
+  if (!PRIVATE_PATH.test(chemin)) return next();
+
+  const user = process.env.PRIVATE_USER;
+  const password = process.env.PRIVATE_PASSWORD;
+  if (!user || !password) {
+    if (!EN_PRODUCTION) return next();
+    return chemin.startsWith('/api/')
+      ? res.status(404).json({ error: 'Route introuvable.' })
+      : res.status(404).send('Page introuvable.');
+  }
+
+  const [type, jeton = ''] = (req.headers.authorization || '').split(' ');
+  if (type === 'Basic') {
+    const texte = Buffer.from(jeton, 'base64').toString('utf8');
+    const coupe = texte.indexOf(':');
+    if (coupe !== -1 && memeTexte(texte.slice(0, coupe), user) & memeTexte(texte.slice(coupe + 1), password)) {
+      res.set('Cache-Control', 'private, no-store');
+      return next();
+    }
+  }
+  res.set('WWW-Authenticate', 'Basic realm="Espace personnel", charset="UTF-8"');
+  return res.status(401).send('Identification requise.');
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 // Encodeur GIF (librairie gifenc) chargé par la carte de visite pour l'export « GIF animé »
 app.use('/vendor/gifenc', express.static(path.join(__dirname, 'node_modules', 'gifenc', 'dist')));
