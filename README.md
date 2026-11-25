@@ -98,6 +98,8 @@ Les QR codes sont générés par le serveur (`/api/qr.svg` et `/api/qr.gif`, ce 
 
 Le contenu se modifie dans **`data/entretien.json`** (servi par `/api/entretien`). Les modifications de pitch, notes, scores et cases cochées restent dans le navigateur (`localStorage`).
 
+**Accès protégé** : `/entretien`, `/offres`, leurs scripts et leurs routes d'API demandent un identifiant et un mot de passe, définis par les variables d'environnement `PRIVATE_USER` et `PRIVATE_PASSWORD` (le navigateur affiche sa fenêtre de connexion). Sans ces deux variables, ces pages sont en accès libre en local et répondent 404 en production. Les fichiers `data/entretien.json` et `data/offres.json` restent visibles de quiconque a accès au dépôt Git.
+
 ## Page « Offres à matcher »
 
 **`/offres`** (fichiers `public/offres.html`, `offres.css`, `offres.js`, module serveur `offres.js`) : le serveur lit le job board GitHub de JL Recrutement (un README qui liste les offres par ville, une fiche Markdown par entreprise), analyse chaque fiche et la compare au profil. Chaque offre reçoit un score sur 100 et un verdict (Postuler, À étudier, Peu adapté), avec les atouts reconnus, les écarts à assumer et des notes de contexte (séniorité, localisation, métier). Le bouton « Préparer ma candidature » ouvre un brouillon de message en français, modifiable, à copier ou à ouvrir directement dans la messagerie avec l'objet et le corps remplis. Les offres déjà vues, les messages retouchés et les statuts (envoyée, écartée) restent dans le navigateur.
@@ -122,7 +124,7 @@ Le fichier **`render.yaml`** à la racine décrit le service (Node, `npm install
 1. Créez un compte sur [render.com](https://render.com) avec votre compte GitHub, et autorisez l'accès au dépôt `devDzign/mourad-cv` quand Render le demande.
 2. Dans le tableau de bord : **New → Blueprint**, choisissez le dépôt `mourad-cv`, puis **Apply**. Render crée le service `mourad-cv` et lance le premier déploiement (2 à 3 minutes).
 3. Le site est en ligne sur `https://mourad-cv.onrender.com` (le nom peut varier si celui-ci est pris : il s'affiche en haut de la page du service).
-4. Dans le service, onglet **Environment**, renseignez `SITE_URL` avec cette adresse : les QR codes, la carte de visite et le CV l'utiliseront. Pour recevoir les messages du formulaire par email, ajoutez aussi `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` et `CONTACT_TO` (voir `.env.example`). Chaque enregistrement redéploie le site.
+4. Dans le service, onglet **Environment**, renseignez `SITE_URL` avec cette adresse : les QR codes, la carte de visite et le CV l'utiliseront. Pour recevoir les messages du formulaire par email, ajoutez aussi `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` et `CONTACT_TO` (voir `.env.example`). Pour ouvrir les pages personnelles `/entretien` et `/offres`, ajoutez `PRIVATE_USER` et `PRIVATE_PASSWORD`. Chaque enregistrement redéploie le site.
 5. Un nom de domaine personnalisé peut être ajouté dans **Settings → Custom Domains**.
 
 Sans Blueprint, la création manuelle fonctionne aussi : **New → Web Service**, dépôt `mourad-cv`, Runtime **Node**, Build Command `npm install`, Start Command `npm start`, Instance Type **Free**, puis les mêmes variables d'environnement.
