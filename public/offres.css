@@ -69,6 +69,7 @@
 .off-badge-first { background: color-mix(in srgb, var(--orange) 18%, transparent); color: var(--orange); }
 .off-badge-status { background: color-mix(in srgb, var(--green) 16%, transparent); color: var(--green); }
 .off-badge-ignore { background: var(--border); color: var(--muted); }
+.off-badge-hors { background: transparent; color: var(--muted); border: 1px dashed currentColor; }
 .off-company { margin: 0 0 8px; color: var(--muted); font-weight: 600; }
 .off-meta { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 0 0 12px; padding: 0; list-style: none; font-size: 0.9rem; color: var(--muted); }
 .off-meta li::before { content: attr(data-ico) ' '; }

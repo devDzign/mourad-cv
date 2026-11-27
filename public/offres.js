@@ -122,6 +122,7 @@ function card(o) {
   const firstSeen = !seenBefore.has(o.id);
   const badges = [];
   if (o.nouveau) badges.push(el('span', { class: 'off-badge off-badge-new', text: 'New' }));
+  if (o.horsListe) badges.push(el('span', { class: 'off-badge off-badge-hors', text: 'Hors liste · à vérifier', title: 'Fiche présente dans le dépôt mais retirée du README : poste peut-être pourvu ou en pause.' }));
   if (firstSeen && !o.nouveau) badges.push(el('span', { class: 'off-badge off-badge-first', text: 'Nouvelle pour moi' }));
   if (status === 'envoye') badges.push(el('span', { class: 'off-badge off-badge-status', text: 'Envoyée' }));
   if (status === 'ignore') badges.push(el('span', { class: 'off-badge off-badge-ignore', text: 'Écartée' }));
