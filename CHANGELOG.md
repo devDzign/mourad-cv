@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.3.0 (Novembre 2026)
+
+### Features
+* **[feat(offres)]**: la veille d'offres affiche aussi les fiches encore présentes dans le dépôt du job board mais retirées de sa liste, pour ne pas perdre de vue un poste peut-être pourvu ou en pause (PR #3)
+  - ces offres portent un badge « Hors liste · à vérifier » et une note dans leur analyse ; leur ville est déduite du champ « Où » de la fiche
+
 ## v0.2.0 (Novembre 2026)
 
 ### Features
