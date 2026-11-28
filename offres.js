@@ -225,17 +225,36 @@ async function getOffres({ siteUrl = '', force = false } = {}) {
   const readme = await ghRaw(repo, branch, 'README.md');
   const metas = parseReadme(readme).map((m) => ({ ...m, repo, branch }));
 
+  // Fiches encore présentes dans le dépôt mais retirées du README (poste pourvu, en pause ?) :
+  // ajoutées avec horsListe = true pour être affichées « à vérifier ».
+  try {
+    const listees = new Set(metas.map((m) => m.fichier.toLowerCase()));
+    const fichiers = await ghJson(`https://api.github.com/repos/${repo}/contents?ref=${branch}`);
+    for (const f of fichiers) {
+      if (f.type !== 'file' || !/\.md$/i.test(f.name) || /^readme\.md$/i.test(f.name) || listees.has(f.name.toLowerCase())) continue;
+      metas.push({ entreprise: f.name.replace(/\.md$/i, ''), fichier: f.name, ville: '', postes: [], remote: false, horsListe: true, repo, branch });
+    }
+  } catch (e) { /* liste du dépôt indisponible : on garde les offres du README */ }
+
   // Date du dernier commit de chaque fiche (une requête par fiche, mise en cache avec le reste)
   const offres = [];
   for (const meta of metas) {
     let md = '';
     try { md = await ghRaw(repo, branch, meta.fichier); } catch (e) { continue; }
     const offre = parseFiche(md, meta);
+    if (meta.horsListe) {
+      offre.horsListe = true;
+      // Pas de titre « ## Ville » pour ces fiches : on déduit la ville du champ « Où ».
+      const v = (offre.lieu || '').match(/paris|lyon|lille|nantes|bordeaux|toulouse|marseille|full remote|remote/i);
+      offre.ville = v ? v[0].replace(/^./, (c) => c.toUpperCase()) : 'Hors liste';
+      if (/full remote/i.test(offre.ville)) offre.remote = true;
+    }
     try {
       const commits = await ghJson(`https://api.github.com/repos/${repo}/commits?path=${encodeURIComponent(meta.fichier)}&sha=${branch}&per_page=1`);
       offre.maj = commits[0]?.commit?.committer?.date || null;
     } catch (e) { offre.maj = null; }
     const a = analyse(offre, config, profile);
+    if (offre.horsListe) a.notes.unshift('Fiche retirée de la liste du job board : poste peut-être pourvu ou en pause, à vérifier auprès de la recruteuse.');
     offre.analyse = a;
     offre.message = brouillon(offre, a, config, profile, siteUrl);
     delete offre.texte;
